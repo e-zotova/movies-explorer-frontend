@@ -4,7 +4,7 @@ import profileLogo from "../../images/profile-icon.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -16,7 +16,7 @@ function Header() {
   }
 
   return (
-    <div className={`header ${loggedIn ? "" : "header__landing"}`}>
+    <section className={`header ${loggedIn ? "" : "header__landing"}`}>
       <img
         className="header__logo"
         src={headerLogo}
@@ -68,7 +68,7 @@ function Header() {
       {pathname === "/signup" && (
         <Link to="/signin" className="header__link" type="button"></Link>
       )}
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,6 @@
 .page {
-  margin: 0;
+  margin: 0 auto;
+  color: black;
   min-width: 320px;
   min-height: 100vh;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
@@ -10,4 +11,5 @@
 
 .button {
   text-decoration: none;
+  color: black;
 }

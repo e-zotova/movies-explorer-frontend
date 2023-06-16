@@ -1,11 +1,14 @@
 import React from 'react';
+import Promo from './Promo/Promo.js';
+import NavTab from './NavTab/NavTab.js';
 
 function Main() {
 
   return (
-    <div className="main">
-
-    </div>
+    <section className="main">
+      <Promo />
+      <NavTab />
+    </section>
   );
 }
 
