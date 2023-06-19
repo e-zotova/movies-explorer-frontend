@@ -18,7 +18,8 @@ function AboutMe() {
           </p>
           <a
             href="https://github.com/e-zotova/"
-            target="blank"
+            target="_blank"
+            rel="noreferrer"
             className="button about-me__github"
           >
             Github

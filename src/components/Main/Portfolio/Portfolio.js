@@ -7,7 +7,8 @@ function Portfolio() {
       <div className="portfolio__container">
         <a
           href="https://github.com/e-zotova/how-to-learn"
-          target="blank"
+          target="_blank"
+          rel="noreferrer"
           className="button portfolio__project"
         >
           <div className="portfolio__site">Статичный сайт</div>
@@ -16,7 +17,8 @@ function Portfolio() {
         <div className="dividing-line portfolio__dividing-line"></div>
         <a
           href="https://github.com/e-zotova/russian-travel"
-          target="blank"
+          target="_blank"
+          rel="noreferrer"
           className="button portfolio__project"
         >
           <div className="portfolio__site">Адаптивный сайт</div>
@@ -25,7 +27,8 @@ function Portfolio() {
         <div className="dividing-line portfolio__dividing-line"></div>
         <a
           href="https://github.com/e-zotova/react-mesto-api-full-gha"
-          target="blank"
+          target="_blank"
+          rel="noreferrer"
           className="button portfolio__project"
         >
           <div className="portfolio__site">
