@@ -2,7 +2,7 @@ import React from "react";
 
 function Techs() {
   return (
-    <div className="techs">
+    <div id="techs"  className="techs">
       <h2 className="techs__header">Технологии</h2>
       <div className="dividing-line"></div>
       <div className="techs__description">

@@ -3,7 +3,7 @@ import profilePhoto from "../../../images/photo.jpeg";
 
 function AboutMe() {
   return (
-    <div className="about-me">
+    <div id="about-me" className="about-me">
       <h2 className="about-me__header">Студент</h2>
       <div className="dividing-line"></div>
       <div className="about-me__container">
