@@ -5,12 +5,6 @@
   background-color: #fafafa;
 }
 
-@media screen and (max-width: 768px) {
-  .portfolio {
-    padding: 90px 50px 90px;
-  }
-}
-
 .portfolio__header {
   margin: 0;
   padding-bottom: 50px;
@@ -33,13 +27,6 @@
   letter-spacing: -0.04em;
 }
 
-@media screen and (max-width: 768px) {
-  .portfolio__site {
-    font-size: 28px;
-    line-height: 50px;
-  }
-}
-
 .portfolio__dividing-line {
   background: #e8e8e8;
   margin: 20px 0;
@@ -52,4 +39,15 @@
   width: 30px;
   height: 30px;
   background: no-repeat center url(../../../images/up-arrow.svg);
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 90px 50px 90px;
+  }
+
+  .portfolio__site {
+    font-size: 28px;
+    line-height: 50px;
+  }
 }

@@ -14,22 +14,10 @@
   letter-spacing: -0.04em;
 }
 
-@media screen and (max-width: 768px) {
-  .promo__title {
-    padding-top: 326px;
-  }
-}
-
 .promo__overlay {
   position: relative;
   min-height: 524px;
   background: no-repeat center url(../../../images/landing-logo.svg);
-}
-
-@media screen and (max-width: 768px) {
-  .promo__overlay {
-    min-height: 784px;
-  }
 }
 
 .promo__overlay::before {
@@ -41,4 +29,14 @@
   bottom: 0;
   background-color: #dddee3;
   z-index: -1;
+}
+
+@media screen and (max-width: 768px) {
+  .promo__title {
+    padding-top: 326px;
+  }
+
+  .promo__overlay {
+    min-height: 784px;
+  }
 }

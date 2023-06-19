@@ -17,13 +17,6 @@
   }
 }
 
-@media screen and (max-width: 630px) {
-  .header {
-    padding: 0;
-    padding-bottom: 31px;
-  }
-}
-
 .header__landing {
   background-color: #dddee3;
   justify-content: space-between;
@@ -33,12 +26,6 @@
 .header__logo {
   width: 38px;
   height: 38px;
-}
-
-@media screen and (max-width: 630px) {
-  .header__logo {
-    padding-left: 28px;
-  }
 }
 
 /* signup and signin buttons */
