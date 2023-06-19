@@ -33,6 +33,15 @@
   line-height: 20px;
 }
 
+.about-project__stages {
+  max-width: 550px;
+}
+
+.about-project__deadlines {
+  padding-left: 40px;
+  max-width: 550px;
+}
+
 .about-project__weeks {
   display: flex;
   width: 100%;
