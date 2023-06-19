@@ -25,5 +25,10 @@
 }
 
 .footer__link {
-  padding-left: 20px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.footer__praktikum-link {
+  padding-right: 20px;
 }
