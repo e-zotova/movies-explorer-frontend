@@ -8,14 +8,16 @@ function AboutMe() {
       <div className="dividing-line"></div>
       <div className="about-me__container">
         <div className="about-me__description">
-          <h3 className="about-me__subheader">Елена</h3>
-          <p className="about-me__title">Фронтенд-разработчица</p>
-          <p className="about-me__text">
-            Живу в Санкт-Петербурге с 2017 года. Работала тестировщиком сначала
-            мобильных, а затем веб-приложений. С 2019 по 2022 работала в
-            г.Монреаль (Канада). Вернулась, чтобы начать заново и научиться
-            веб-разработке.
-          </p>
+          <div>
+            <h3 className="about-me__subheader">Елена</h3>
+            <p className="about-me__title">Фронтенд-разработчица</p>
+            <p className="about-me__text">
+              Живу в Санкт-Петербурге с 2017 года. Работала тестировщиком
+              сначала мобильных, а затем веб-приложений. С 2019 по 2022 работала
+              в г.Монреаль (Канада). Вернулась, чтобы начать заново и научиться
+              веб-разработке.
+            </p>
+          </div>
           <a
             href="https://github.com/e-zotova/"
             target="_blank"

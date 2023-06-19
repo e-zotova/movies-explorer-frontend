@@ -11,6 +11,7 @@
   font-size: 22px;
   font-weight: 400;
   line-height: 27px;
+  letter-spacing: -0.04em;
 }
 
 .about-project__description {
@@ -24,6 +25,7 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
+  letter-spacing: -0.04em;
 }
 
 .about-project__text {
