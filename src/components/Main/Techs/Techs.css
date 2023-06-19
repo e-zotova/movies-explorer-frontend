@@ -5,6 +5,12 @@
   background-color: #f5f5f5;
 }
 
+@media screen and (max-width: 768px) {
+  .techs {
+    padding: 90px 50px;
+  }
+}
+
 .techs__header {
   margin: 0;
   padding-bottom: 23px;
@@ -19,6 +25,12 @@
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .techs__description {
+    padding-top: 80px;
+  }
+}
+
 .techs__subheader {
   margin: 0;
   padding-bottom: 26px;
@@ -28,6 +40,12 @@
   letter-spacing: -0.04em;
 }
 
+@media screen and (max-width: 768px) {
+  .techs__subheader {
+    padding-bottom: 22px;
+  }
+}
+
 .techs__text {
   margin: 0 auto;
   max-width: 460px;
@@ -35,6 +53,15 @@
   line-height: 20px;
   letter-spacing: -0.04em;
   padding-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .techs__text {
+    font-family: Inter;
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 83px;
+  }
 }
 
 .techs__stack {
@@ -52,6 +79,12 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 768px) {
+  .techs__stack-element{
+    min-width: 84px;
+  }
 }
 
 .techs__stack-element:last-child {

@@ -5,6 +5,13 @@
   background-color: #f8f8f8;
 }
 
+@media screen and (max-width: 768px) {
+  .footer {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
 .footer__dividing-line {
   background: #e8e8e8;
   margin: 20px 0;

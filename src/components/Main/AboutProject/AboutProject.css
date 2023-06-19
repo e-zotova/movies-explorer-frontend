@@ -5,6 +5,12 @@
   background-color: #fafafa;
 }
 
+@media screen and (max-width: 768px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+}
+
 .about-project__header {
   margin: 0;
   padding: 0 0 23px;
@@ -33,6 +39,14 @@
   padding-bottom: 110px;
   font-size: 14px;
   line-height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-project__text {
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 93px;
+  }
 }
 
 .about-project__stages {
