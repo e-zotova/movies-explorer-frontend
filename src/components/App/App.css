@@ -13,3 +13,9 @@
   text-decoration: none;
   color: black;
 }
+
+.dividing-line {
+  height: 1px;
+  background: black;
+  max-width: 1140px;
+}

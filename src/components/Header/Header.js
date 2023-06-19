@@ -43,7 +43,7 @@ function Header() {
               type="button"
               className="button header__saved-movies"
             >
-              Сохраненные фильмы
+              Сохранённые фильмы
             </Link>
           </div>
           <div className="header__profile-button">

@@ -1,0 +1,64 @@
+.about-project {
+  max-width: 1280px;
+  margin: 110px 70px;
+}
+
+.about-project__header {
+  margin: 0;
+  padding: 0 0 23px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+.about-project__description {
+  display: flex;
+}
+
+.about-project__subheader {
+  margin: 0;
+  padding-top: 70px;
+  padding-bottom: 26px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.about-project__text {
+  margin: 0;
+  padding-bottom: 110px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.about-project__weeks {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.about-project__backend {
+  width: calc(100% - 80%);
+}
+
+.about-project__backend-week {
+  background-color: #3456f3;
+  color: #fff;
+  padding: 9px 0;
+}
+
+.about-project__frontend {
+  width: calc(100% - 20%);
+}
+
+.about-project__frontend-week {
+  background-color: #f2f2f2;
+  padding: 9px 14px;
+}
+
+.about-project__weeks-text {
+  color: #a0a0a0;
+  padding-top: 14px;
+}
