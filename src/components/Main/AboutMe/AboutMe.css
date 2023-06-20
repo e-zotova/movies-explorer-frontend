@@ -17,6 +17,7 @@
 .about-me__container {
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   margin-top: 66px;
   align-items: stretch;
 }
@@ -94,5 +95,42 @@
   .about-me__photo {
     width: 255px;
     height: 307px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about-me {
+    padding: 70px 14px 0;
+  }
+
+  .about-me__header {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+
+  .about-me__container {
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+
+  .about-me__description {
+    margin-top: 40px;
+  }
+
+  .about-me__subheader {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .about-me__text {
+    font-size: 11px;
+    line-height: 16px;
+    padding-bottom: 70px;
+  }
+
+  .about-me__photo {
+    width: 292px;
+    height: 352px;
   }
 }

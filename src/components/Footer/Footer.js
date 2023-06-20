@@ -8,7 +8,7 @@ function Footer() {
       </p>
       <div className="dividing-line footer__dividing-line"></div>
       <div className="footer__info">
-        <div className="footer__link">&copy; 2023</div>
+        <div className="footer__copyright">&copy; 2023</div>
         <div className="footer__links">
           <a
             href="https://practicum.yandex.ru/"

@@ -10,13 +10,6 @@
   line-height: 16px;
 }
 
-@media screen and (max-width: 768px) {
-  .header {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
-
 .header__landing {
   background-color: #dddee3;
   justify-content: space-between;
@@ -36,7 +29,7 @@
 .header__signin {
   color: white;
   padding: 8px 20px;
-  background-color: #3456F3;
+  background-color: #3456f3;
   border-radius: 3px;
 }
 
@@ -70,7 +63,7 @@
   overflow: hidden;
   max-width: 76px;
   padding: 6px 10px;
-  border: 2px solid rgba(170, 170, 170, .2);
+  border: 2px solid rgba(170, 170, 170, 0.2);
   border-radius: 50px;
 }
 
@@ -85,4 +78,28 @@
   font-size: 14px;
   line-height: 16px;
   font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__signin {
+    padding: 5px 12px;
+  }
+
+  .header__signup {
+    margin-right: 14px;
+  }
 }

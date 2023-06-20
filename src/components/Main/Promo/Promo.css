@@ -17,18 +17,9 @@
 .promo__overlay {
   position: relative;
   min-height: 524px;
-  background: no-repeat center url(../../../images/landing-logo.svg);
-}
-
-.promo__overlay::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  background: no-repeat url(../../../images/landing-logo.svg);
+  background-position: center;
   background-color: #dddee3;
-  z-index: -1;
 }
 
 @media screen and (max-width: 768px) {
@@ -38,5 +29,18 @@
 
   .promo__overlay {
     min-height: 784px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .promo__title {
+    padding-top: 207px;
+    font-size: 31px;
+    line-height: 39px;
+  }
+
+  .promo__overlay {
+    min-height: 570px;
+    background-size: 248px 248px;
   }
 }

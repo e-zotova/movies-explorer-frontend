@@ -7,6 +7,11 @@ function AboutMe() {
       <h2 className="about-me__header">Студент</h2>
       <div className="dividing-line"></div>
       <div className="about-me__container">
+        <img
+          className="about-me__photo"
+          src={profilePhoto}
+          alt="Фото профиля"
+        ></img>
         <div className="about-me__description">
           <div>
             <h3 className="about-me__subheader">Елена</h3>
@@ -27,11 +32,6 @@ function AboutMe() {
             Github
           </a>
         </div>
-        <img
-          className="about-me__photo"
-          src={profilePhoto}
-          alt="Фото профиля"
-        ></img>
       </div>
     </div>
   );

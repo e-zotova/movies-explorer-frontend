@@ -87,3 +87,59 @@
     padding-bottom: 93px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+
+  .about-project__header {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+  }
+
+  .about-project__subheader {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .about-project__text {
+    padding-top: 16px;
+    padding-bottom: 56px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-project__description {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+
+  .about-project__deadlines {
+    padding: 0;
+  }
+
+  .about-project__weeks {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .about-project__frontend {
+    width: calc(100% - 35%);
+  }
+
+  .about-project__backend {
+    width: calc(100% - 65%);
+  }
+
+  .about-project__backend-week {
+    padding: 11px 0;
+  }
+
+  .about-project__frontend-week {
+    padding: 11px 0;
+  }
+}
