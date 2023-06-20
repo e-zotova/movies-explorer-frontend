@@ -4,7 +4,7 @@ import profileLogo from "../../images/profile-icon.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();

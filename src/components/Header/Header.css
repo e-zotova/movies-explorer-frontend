@@ -8,6 +8,7 @@
   padding: 18px 70px;
   font-size: 12px;
   line-height: 16px;
+  background-color: #fafafa;
 }
 
 .header__landing {
@@ -38,7 +39,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 548px;
+  width: calc(100% - 40%);
+  max-width: 1100px;
 }
 
 /* movies button */
