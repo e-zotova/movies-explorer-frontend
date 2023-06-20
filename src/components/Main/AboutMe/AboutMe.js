@@ -15,7 +15,7 @@ function AboutMe() {
         <div className="about-me__description">
           <div>
             <h3 className="about-me__subheader">Елена</h3>
-            <p className="about-me__title">Фронтенд-разработчица</p>
+            <p className="about-me__title">Фронтенд-разработчик</p>
             <p className="about-me__text">
               Живу в Санкт-Петербурге с 2017 года. Работала тестировщиком
               сначала мобильных, а затем веб-приложений. С 2019 по 2022 работала

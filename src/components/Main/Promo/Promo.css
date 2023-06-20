@@ -32,11 +32,18 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 660px) {
+  .promo__title {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 500px) {
   .promo__title {
     padding-top: 207px;
     font-size: 31px;
     line-height: 39px;
+    max-width: 300px;
   }
 
   .promo__overlay {

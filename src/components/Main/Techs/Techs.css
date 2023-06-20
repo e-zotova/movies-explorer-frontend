@@ -75,7 +75,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 680px) {
   .techs {
     margin: 0 auto;
     max-width: 1140px;
@@ -109,7 +109,7 @@
     grid-template-rows: auto;
     gap: 10px;
   }
-  
+
   .techs__stack-element {
     font-size: 12px;
     line-height: 15px;
