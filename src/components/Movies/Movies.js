@@ -10,7 +10,6 @@ function Movies() {
   return (
     <section className="movies">
       <SearchForm />
-      <FilterCheckbox />
       <Preloader />
       <MoviesCardList />
       <MoviesCard />

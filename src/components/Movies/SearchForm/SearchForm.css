@@ -39,20 +39,3 @@
   width: 84px;
   height: 34px;
 }
-
-.search-form__short {
-  display: flex;
-}
-
-.search-form__short-switcher_inactive {
-  background: no-repeat center url(../../../images/smalltumboff.svg);
-  width: 36px;
-  height: 20px;
-}
-
-.search-form__short-text {
-  margin: 0;
-  font-size: 13px;
-  line-height: 18px;
-  padding-left: 14px;
-}

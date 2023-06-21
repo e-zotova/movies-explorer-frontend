@@ -1,0 +1,16 @@
+.filter-checkbox {
+  display: flex;
+}
+
+.filter-checkbox__switcher_inactive {
+  background: no-repeat center url(../../../images/smalltumboff.svg);
+  width: 36px;
+  height: 20px;
+}
+
+.filter-checkbox__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  padding-left: 14px;
+}

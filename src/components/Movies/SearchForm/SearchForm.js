@@ -1,4 +1,5 @@
 import React from "react";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
 function SearchForm() {
   return (
@@ -8,10 +9,7 @@ function SearchForm() {
         <input placeholder="Фильм" className="search-form__input"></input>
         <button className="search-form__button"></button>
         <div className="vertical-divider"></div>
-        <div className="search-form__short">
-          <div className="search-form__short-switcher_inactive"></div>
-          <p className="search-form__short-text">Короткометражки</p>
-        </div>
+        <FilterCheckbox />
       </div>
     </div>
   );
