@@ -11,7 +11,7 @@
 }
 
 .movies-card__description {
-  margin: 16px;
+  padding: 10px 16px 14px;
 }
 
 .movies-card__item {
@@ -27,15 +27,30 @@
   line-height: 16px;
 }
 
-.movies-card__save-item {
-  background: no-repeat center url(../../../images/save4d.svg);
+.movies-card__save-movie {
+  background: no-repeat center url(../../../images/save-inactive.svg);
   border: none;
   width: 30px;
   height: 30px;
 }
 
+.movies-card__save-movie_active {
+  background: no-repeat center url(../../../images/save-active.svg);
+  border: none;
+  width: 30px;
+  height: 30px;
+}
+
+.movies-card__save-movie_active:hover {
+  background: no-repeat center url(../../../images/remove.svg);
+  border: none;
+  width: 7px;
+  height: 7px;
+  padding: 23px;
+}
+
 .movies-card__duration {
-  padding-top: 17px;
+  padding-top: 10px;
   font-size: 11px;
   line-height: 13px;
   color: #a0a0a0;

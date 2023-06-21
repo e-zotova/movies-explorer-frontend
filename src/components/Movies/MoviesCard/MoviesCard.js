@@ -4,7 +4,7 @@ import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 function MoviesCard({ movie, onMovieSave }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const movieSaveButtonClassName = `movies-card__save-button ${"movies-card__save-button_active"}`;
+  const movieSaveButtonClassName = `movies-card__save-movie ${"movies-card__save-button_active"}`;
 
   function handleSaveClick() {
     onMovieSave(movie);
@@ -13,13 +13,13 @@ function MoviesCard({ movie, onMovieSave }) {
   return (
     <article className="movies-card">
       <img className="movies-card__image" src={movie.image} alt={movie.name} />
-      <div className="movies-card__description">
+      <div className=" button movies-card__description">
         <div className="movies-card__item">
           <h2 className="movies-card__name">{movie.name}</h2>
           <button
             type="button"
             aria-label="Добавить в избранное"
-            className={`movies-card__save-item ${movieSaveButtonClassName}`}
+            className={`button movies-card__save-movie ${movieSaveButtonClassName}`}
             onClick={handleSaveClick}
           />
         </div>
