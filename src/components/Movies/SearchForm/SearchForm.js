@@ -11,6 +11,7 @@ function SearchForm() {
         <div className="vertical-divider"></div>
         <FilterCheckbox />
       </div>
+      <div className="dividing-line search-form__dividing-line"></div>
     </div>
   );
 }
