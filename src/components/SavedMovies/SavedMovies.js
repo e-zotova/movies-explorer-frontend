@@ -1,19 +1,17 @@
 import React from 'react';
 import SearchForm from '../Movies/SearchForm/SearchForm.js';
-import FilterCheckbox from '../Movies/FilterCheckbox/FilterCheckbox.js';
 import Preloader from '../Movies/Preloader/Preloader.js';
 import MoviesCardList from '../Movies/MoviesCardList/MoviesCardList.js';
-import MoviesCard from '../Movies/MoviesCard/MoviesCard.js';
+import { savedMoviesList } from "../../constants/movies.js";
 
 function SavedMovies() {
 
   return (
     <div className="saved-movies">
       <SearchForm />
-      <FilterCheckbox />
       <Preloader />
-      <MoviesCardList />
-      <MoviesCard />
+      <MoviesCardList movies={savedMoviesList}/>
+      <div className="saved-movies__divider"></div>
     </div>
   );
 }
