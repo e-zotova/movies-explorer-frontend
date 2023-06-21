@@ -19,3 +19,11 @@
   background: black;
   max-width: 1140px;
 }
+
+.vertical-divider {
+  width: 1px;
+  background: black;
+  height: 40px;
+  background: #CBCBCB;
+  margin: 0 29px 0 19px;
+}

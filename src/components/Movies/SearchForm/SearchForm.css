@@ -1,27 +1,58 @@
 .search-form {
   margin: 0 auto;
   max-width: 1280px;
-  padding: 70px 70px 80;
+  padding: 70px 70px 80px;
   background-color: #fafafa;
 }
 
 .search-form__box {
   width: 1140px;
+  height: 72px;
   display: flex;
+  align-items: center;
   margin: auto;
-}
-
-.search-form__input {
-  min-width: 860px;
-  border: #fff;
+  background-color: #fff;
   border-radius: 9px;
   box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
 }
 
+.search-form__icon {
+  background: no-repeat center url(../../../images/search-icon.svg);
+  width: 34px;
+  height: 34px;
+  padding-left: 19px;
+}
+
+.search-form__input {
+  min-width: 860px;
+  border-radius: 9px;
+  border: #fff;
+  font-size: 18px;
+  line-height: 20px;
+}
+
 .search-form__button {
-  background-color: transparent;
-  padding: 19px 19px;
   margin-left: -100px;
   border: none;
   z-index: 10;
+  background: no-repeat center url(../../../images/find.svg);
+  width: 84px;
+  height: 34px;
+}
+
+.search-form__short {
+  display: flex;
+}
+
+.search-form__short-switcher_inactive {
+  background: no-repeat center url(../../../images/smalltumboff.svg);
+  width: 36px;
+  height: 20px;
+}
+
+.search-form__short-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+  padding-left: 14px;
 }
