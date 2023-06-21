@@ -30,5 +30,25 @@ const moviesList = [
   },
 ];
 
+const savedMoviesList = [
+  {
+    _id: 5,
+    image: movie1,
+    name: "33 слова о дизайне",
+    duration: "1ч 47м",
+  },
+  {
+    _id: 6,
+    image: movie2,
+    name: "Киноальманах «100 лет дизайна»",
+    duration: "1ч 3м",
+  },
+  {
+    _id: 7,
+    image: movie3,
+    name: "В погоне за Бенкси",
+    duration: "1ч 42м",
+  },
+];
 
-export { moviesList };
+export { moviesList, savedMoviesList };
