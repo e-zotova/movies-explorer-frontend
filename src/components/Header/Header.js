@@ -32,10 +32,12 @@ function Header() {
           </Link>
         </div>
       )}
-      {(pathname === "/movies" || pathname === "/saved-movies" || pathname === "/profile") && (
+      {(pathname === "/movies" ||
+        pathname === "/saved-movies" ||
+        pathname === "/profile") && (
         <div className="header__links">
           <div>
-            <Link type="button" className="button header__movies">
+            <Link to="/movies" type="button" className="button header__movies">
               Фильмы
             </Link>
             <Link

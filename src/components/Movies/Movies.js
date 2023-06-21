@@ -9,7 +9,8 @@ function Movies() {
     <section className="movies">
       <SearchForm />
       <Preloader />
-      <MoviesCardList movies={moviesList} />
+      <MoviesCardList movies={moviesList}/>
+      <div className="movies__more-button"></div>
     </section>
   );
 }
