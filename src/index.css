@@ -13,6 +13,7 @@
 @import url(../src/components/Movies/SearchForm/SearchForm.css);
 @import url(../src/components/Movies/FilterCheckbox/FilterCheckbox.css);
 
+@import url(../src/components/Movies/Movies.css);
 @import url(../src/components/Movies/MoviesCardList/MoviesCardList.css);
 @import url(../src/components/Movies/MoviesCard/MoviesCard.css);
 

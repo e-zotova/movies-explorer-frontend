@@ -2,6 +2,14 @@ import movie1 from "../images/pic1.jpg";
 import movie2 from "../images/pic2.jpg";
 import movie3 from "../images/pic3.jpg";
 import movie4 from "../images/pic4.jpg";
+import movie5 from "../images/pic5.jpg";
+import movie6 from "../images/pic6.jpg";
+import movie7 from "../images/pic7.jpg";
+import movie8 from "../images/pic8.jpg";
+import movie9 from "../images/pic9.jpg";
+import movie10 from "../images/pic10.jpg";
+import movie11 from "../images/pic11.jpg";
+import movie12 from "../images/pic12.jpg";
 
 const moviesList = [
   {
@@ -28,6 +36,55 @@ const moviesList = [
     name: "Баския: Взрыв реальности",
     duration: "1ч 21м",
   },
+  {
+    _id: 5,
+    image: movie5,
+    name: "Бег это свобода",
+    duration: "1ч 44м",
+  },
+  {
+    _id: 6,
+    image: movie6,
+    name: "Книготорговцы",
+    duration: "1ч 37м",
+  },
+  {
+    _id: 7,
+    image: movie7,
+    name: "Когда я думаю о Германии ночью",
+    duration: "1ч 56м",
+  },
+  {
+    _id: 8,
+    image: movie8,
+    name: "Gimme Danger: История Игги и The Stooges",
+    duration: "1ч 59м",
+  },
+  {
+    _id: 9,
+    image: movie9,
+    name: "Дженис: Маленькая девочка грустит",
+    duration: "1ч 42м",
+  },
+  {
+    _id: 10,
+    image: movie10,
+    name: "Соберись перед прыжком",
+    duration: "1ч 10м",
+  },
+  {
+    _id: 11,
+    image: movie11,
+    name: "Пи Джей Харви: A dog called money",
+    duration: "1ч 4м",
+  },
+  {
+    _id: 12,
+    image: movie12,
+    name: "По волнам: Искусство звука в кино",
+    duration: "1ч 7м",
+  },
+
 ];
 
 const savedMoviesList = [
