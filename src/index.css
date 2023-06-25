@@ -16,5 +16,6 @@
 @import url(../src/components/Movies/Movies.css);
 @import url(../src/components/Movies/MoviesCardList/MoviesCardList.css);
 @import url(../src/components/Movies/MoviesCard/MoviesCard.css);
+@import url(../src/components/Movies/Preloader/Preloader.css);
 
 @import url(../src/components/SavedMovies/SavedMovies.css);
