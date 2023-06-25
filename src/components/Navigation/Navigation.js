@@ -1,10 +1,9 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navigation() {
 
   return (
-    <div className="navigation">
-
+    <div className="button navigation">
     </div>
   );
 }

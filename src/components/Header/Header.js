@@ -37,7 +37,9 @@ function Header() {
         pathname === "/saved-movies" ||
         pathname === "/profile") && (
         <div className="header__links">
-          <Navigation />
+          <button className="button header__burgermenu-button">
+            <Navigation />
+          </button>
           <div>
             <Link to="/movies" type="button" className="button header__movies">
               Фильмы
