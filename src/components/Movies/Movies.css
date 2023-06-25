@@ -17,3 +17,9 @@
   border: 1px solid #e8e8e8;
   border-radius: 6px;
 }
+
+@media screen and (max-width: 768px) {
+  .movies__more {
+    padding-bottom: 89px;
+  }
+}

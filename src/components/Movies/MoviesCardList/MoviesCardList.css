@@ -9,3 +9,11 @@
   padding: 70px 70px 10px;
   background-color: #fafafa;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-card-list {
+    grid-template-columns: 339px 339px;
+    padding: 70px 30px 30px;
+    gap: 30px;
+  }
+}

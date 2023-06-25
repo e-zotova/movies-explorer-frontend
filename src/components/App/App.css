@@ -31,3 +31,9 @@
   background: #CBCBCB;
   margin: 0 29px 0 19px;
 }
+
+@media screen and (max-width: 768px) {
+  .vertical-divider {
+    margin-right: 19px;
+  }
+}

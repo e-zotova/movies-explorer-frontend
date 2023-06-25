@@ -55,3 +55,15 @@
   line-height: 13px;
   color: #a0a0a0;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-card {
+    width: 339px;
+    height: 262px;
+  }
+
+  .movies-card__image {
+    width: 339px;
+    height: 190px;
+  }
+}

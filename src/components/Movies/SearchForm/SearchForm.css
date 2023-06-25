@@ -50,3 +50,21 @@
   margin-top: 69px;
   background: #e8e8e8;
 }
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    padding: 80px 30px 10px;
+  }
+
+  .search-form__box {
+    width: 708px;
+  }
+
+  .search-form__input {
+    width: 46%;
+  }
+
+  .search-form__dividing-line {
+    margin-top: 109px;
+  }
+}
