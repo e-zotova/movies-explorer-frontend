@@ -2,6 +2,7 @@ import { useState } from "react";
 import headerLogo from "../../images/header-logo.svg";
 import profileLogo from "../../images/profile-icon.svg";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import Navigation from "../Navigation/Navigation.js";
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -36,6 +37,7 @@ function Header() {
         pathname === "/saved-movies" ||
         pathname === "/profile") && (
         <div className="header__links">
+          <Navigation />
           <div>
             <Link to="/movies" type="button" className="button header__movies">
               Фильмы

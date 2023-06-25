@@ -87,6 +87,23 @@
     padding-left: 30px;
     padding-right: 30px;
   }
+
+  .header__links {
+    width: 30px;
+  }
+
+  .header__movies {
+    display: none;
+  }
+
+  .header__saved-movies {
+    display: none;
+  }
+
+  .header__profile-button {
+    display: none;
+  }
+
 }
 
 @media screen and (max-width: 320px) {

@@ -1,21 +1,24 @@
 @import url(./vendor/normalize.css);
 @import url(../src/vendor/fonts/Inter-web/inter.css);
 @import url(../src/components/App/App.css);
+
 @import url(../src/components/Header/Header.css);
+@import url(../src/components/Navigation/Navigation.css);
+@import url(../src/components/Footer/Footer.css);
+
 @import url(../src/components/Main/Promo/Promo.css);
 @import url(../src/components/Main/NavTab/NavTab.css);
 @import url(../src/components/Main/AboutProject/AboutProject.css);
 @import url(../src/components/Main/Techs/Techs.css);
 @import url(../src/components/Main/AboutMe/AboutMe.css);
 @import url(../src/components/Main/Portfolio/Portfolio.css);
-@import url(../src/components/Footer/Footer.css);
 
 @import url(../src/components/Movies/SearchForm/SearchForm.css);
 @import url(../src/components/Movies/FilterCheckbox/FilterCheckbox.css);
 
 @import url(../src/components/Movies/Movies.css);
-@import url(../src/components/Movies/MoviesCardList/MoviesCardList.css);
-@import url(../src/components/Movies/MoviesCard/MoviesCard.css);
+@import url(../src/components/SavedMovies/SavedMovies.css);
 @import url(../src/components/Movies/Preloader/Preloader.css);
 
-@import url(../src/components/SavedMovies/SavedMovies.css);
+@import url(../src/components/Movies/MoviesCardList/MoviesCardList.css);
+@import url(../src/components/Movies/MoviesCard/MoviesCard.css);
