@@ -53,7 +53,7 @@
 }
 
 .about-project__backend {
-  width: calc(100% - 80%);
+  width: 20%;
 }
 
 .about-project__backend-week {
@@ -63,7 +63,7 @@
 }
 
 .about-project__frontend {
-  width: calc(100% - 20%);
+  width: 80%;
 }
 
 .about-project__frontend-week {
@@ -128,11 +128,11 @@
   }
 
   .about-project__frontend {
-    width: calc(100% - 35%);
+    width: 65%;
   }
 
   .about-project__backend {
-    width: calc(100% - 65%);
+    width: 35%;
   }
 
   .about-project__backend-week {
