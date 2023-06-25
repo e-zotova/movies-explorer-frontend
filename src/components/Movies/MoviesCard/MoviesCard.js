@@ -1,22 +1,15 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
 
-function MoviesCard({ movie }) {
+function MoviesCard({ movie, isSaved, onMovieSave, onMovieUnsave }) {
   const currentUser = useContext(CurrentUserContext);
   const { pathname } = useLocation();
 
-  const [isSaved, setIsSaved] = useState(false);
-
-  function onMovieSave() {
-    setIsSaved(!isSaved);
-  }
-
-  function onMovieUnsave() {
-    const movieElement = document.querySelector('.movies-card');
-    movieElement.remove();
+  function handleUnsaveClick() {
+    onMovieUnsave(movie);
   }
 
   return (
@@ -47,7 +40,7 @@ function MoviesCard({ movie }) {
               type="button"
               aria-label="Удалить из избранного"
               className="button movies-card__remove-button"
-              onClick={onMovieUnsave}
+              onClick={handleUnsaveClick}
             />
           )}
         </div>
