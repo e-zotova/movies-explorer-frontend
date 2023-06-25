@@ -4,7 +4,7 @@ import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
 
-function MoviesCard({ movie, onMovieSave }) {
+function MoviesCard({ movie }) {
   const currentUser = useContext(CurrentUserContext);
   const { pathname } = useLocation();
 
@@ -12,6 +12,11 @@ function MoviesCard({ movie, onMovieSave }) {
 
   function onMovieSave() {
     setIsSaved(!isSaved);
+  }
+
+  function onMovieUnsave() {
+    const movieElement = document.querySelector('.movies-card');
+    movieElement.remove();
   }
 
   return (
@@ -41,8 +46,8 @@ function MoviesCard({ movie, onMovieSave }) {
             <button
               type="button"
               aria-label="Удалить из избранного"
-              className="button movies-card__save-button"
-              onClick={onMovieSave}
+              className="button movies-card__remove-button"
+              onClick={onMovieUnsave}
             />
           )}
         </div>

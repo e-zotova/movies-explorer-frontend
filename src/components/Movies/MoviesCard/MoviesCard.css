@@ -34,13 +34,16 @@
   height: 30px;
 }
 
-/*
-.movies-card__save-button:hover {
-  background: no-repeat center url(../../../images/remove.svg);
+.movies-card__remove-button {
+  background: transparent;
+  border: none;
   width: 30px;
   height: 30px;
 }
-*/
+
+.movies-card__description:hover .movies-card__remove-button {
+  background: no-repeat center url(../../../images/remove.svg);
+}
 
 .movies-card__save-button_saved {
   background: transparent;
