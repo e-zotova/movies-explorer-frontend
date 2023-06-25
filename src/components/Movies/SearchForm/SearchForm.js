@@ -7,7 +7,7 @@ function SearchForm() {
       <div className="search-form__box">
         <div className="search-form__icon"></div>
         <input placeholder="Фильм" className="search-form__input"></input>
-        <button className="search-form__button"></button>
+        <button className="button search-form__button"></button>
         <div className="vertical-divider"></div>
         <FilterCheckbox />
       </div>
