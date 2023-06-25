@@ -1,7 +1,7 @@
 import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard.js";
 
-function MoviesCardList({ movies, onMovieSave, onMovieUnsave }) {
+function MoviesCardList({ movies, onMovieSave, onMovieRemove }) {
 
   return (
     <section className="movies-card-list">
@@ -10,7 +10,7 @@ function MoviesCardList({ movies, onMovieSave, onMovieUnsave }) {
           key={movie._id}
           movie={movie}
           onMovieSave={onMovieSave}
-          onMovieUnsave={onMovieUnsave}
+          onMovieRemove={onMovieRemove}
         />
       ))}
     </section>

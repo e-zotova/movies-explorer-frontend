@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
@@ -6,14 +6,9 @@ import { savedMoviesList } from "../../constants/movies.js";
 
 function SavedMovies() {
   const [preloader, setPreloader] = useState(false);
-  const [isSaved, setIsSaved] = useState(false);
 
-  function onMovieSave() {
-    setIsSaved(!isSaved);
-  }
-
-  function onMovieUnsave(movie) {
-    savedMoviesList.filter((item) => item._id === movie._id);
+  function onMovieRemove(movie) {
+    // call api
   }
 
   return (
@@ -23,8 +18,7 @@ function SavedMovies() {
       {!preloader && (
         <MoviesCardList
           movies={savedMoviesList}
-          onMovieSave={onMovieSave}
-          onMovieUnsave={onMovieUnsave}
+          onMovieRemove={onMovieRemove}
         />
       )}
       <div className="saved-movies__divider"></div>
