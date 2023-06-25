@@ -22,7 +22,7 @@ function Movies() {
         />
       )}
       <div className="movies__more">
-        <div className="movies__more-button">Ещё</div>
+        <div className="button movies__more-button">Ещё</div>
       </div>
     </section>
   );
