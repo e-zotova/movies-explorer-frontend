@@ -20,19 +20,25 @@
   background: no-repeat center url(../../../images/search-icon.svg);
   width: 34px;
   height: 34px;
-  padding-left: 19px;
+  margin-left: 19px;
 }
 
 .search-form__input {
-  min-width: 860px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 65%;
   border-radius: 9px;
   border: #fff;
   font-size: 18px;
   line-height: 20px;
 }
 
+.search-form__input:focus {
+  outline: #fff;
+}
+
+
 .search-form__button {
-  margin-left: -100px;
   border: none;
   z-index: 10;
   background: no-repeat center url(../../../images/find.svg);
