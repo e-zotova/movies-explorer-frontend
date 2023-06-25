@@ -10,7 +10,7 @@
   background-color: #fafafa;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1220px) {
   .movies-card-list {
     grid-template-columns: 339px 339px;
     padding: 70px 30px 30px;
