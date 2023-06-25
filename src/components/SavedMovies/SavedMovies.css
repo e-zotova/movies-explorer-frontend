@@ -4,3 +4,9 @@
   height: 237px;
   background: #fafafa;
 }
+
+@media screen and (max-width: 768px) {
+  .saved-movies__divider {
+    height: 140px;
+  }
+}
