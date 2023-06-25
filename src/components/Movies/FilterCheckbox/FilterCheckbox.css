@@ -6,6 +6,7 @@
   background: no-repeat center url(../../../images/smalltumb-on.svg);
   width: 36px;
   height: 20px;
+  border: none;
 }
 
 .filter-checkbox__switcher_inactive {

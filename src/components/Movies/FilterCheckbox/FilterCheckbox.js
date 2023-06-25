@@ -3,7 +3,7 @@ import React from "react";
 function FilterCheckbox() {
   return (
     <div className="filter-checkbox">
-      <div className="filter-checkbox__switcher"></div>
+      <button className="filter-checkbox__switcher"></button>
       <p className="filter-checkbox__text">Короткометражки</p>
     </div>
   );
