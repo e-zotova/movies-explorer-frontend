@@ -12,6 +12,7 @@
 .button {
   text-decoration: none;
   color: black;
+  padding: 0;
 }
 
 .button:hover {

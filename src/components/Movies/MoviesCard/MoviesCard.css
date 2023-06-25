@@ -27,26 +27,26 @@
   line-height: 16px;
 }
 
-.movies-card__save-movie {
-  background: no-repeat center url(../../../images/save-inactive.svg);
+.movies-card__save-button {
+  background: transparent;
   border: none;
   width: 30px;
   height: 30px;
 }
 
-.movies-card__save-movie_active {
-  background: no-repeat center url(../../../images/save-active.svg);
-  border: none;
-  width: 30px;
-  height: 30px;
-}
-
-.movies-card__save-movie_active:hover {
+/*
+.movies-card__save-button:hover {
   background: no-repeat center url(../../../images/remove.svg);
+  width: 30px;
+  height: 30px;
+}
+*/
+
+.movies-card__save-button_saved {
+  background: transparent;
   border: none;
-  width: 7px;
-  height: 7px;
-  padding: 23px;
+  width: 30px;
+  height: 30px;
 }
 
 .movies-card__duration {
