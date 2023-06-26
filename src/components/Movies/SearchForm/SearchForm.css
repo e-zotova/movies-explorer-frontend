@@ -1,5 +1,6 @@
 .search-form {
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 1140px;
   padding: 70px 70px 10px;

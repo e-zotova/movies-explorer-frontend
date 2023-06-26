@@ -18,16 +18,7 @@
   border-radius: 6px;
 }
 
-@media screen and (max-width: 768px) {
-  .movies__more {
-    padding-bottom: 89px;
-  }
-}
-
 @media screen and (max-width: 320px) {
-  .movies__more {
-    padding-bottom: 80px;
-  }
 
   .movies__more-button {
     width: 240px;
