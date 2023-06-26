@@ -53,3 +53,24 @@
   line-height: 18px;
   padding-left: 14px;
 }
+
+.filter-checkbox_browser {
+  display: flex;
+}
+
+.filter-checkbox_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 320px) {
+  .filter-checkbox_browser {
+    display: none;
+  }
+
+  .filter-checkbox_mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 46px;
+  }
+}

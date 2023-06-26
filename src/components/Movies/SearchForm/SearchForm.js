@@ -9,8 +9,9 @@ function SearchForm() {
         <input placeholder="Фильм" className="search-form__input"></input>
         <button className="button search-form__button"></button>
         <div className="vertical-divider"></div>
-        <FilterCheckbox />
+        <FilterCheckbox className="filter-checkbox_browser" />
       </div>
+      <FilterCheckbox className="filter-checkbox_mobile" />
       <div className="dividing-line search-form__dividing-line"></div>
     </div>
   );

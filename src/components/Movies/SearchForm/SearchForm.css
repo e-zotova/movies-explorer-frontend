@@ -1,4 +1,5 @@
 .search-form {
+  display: flex;
   margin: 0 auto;
   max-width: 1140px;
   padding: 70px 70px 10px;
@@ -37,7 +38,6 @@
   outline: #fff;
 }
 
-
 .search-form__button {
   border: none;
   background: no-repeat center url(../../../images/find.svg);
@@ -65,5 +65,35 @@
 
   .search-form__dividing-line {
     margin-top: 109px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-form {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .search-form__box {
+    display: flex;
+    justify-content: space-between;
+    max-width: 262px;
+    padding: 0 19px;
+  }
+
+  .search-form__icon {
+    display: none;
+  }
+
+  .search-form__input {
+    width: 60%;
+  }
+
+  .search-form__button {
+    width: 80px;
+  }
+
+  .search-form__dividing-line {
+    margin-top: 44px;
   }
 }

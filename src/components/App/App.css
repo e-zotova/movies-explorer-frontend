@@ -38,3 +38,9 @@
     margin-right: 19px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .vertical-divider {
+    display: none;
+  }
+}
