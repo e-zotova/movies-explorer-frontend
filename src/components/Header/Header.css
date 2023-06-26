@@ -86,10 +86,13 @@
   display: none;
 }
 
+.header__close-button {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .header {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 15px 30px;
   }
 
   .header__links {
@@ -114,6 +117,15 @@
     width: 44px;
     height: 44px;
     border: none;
+  }
+
+  .header__close-button {
+    display: flex;
+    background: no-repeat center url(../../images/close-burger-button.svg);
+    width: 44px;
+    height: 44px;
+    border: none;
+    z-index: 10;
   }
 }
 

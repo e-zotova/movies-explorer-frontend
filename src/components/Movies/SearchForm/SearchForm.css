@@ -40,7 +40,6 @@
 
 .search-form__button {
   border: none;
-  z-index: 10;
   background: no-repeat center url(../../../images/find.svg);
   width: 84px;
   height: 34px;

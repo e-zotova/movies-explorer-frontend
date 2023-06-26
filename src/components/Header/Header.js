@@ -6,9 +6,14 @@ import Navigation from "../Navigation/Navigation.js";
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
+  const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  function handleBurgerMenuClick() {
+    setisBurgerMenuOpen(!isBurgerMenuOpen);
+  }
 
   function onSignOut() {
     localStorage.removeItem("jwt");
@@ -37,9 +42,11 @@ function Header() {
         pathname === "/saved-movies" ||
         pathname === "/profile") && (
         <div className="header__links">
-          <button className="button header__burgermenu-button">
-            <Navigation />
-          </button>
+          <button
+            className={`button ${isBurgerMenuOpen ? "header__close-button" : "header__burgermenu-button"}`}
+            onClick={handleBurgerMenuClick}
+          />
+          <Navigation isBurgerMenuOpen={isBurgerMenuOpen} />
           <div>
             <Link to="/movies" type="button" className="button header__movies">
               Фильмы
