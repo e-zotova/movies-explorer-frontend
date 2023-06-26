@@ -68,7 +68,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 720px) {
   .search-form {
     padding: 10px;
     flex-direction: column;
@@ -79,6 +79,7 @@
     justify-content: space-between;
     max-width: 262px;
     padding: 0 19px;
+    margin: 70px 0 46px;
   }
 
   .search-form__icon {
@@ -86,7 +87,10 @@
   }
 
   .search-form__input {
-    width: 60%;
+    width: 65%;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0;
   }
 
   .search-form__button {

@@ -62,7 +62,7 @@
   display: none;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 720px) {
   .filter-checkbox_browser {
     display: none;
   }
@@ -71,6 +71,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 46px;
+  }
+
+  .filter-checkbox__text {
+    font-size: 11px;
   }
 }

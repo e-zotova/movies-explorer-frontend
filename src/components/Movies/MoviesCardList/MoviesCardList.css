@@ -2,7 +2,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 364px 364px 364px;
+  grid-template-columns: repeat(3, 364px);
   row-gap: 37px;
   column-gap: 24px;
   max-width: 1140px;
@@ -12,8 +12,15 @@
 
 @media screen and (max-width: 1220px) {
   .movies-card-list {
-    grid-template-columns: 339px 339px;
+    grid-template-columns: repeat(2, 339px);
     padding: 70px 30px 30px;
     gap: 30px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .movies-card-list {
+    grid-template-columns: 320px;
+    padding: 40px 10px 26px;
+    gap: 14px;
   }
 }

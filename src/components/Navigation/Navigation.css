@@ -71,9 +71,9 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-
+@media screen and (max-width: 425px) {
   .navigation__panel {
     width: 100%;
+    height: calc(100vh - 240px);
   }
 }

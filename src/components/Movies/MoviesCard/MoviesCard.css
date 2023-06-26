@@ -70,3 +70,28 @@
     height: 190px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .movies-card {
+    width: 300px;
+    height: 237px;
+  }
+
+  .movies-card__image {
+    width: 300px;
+    height: 168px;
+  }
+
+  .movies-card__description {
+    padding-right: 10px;
+  }
+
+  .movies-card__name {
+    font-size: 12px;
+  }
+
+  .movies-card__duration {
+    padding-top: 5px;
+    font-size: 10px;
+  }
+}
