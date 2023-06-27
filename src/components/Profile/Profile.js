@@ -1,8 +1,17 @@
-import { useContext } from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function Profile() {
+  const navigate = useNavigate();
   const { name, email } = useContext(CurrentUserContext);
+
+  function onSignOut() {
+    localStorage.removeItem("jwt");
+    navigate("/signin");
+    navigate(0);
+  }
 
   return (
     <section className="profile">
@@ -34,7 +43,10 @@ function Profile() {
         <button className="button profile__button profile__edit-button">
           Редактировать
         </button>
-        <button className="button profile__button profile__signout-button">
+        <button
+          className="button profile__button profile__signout-button"
+          onClick={onSignOut}
+        >
           Выйти из аккаунта
         </button>
       </div>
