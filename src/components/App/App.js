@@ -18,6 +18,10 @@ function App() {
     email: 'pochta@yandex.ru',
   });
 
+  function onLogin(email, password) {
+    // call api
+  }
+
   return (
     <div className="content">
       <CurrentUserContext.Provider value={currentUser}>
@@ -27,7 +31,7 @@ function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/signin" element={<Login />} />
+        <Route path="/signin" element={<Login onLogin={onLogin}/>} />
         <Route path="/signup" element={<Register />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>

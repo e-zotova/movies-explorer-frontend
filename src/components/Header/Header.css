@@ -10,6 +10,7 @@
   line-height: 16px;
   background-color: #fafafa;
 }
+
 .header__center {
   padding-top: 70px;
   max-width: 396px;
@@ -102,6 +103,10 @@
     padding: 15px 30px;
   }
 
+  .header__center {
+    padding-top: 232px;
+  }
+
   .header__links {
     width: 30px;
   }
@@ -141,6 +146,11 @@
     padding: 14px 18px;
     font-size: 10px;
     line-height: 16px;
+  }
+
+  .header__center {
+    padding-top: 56px;
+    padding-left: 141px;
   }
 
   .header__signin {
