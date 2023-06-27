@@ -16,11 +16,13 @@ function Movies() {
       <SearchForm preloader={preloader} setPreloader={setPreloader} />
       {preloader && <Preloader />}
       {!preloader && (
-        <MoviesCardList movies={moviesList} onMovieSave={onMovieSave} />
+        <div>
+          <MoviesCardList movies={moviesList} onMovieSave={onMovieSave} />
+          <div className="movies__more">
+            <div className="button movies__more-button">Ещё</div>
+          </div>
+        </div>
       )}
-      <div className="movies__more">
-        <div className="button movies__more-button">Ещё</div>
-      </div>
     </section>
   );
 }

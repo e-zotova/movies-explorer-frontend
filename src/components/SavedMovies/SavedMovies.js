@@ -13,7 +13,7 @@ function SavedMovies() {
 
   return (
     <div className="saved-movies">
-      <SearchForm />
+      <SearchForm preloader={preloader} setPreloader={setPreloader}/>
       {preloader && <Preloader />}
       {!preloader && (
         <MoviesCardList
