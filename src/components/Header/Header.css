@@ -10,6 +10,14 @@
   line-height: 16px;
   background-color: #fafafa;
 }
+.header__center {
+  padding-top: 70px;
+  max-width: 396px;
+}
+
+.header__hide {
+  display: none;
+}
 
 .header__landing {
   background-color: #dddee3;

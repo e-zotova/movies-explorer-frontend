@@ -1,28 +1,28 @@
 import { useState } from "react";
 import headerLogo from "../../images/header-logo.svg";
 import profileLogo from "../../images/profile-icon.svg";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation.js";
 
 function Header() {
   const [loggedIn, setLoggedIn] = useState(true);
   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
 
-  const navigate = useNavigate();
   const { pathname } = useLocation();
 
   function handleBurgerMenuClick() {
     setisBurgerMenuOpen(!isBurgerMenuOpen);
   }
 
-  function onSignOut() {
-    localStorage.removeItem("jwt");
-    navigate("/signin");
-    navigate(0);
-  }
-
   return (
-    <section className={`header ${pathname === "/" ? "header__landing" : ""}`}>
+    <section
+      className={`header
+      ${pathname === "/" ? "header__landing" : ""}
+      ${
+        pathname === "/signin" || pathname === "/signup" ? "header__center" : ""
+      }
+      ${pathname === "/page-not-found" ? "header__hide" : ""}`}
+    >
       <Link to="/">
         <img
           className="header__logo"
@@ -81,12 +81,6 @@ function Header() {
             </Link>
           </div>
         </div>
-      )}
-      {pathname === "/signin" && (
-        <Link to="/signup" className="header__link" type="button"></Link>
-      )}
-      {pathname === "/signup" && (
-        <Link to="/signin" className="header__link" type="button"></Link>
       )}
     </section>
   );
