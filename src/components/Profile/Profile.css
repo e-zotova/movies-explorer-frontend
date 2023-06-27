@@ -62,3 +62,37 @@
   font-weight: 500;
   color: #ee3465;
 }
+
+@media screen and (max-width: 768px) {
+  .profile__info {
+    padding: 236px 0 210px;
+  }
+
+  .profile__header {
+    padding-bottom: 96px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .profile__info {
+    padding: 72px 0 379px;
+  }
+
+  .profile__header {
+    padding-bottom: 82px;
+  }
+
+  .profile__name-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .profile__dividing-line {
+    margin: 17px 30px;
+  }
+
+  .profile__email-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
