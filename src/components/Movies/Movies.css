@@ -18,7 +18,7 @@
   border-radius: 6px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
 
   .movies__more-button {
     width: 240px;
