@@ -71,9 +71,15 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 520px) {
   .navigation__panel {
+    padding-top: 144px;
+    padding-bottom: 46px;
     width: 100%;
-    height: calc(100vh - 240px);
+    height: calc(100vh - 190px);
+  }
+
+  .navigation__link {
+    padding-bottom: 35px;
   }
 }

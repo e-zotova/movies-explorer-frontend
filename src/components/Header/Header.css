@@ -143,4 +143,19 @@
   .header__signup {
     margin-right: 14px;
   }
+
+  .header__links {
+    width: 30px;
+    justify-content: flex-end;
+  }
+
+  .header__burgermenu-button {
+    width: 23px;
+    height: 43px;
+  }
+
+  .header__close-button {
+    width: 22px;
+    height: 22px;
+  }
 }
