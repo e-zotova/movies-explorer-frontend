@@ -13,13 +13,10 @@ function Movies() {
 
   return (
     <section className="movies">
-      <SearchForm />
+      <SearchForm preloader={preloader} setPreloader={setPreloader} />
       {preloader && <Preloader />}
       {!preloader && (
-        <MoviesCardList
-          movies={moviesList}
-          onMovieSave={onMovieSave}
-        />
+        <MoviesCardList movies={moviesList} onMovieSave={onMovieSave} />
       )}
       <div className="movies__more">
         <div className="button movies__more-button">Ещё</div>

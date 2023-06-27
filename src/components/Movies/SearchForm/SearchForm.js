@@ -1,13 +1,20 @@
-import React from "react";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
-function SearchForm() {
+function SearchForm({preloader, setPreloader}) {
+
+  function handleSearchClick() {
+    setPreloader(!preloader);
+  }
+
   return (
     <div className="search-form">
       <div className="search-form__box">
         <div className="search-form__icon"></div>
         <input placeholder="Фильм" className="search-form__input"></input>
-        <button className="button search-form__button"></button>
+        <button
+          className="button search-form__button"
+          onClick={handleSearchClick}
+        ></button>
         <div className="vertical-divider"></div>
         <FilterCheckbox className="filter-checkbox_browser" />
       </div>
