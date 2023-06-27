@@ -1,0 +1,11 @@
+.register {
+  margin: 0 auto;
+  max-width: 396px;
+}
+
+.register__header {
+  margin: 0;
+  padding: 40px 0;
+  font-size: 24px;
+  font-weight: 500;
+}

@@ -4,7 +4,7 @@ function Register() {
 
   return (
     <div className="register">
-
+      <h1 className='register__header'>Добро пожаловать!</h1>
     </div>
   );
 }
