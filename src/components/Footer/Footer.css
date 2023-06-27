@@ -1,8 +1,13 @@
 .footer {
+  display: none;
   max-width: 1140px;
   margin: 0 auto;
   padding: 79px 70px 20px;
   background-color: #f8f8f8;
+}
+
+.footer__show {
+  display: block;
 }
 
 .footer__dividing-line {
