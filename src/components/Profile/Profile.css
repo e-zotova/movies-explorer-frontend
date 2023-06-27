@@ -9,36 +9,56 @@
 }
 
 .profile__header {
+  margin: 0;
+  padding-bottom: 123px;
   text-align: center;
   font-size: 24px;
   font-weight: 500;
 }
 
-.profile__name {
-  display: flex;
+.profile__text {
+  font-size: 11px;
+  font-weight: 500;
 }
 
-.profile__email {
+.profile__name-container {
   display: flex;
+  justify-content: space-between;
+  height: min-content;
+}
+
+.profile__input {
+  border: none;
+  text-align: right;
+  background-color: #fafafa;
+}
+
+.profile__dividing-line {
+  background-color: #e8e8e8;
+  margin: 17px 0;
+}
+
+.profile__email-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .profile__buttons {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .profile__button {
+  max-width: 410px;
   border: none;
   background-color: #fafafa;
   font-size: 13px;
 }
 
-.profile__edit-button {
-}
-
 .profile__signout-button {
-  padding-top: 16px;
-  padding-bottom: 70px;
+  margin-top: 16px;
+  margin-bottom: 70px;
   font-weight: 500;
-  color: #EE3465;
+  color: #ee3465;
 }
