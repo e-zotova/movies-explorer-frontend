@@ -1,0 +1,44 @@
+.profile {
+  background-color: #fafafa;
+}
+
+.profile__info {
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 74px 0 220px;
+}
+
+.profile__header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.profile__name {
+  display: flex;
+}
+
+.profile__email {
+  display: flex;
+}
+
+.profile__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__button {
+  border: none;
+  background-color: #fafafa;
+  font-size: 13px;
+}
+
+.profile__edit-button {
+}
+
+.profile__signout-button {
+  padding-top: 16px;
+  padding-bottom: 70px;
+  font-weight: 500;
+  color: #EE3465;
+}
