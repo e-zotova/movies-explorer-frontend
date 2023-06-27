@@ -22,13 +22,15 @@ function Header() {
   }
 
   return (
-    <section className={`header ${loggedIn ? "" : "header__landing"}`}>
-      <img
-        className="header__logo"
-        src={headerLogo}
-        alt="Логотип дипломного проекта"
-      />
-      {pathname === "/" && (
+    <section className={`header ${pathname === "/" ? "header__landing" : ""}`}>
+      <Link to="/">
+        <img
+          className="header__logo"
+          src={headerLogo}
+          alt="Логотип дипломного проекта"
+        />
+      </Link>
+      {pathname === "/" && !loggedIn && (
         <div className="header__link">
           <Link to="/signup" type="button" className="button header__signup">
             Регистрация
@@ -38,12 +40,17 @@ function Header() {
           </Link>
         </div>
       )}
-      {(pathname === "/movies" ||
+      {((pathname === "/" && loggedIn) ||
+        pathname === "/movies" ||
         pathname === "/saved-movies" ||
         pathname === "/profile") && (
         <div className="header__links">
           <button
-            className={`button ${isBurgerMenuOpen ? "header__close-button" : "header__burgermenu-button"}`}
+            className={`button ${
+              isBurgerMenuOpen
+                ? "header__close-button"
+                : "header__burgermenu-button"
+            }`}
             onClick={handleBurgerMenuClick}
           />
           <Navigation isBurgerMenuOpen={isBurgerMenuOpen} />
