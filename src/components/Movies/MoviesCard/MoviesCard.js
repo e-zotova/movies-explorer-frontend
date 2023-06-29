@@ -19,7 +19,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
   }
 
   return (
-    <article className="movies-card">
+    <li className="movies-card">
       <img className="movies-card__image" src={movie.image} alt={movie.name} />
       <div className="movies-card__description">
         <div className="movies-card__item">
@@ -52,7 +52,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
         </div>
         <div className="movies-card__duration">{movie.duration}</div>
       </div>
-    </article>
+    </li>
   );
 }
 

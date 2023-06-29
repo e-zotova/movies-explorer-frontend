@@ -4,7 +4,7 @@ import MoviesCard from "../MoviesCard/MoviesCard.js";
 function MoviesCardList({ movies, onMovieSave, onMovieRemove }) {
 
   return (
-    <section className="movies-card-list">
+    <ul className="movies-card-list">
       {movies.map((movie) => (
         <MoviesCard
           key={movie._id}
@@ -13,7 +13,7 @@ function MoviesCardList({ movies, onMovieSave, onMovieRemove }) {
           onMovieRemove={onMovieRemove}
         />
       ))}
-    </section>
+    </ul>
   );
 }
 
