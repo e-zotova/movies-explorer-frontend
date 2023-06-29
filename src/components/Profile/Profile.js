@@ -33,7 +33,7 @@ function Profile() {
     changeProfileEditing(true);
   }
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email } = formValue;
     const emptyInputError = "Имя пользователя и почта должны быть заполнены";
@@ -42,7 +42,7 @@ function Profile() {
       setErrorMessage(emptyInputError);
 
     } else {
-      //
+      console.log(name, email);
     }
   }
 
@@ -54,7 +54,7 @@ function Profile() {
 
   return (
     <section className="profile">
-      <div className="profile__info" onSubmit={onSubmit}>
+      <form className="profile__info" onSubmit={handleSubmit}>
         <h1 className="profile__header">Привет, {name}!</h1>
         <label className="profile__name-container">
           <span className="profile__text profile__name-label">Имя</span>
@@ -110,7 +110,7 @@ function Profile() {
           </div>
         )}
         </div>
-      </div>
+      </form>
     </section>
   );
 }
