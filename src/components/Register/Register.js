@@ -40,6 +40,7 @@ function Register({ onRegister }) {
           name="name"
           type="text"
           className="input login__input"
+          placeholder="Имя"
           value={formValue.name}
           onChange={handleChange}
         />
@@ -50,6 +51,7 @@ function Register({ onRegister }) {
           type="email"
           className="input login__input"
           value={formValue.email}
+          placeholder="E-mail"
           onChange={handleChange}
         />
         <span className="login__label">Пароль</span>
@@ -58,7 +60,8 @@ function Register({ onRegister }) {
           name="password"
           type="password"
           className="input login__input"
-          value={formValue.username}
+          value={formValue.password}
+          placeholder="Пароль"
           onChange={handleChange}
         />
         <span className="login__error">{errorMessage}</span>

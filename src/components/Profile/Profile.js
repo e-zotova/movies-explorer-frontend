@@ -53,6 +53,7 @@ function Profile({ onUpdateProfile }) {
               className="profile__text profile__input"
               required={true}
               defaultValue={name}
+              placeholder="Имя"
               minLength={2}
               maxLength={30}
               onChange={handleChange}
@@ -67,6 +68,7 @@ function Profile({ onUpdateProfile }) {
               type="email"
               className="profile__text profile__input"
               defaultValue={email}
+              placeholder="Почта"
               required={true}
               onChange={handleChange}
               disabled

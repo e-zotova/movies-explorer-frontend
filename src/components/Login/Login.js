@@ -38,6 +38,7 @@ function Login({ onLogin }) {
           type="email"
           className="input login__input"
           value={formValue.email}
+          placeholder="E-mail"
           onChange={handleChange}
         />
         <p className="login__label">Пароль</p>
@@ -46,7 +47,8 @@ function Login({ onLogin }) {
           name="password"
           type="password"
           className="input login__input"
-          value={formValue.username}
+          value={formValue.password}
+          placeholder="Пароль"
           onChange={handleChange}
         />
         <p className="login__error">{errorMessage}</p>
