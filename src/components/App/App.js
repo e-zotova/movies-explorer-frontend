@@ -10,6 +10,7 @@ import Profile from "../Profile/Profile.js";
 import Login from "../Login/Login.js";
 import Register from "../Register/Register.js";
 import PageNotFound from "../PageNotFound/PageNotFound.js";
+import ApiError from "../ApiError/ApiError.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
 function App() {
@@ -18,12 +19,18 @@ function App() {
     email: "pochta@yandex.ru",
   });
 
+  const [isApiErrorOpen, setApiErrorOpen] = useState(false);
+
   function onLogin(email, password) {
     // call api
   }
 
   function onRegister(email, password) {
     // call api
+  }
+
+  function closeApiErrorPopup() {
+    setApiErrorOpen(!isApiErrorOpen);
   }
 
   return (
@@ -43,6 +50,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer className="footer" />
+        <ApiError isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
       </CurrentUserContext.Provider>
     </div>
   );
