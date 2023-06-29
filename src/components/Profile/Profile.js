@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-function Profile() {
+function Profile( {onUpdateProfile} ) {
   const navigate = useNavigate();
   const { name, email } = useContext(CurrentUserContext);
   const [formValue, setFormValue] = useState({name, email});
@@ -42,7 +42,7 @@ function Profile() {
       setErrorMessage(emptyInputError);
 
     } else {
-      console.log(name, email);
+      onUpdateProfile(name, email)
     }
   }
 

@@ -23,10 +23,16 @@ function App() {
 
   function onLogin(email, password) {
     // call api
+    setApiErrorOpen(!isApiErrorOpen);
   }
 
   function onRegister(email, password) {
     // call api
+    setApiErrorOpen(!isApiErrorOpen);
+  }
+
+  function onUpdateProfile(name, email) {
+    setApiErrorOpen(!isApiErrorOpen);
   }
 
   function closeApiErrorPopup() {
@@ -41,7 +47,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/saved-movies" element={<SavedMovies />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile onUpdateProfile={onUpdateProfile} />} />
           <Route path="/signin" element={<Login onLogin={onLogin} />} />
           <Route
             path="/signup"
