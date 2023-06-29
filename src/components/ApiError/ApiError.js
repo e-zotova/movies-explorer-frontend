@@ -7,7 +7,7 @@ function ApiError({ isOpen, onClose }) {
         <img
           className="api-error__result"
           src={fail}
-          alt="Статус регистрации"
+          alt="Ошибка запроса"
         />
         <div className="api-error__text">
           Что-то пошло не так! Попробуйте ещё раз.

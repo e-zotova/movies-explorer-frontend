@@ -11,7 +11,7 @@ function AboutMe() {
           className="about-me__photo"
           src={profilePhoto}
           alt="Фото профиля"
-        ></img>
+        />
         <div className="about-me__description">
           <div>
             <h3 className="about-me__subheader">Елена</h3>
