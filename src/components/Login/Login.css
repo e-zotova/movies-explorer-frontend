@@ -85,4 +85,14 @@
   .login__register-label {
     font-size: 12px;
   }
+
+  .login__error {
+    padding-top: 10px;
+    color: #ee3465;
+    font-size: 10px;
+  }
+
+  .login__switch-label {
+    font-size: 12px;
+  }
 }

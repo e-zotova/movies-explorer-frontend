@@ -24,3 +24,21 @@
     padding-top: 25px;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .register {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .register__header {
+    padding: 35px 0 60px;
+    text-align: center;
+  }
+
+  .register__submit-button {
+    margin-top: 150px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
