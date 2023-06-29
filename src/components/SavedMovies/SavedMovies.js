@@ -12,7 +12,7 @@ function SavedMovies() {
   }
 
   return (
-    <div className="saved-movies">
+    <main className="saved-movies">
       <SearchForm preloader={preloader} setPreloader={setPreloader}/>
       {preloader && <Preloader />}
       {!preloader && (
@@ -21,7 +21,7 @@ function SavedMovies() {
           onMovieRemove={onMovieRemove}
         />
       )}
-    </div>
+    </main>
   );
 }
 

@@ -31,7 +31,7 @@ function Register({ onRegister }) {
   };
 
   return (
-    <div className="register">
+    <main className="register">
       <h1 className="register__header">Добро пожаловать!</h1>
       <form className={`login__form`} onSubmit={onSubmit}>
       <span className="login__label">Имя</span>
@@ -80,7 +80,7 @@ function Register({ onRegister }) {
           </a>
         </span>
       </form>
-    </div>
+    </main>
   );
 }
 

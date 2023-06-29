@@ -28,7 +28,7 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div className="login">
+    <main className="login">
       <h1 className="login__header">Рады видеть!</h1>
       <form className={`login__form`} onSubmit={onSubmit}>
         <p className="login__label">E-mail</p>
@@ -64,7 +64,7 @@ function Login({ onLogin }) {
           </a>
         </span>
       </form>
-    </div>
+    </main>
   );
 }
 

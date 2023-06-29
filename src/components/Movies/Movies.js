@@ -12,7 +12,7 @@ function Movies() {
   }
 
   return (
-    <section className="movies">
+    <main className="movies">
       <SearchForm preloader={preloader} setPreloader={setPreloader} />
       {preloader && <Preloader />}
       {!preloader && (
@@ -23,7 +23,7 @@ function Movies() {
           </div>
         </div>
       )}
-    </section>
+    </main>
   );
 }
 
