@@ -1,23 +1,21 @@
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
-function SearchForm({preloader, setPreloader}) {
+function SearchForm({ preloader, setPreloader }) {
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  function handleSearchClick() {
     setPreloader(!preloader);
   }
 
   return (
     <div className="search-form">
-      <div className="search-form__box">
+      <form className="search-form__box" onSubmit={handleSubmit}>
         <div className="search-form__icon"></div>
         <input placeholder="Фильм" className="search-form__input"></input>
-        <button
-          className="button search-form__button"
-          onClick={handleSearchClick}
-        ></button>
+        <button type="submit" className="button search-form__button"></button>
         <div className="vertical-divider"></div>
         <FilterCheckbox className="filter-checkbox_browser" />
-      </div>
+      </form>
       <FilterCheckbox className="filter-checkbox_mobile" />
       <div className="dividing-line search-form__dividing-line"></div>
     </div>

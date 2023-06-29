@@ -53,6 +53,7 @@ function Register({ onRegister }) {
           value={formValue.email}
           placeholder="E-mail"
           onChange={handleChange}
+          required
         />
         <span className="login__label">Пароль</span>
         <input
@@ -63,6 +64,7 @@ function Register({ onRegister }) {
           value={formValue.password}
           placeholder="Пароль"
           onChange={handleChange}
+          required
         />
         <span className="login__error">{errorMessage}</span>
         <button

@@ -40,6 +40,7 @@ function Login({ onLogin }) {
           value={formValue.email}
           placeholder="E-mail"
           onChange={handleChange}
+          required
         />
         <p className="login__label">Пароль</p>
         <input
@@ -50,6 +51,7 @@ function Login({ onLogin }) {
           value={formValue.password}
           placeholder="Пароль"
           onChange={handleChange}
+          required
         />
         <p className="login__error">{errorMessage}</p>
         <button type="submit" className="button login__save-button">
