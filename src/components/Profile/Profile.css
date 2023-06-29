@@ -1,10 +1,10 @@
 .profile {
   background-color: #fafafa;
+  max-width: 410px;
+  margin: 0 auto;
 }
 
 .profile__info {
-  max-width: 410px;
-  margin: 0 auto;
   padding: 74px 0 220px;
 }
 
@@ -44,9 +44,24 @@
 }
 
 .profile__buttons {
+  margin-top: 220px;
+}
+
+.profile__edit {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.profile__save-button {
+  border-radius: 3px;
+  background: #3456f3;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  height: 45px;
+  width: 100%;
 }
 
 .profile__button {
@@ -71,6 +86,10 @@
   .profile__header {
     padding-bottom: 96px;
   }
+
+  .profile__buttons {
+    margin-top: 210px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -94,5 +113,9 @@
   .profile__email-container {
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .profile__buttons {
+    margin-top: 379px;
   }
 }
