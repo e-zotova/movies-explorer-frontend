@@ -55,13 +55,19 @@ function Header() {
           />
           <Navigation isBurgerMenuOpen={isBurgerMenuOpen} />
           <div>
-            <Link to="/movies" type="button" className="button header__movies">
+            <Link
+              to="/movies"
+              type="button"
+              className={`button header__movies
+            ${pathname === "/movies" ? "header__selected" : ""}`}
+            >
               Фильмы
             </Link>
             <Link
               to="/saved-movies"
               type="button"
-              className="button header__saved-movies"
+              className={`button header__saved-movies header__active
+              ${pathname === "/saved-movies" ? "header__selected" : ""}`}
             >
               Сохранённые фильмы
             </Link>

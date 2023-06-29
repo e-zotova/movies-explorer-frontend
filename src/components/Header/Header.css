@@ -55,6 +55,9 @@
 .header__movies {
   font-size: 13px;
   line-height: 18px;
+}
+
+.header__selected {
   font-weight: 500;
 }
 
@@ -105,6 +108,10 @@
 
   .header__center {
     padding-top: 232px;
+  }
+
+  .header__selected {
+    font-weight: 400;
   }
 
   .header__links {
