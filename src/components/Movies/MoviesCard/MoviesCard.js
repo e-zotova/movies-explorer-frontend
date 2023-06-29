@@ -21,7 +21,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
   return (
     <article className="movies-card">
       <img className="movies-card__image" src={movie.image} alt={movie.name} />
-      <div className=" button movies-card__description">
+      <div className="movies-card__description">
         <div className="movies-card__item">
           <h2 className="movies-card__name">{movie.name}</h2>
           {pathname === "/movies" && (
