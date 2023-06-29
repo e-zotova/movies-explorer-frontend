@@ -31,7 +31,7 @@ function Login({ onLogin }) {
     <main className="login">
       <h1 className="login__header">Рады видеть!</h1>
       <form className={`login__form`} onSubmit={onSubmit}>
-        <p className="login__label">E-mail</p>
+        <label className="login__label">E-mail</label>
         <input
           id="email"
           name="email"
@@ -42,7 +42,7 @@ function Login({ onLogin }) {
           onChange={handleChange}
           required
         />
-        <p className="login__label">Пароль</p>
+        <label className="login__label">Пароль</label>
         <input
           id="password"
           name="password"
@@ -53,7 +53,7 @@ function Login({ onLogin }) {
           onChange={handleChange}
           required
         />
-        <p className="login__error">{errorMessage}</p>
+        <span className="login__error">{errorMessage}</span>
         <button type="submit" className="button login__save-button">
           Войти
         </button>

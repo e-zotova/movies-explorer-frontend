@@ -45,8 +45,8 @@ function Profile({ onUpdateProfile }) {
       <div className="profile__info">
         <h1 className="profile__header">Привет, {name}!</h1>
         <form onSubmit={handleSubmit}>
-          <label className="profile__name-container">
-            <span className="profile__text profile__name-label">Имя</span>
+          <div className="profile__name-container">
+            <label className="profile__text profile__name-label">Имя</label>
             <input
               id="name"
               type="text"
@@ -59,10 +59,10 @@ function Profile({ onUpdateProfile }) {
               required
               disabled
             ></input>
-          </label>
+          </div>
           <div className="dividing-line profile__dividing-line"></div>
-          <label className="profile__email-container">
-            <span className="profile__text profile__email-label">Email</span>
+          <div className="profile__email-container">
+            <label className="profile__text profile__email-label">Email</label>
             <input
               id="email"
               type="email"
@@ -73,7 +73,7 @@ function Profile({ onUpdateProfile }) {
               required
               disabled
             ></input>
-          </label>
+          </div>
           <div className="profile__buttons">
             {isProfileEditing ? (
               <button type="submit" className="button profile__save-button">

@@ -34,7 +34,7 @@ function Register({ onRegister }) {
     <main className="register">
       <h1 className="register__header">Добро пожаловать!</h1>
       <form className={`login__form`} onSubmit={onSubmit}>
-      <span className="login__label">Имя</span>
+      <label className="login__label">Имя</label>
         <input
           id="name"
           name="name"
@@ -44,7 +44,7 @@ function Register({ onRegister }) {
           value={formValue.name}
           onChange={handleChange}
         />
-        <span className="login__label">E-mail</span>
+        <label className="login__label">E-mail</label>
         <input
           id="email"
           name="email"
@@ -55,7 +55,7 @@ function Register({ onRegister }) {
           onChange={handleChange}
           required
         />
-        <span className="login__label">Пароль</span>
+        <label className="login__label">Пароль</label>
         <input
           id="password"
           name="password"
