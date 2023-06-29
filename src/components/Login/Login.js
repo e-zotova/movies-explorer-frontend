@@ -40,7 +40,6 @@ function Login({ onLogin }) {
           value={formValue.email}
           onChange={handleChange}
         />
-        <span className="login__input-error"></span>
         <p className="login__label">Пароль</p>
         <input
           id="password"
@@ -50,14 +49,13 @@ function Login({ onLogin }) {
           value={formValue.username}
           onChange={handleChange}
         />
-        <span className="login__input-error"></span>
         <p className="login__error">{errorMessage}</p>
         <button type="submit" className="button login__save-button">
           Войти
         </button>
-        <span className="login__register-label">
+        <span className="login__switch-label">
           Ещё не зарегистрированы?
-          <a className="button login__register-button" href="/signup">
+          <a className="button login__switch-button" href="/signup">
             Регистрация
           </a>
         </span>
