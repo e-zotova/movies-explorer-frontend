@@ -5,7 +5,22 @@
 
 .register__header {
   margin: 0;
-  padding: 40px 0;
+  padding: 40px 0 20px;
   font-size: 24px;
   font-weight: 500;
+}
+
+.register__submit-button {
+  margin-top: 69px;
+  border-radius: 3px;
+  background: #3456f3;
+  border: none;
+  color: #fff;
+  height: 45px;
+}
+
+@media screen and (max-width: 768px) {
+  .register__header {
+    padding-top: 25px;
+  }
 }
