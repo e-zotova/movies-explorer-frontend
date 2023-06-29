@@ -15,7 +15,7 @@ function Header() {
   }
 
   return (
-    <section
+    <header
       className={`header
       ${pathname === "/" ? "header__landing" : ""}
       ${
@@ -88,7 +88,7 @@ function Header() {
           </div>
         </div>
       )}
-    </section>
+    </header>
   );
 }
 

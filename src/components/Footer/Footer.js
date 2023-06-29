@@ -4,7 +4,7 @@ function Footer() {
   const { pathname } = useLocation();
 
   return (
-    <div
+    <footer
       className={`footer ${
         pathname === "/" ||
         pathname === "/movies" ||
@@ -38,7 +38,7 @@ function Footer() {
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 
