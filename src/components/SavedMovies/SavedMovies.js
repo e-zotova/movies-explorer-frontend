@@ -21,7 +21,6 @@ function SavedMovies() {
           onMovieRemove={onMovieRemove}
         />
       )}
-      <div className="saved-movies__divider"></div>
     </div>
   );
 }

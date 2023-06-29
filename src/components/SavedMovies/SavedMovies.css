@@ -1,12 +1,9 @@
-.saved-movies__divider {
-  max-width: 1280px;
-  margin: 0 auto;
-  height: 237px;
-  background: #fafafa;
+.saved-movies {
+  padding-bottom: 240px;
 }
 
 @media screen and (max-width: 768px) {
-  .saved-movies__divider {
-    height: 140px;
+  .saved-movies {
+    padding-bottom: 140px;
   }
 }
