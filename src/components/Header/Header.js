@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation.js";
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
 
   const { pathname } = useLocation();

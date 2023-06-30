@@ -42,7 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 91%;
   max-width: 1100px;
 }
 
@@ -112,7 +112,7 @@
   }
 
   .header__links {
-    width: 30px;
+    width: 40px;
   }
 
   .header__movies {
@@ -130,7 +130,7 @@
   .header__burgermenu-button {
     display: block;
     background: no-repeat center url(../../images/burger-button.svg);
-    width: 44px;
+    width: 40px;
     height: 44px;
     border: none;
   }
@@ -161,13 +161,14 @@
   }
 
   .header__links {
-    width: 30px;
-    justify-content: flex-end;
+    min-width: 23px;
+    justify-content:center;
   }
 
   .header__burgermenu-button {
-    width: 23px;
-    height: 43px;
+    width: 35px;
+    height: 40px;
+    background-size: contain;
   }
 
   .header__close-button {
