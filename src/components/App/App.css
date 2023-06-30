@@ -1,7 +1,10 @@
-.page {
+.content {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   color: black;
   min-width: 320px;
+  max-width: 1280px;
   min-height: 100vh;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;

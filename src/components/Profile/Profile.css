@@ -1,7 +1,7 @@
 .profile {
   background-color: #fafafa;
-  max-width: 410px;
-  margin: 0 auto;
+  min-width: 410px;
+  align-self: center;
 }
 
 .profile__info {
@@ -103,6 +103,10 @@
 }
 
 @media screen and (max-width: 450px) {
+  .profile {
+    min-width: 320px;
+  }
+
   .profile__info {
     padding: 72px 0 379px;
   }

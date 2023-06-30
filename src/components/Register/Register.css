@@ -3,7 +3,7 @@
 }
 
 @media screen and (max-width: 420px) {
-  .auth__save-button {
+  .register__save-button {
     margin-top: 170px;
   }
 }
