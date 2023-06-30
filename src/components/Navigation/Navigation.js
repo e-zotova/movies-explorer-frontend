@@ -5,7 +5,7 @@ function Navigation({ isBurgerMenuOpen }) {
   const { pathname } = useLocation();
 
   return (
-    <div className="navigation">
+    <nav className="navigation">
       {isBurgerMenuOpen && (
         <div className="navigation__overlay">
           <div className="navigation__panel">
@@ -52,7 +52,7 @@ function Navigation({ isBurgerMenuOpen }) {
           </div>
         </div>
       )}
-    </div>
+    </nav>
   );
 }
 

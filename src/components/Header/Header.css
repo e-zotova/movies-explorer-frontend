@@ -11,11 +11,6 @@
   background-color: #fafafa;
 }
 
-.header__center {
-  padding-top: 70px;
-  max-width: 396px;
-}
-
 .header__hide {
   display: none;
 }
@@ -106,10 +101,6 @@
     padding: 15px 30px;
   }
 
-  .header__center {
-    padding-top: 232px;
-  }
-
   .header__selected {
     font-weight: 400;
   }
@@ -148,23 +139,11 @@
   }
 }
 
-@media screen and (max-width: 420px) {
-  .header__center {
-    padding-top: 56px;
-    padding-left: 141px;
-  }
-}
-
 @media screen and (max-width: 320px) {
   .header {
     padding: 14px 18px;
     font-size: 10px;
     line-height: 16px;
-  }
-
-  .header__center {
-    padding-top: 56px;
-    padding-left: 141px;
   }
 
   .header__signin {

@@ -19,9 +19,12 @@ function Header() {
       className={`header
       ${pathname === "/" ? "header__landing" : ""}
       ${
-        pathname === "/signin" || pathname === "/signup" ? "header__center" : ""
-      }
-      ${pathname === "/page-not-found" ? "header__hide" : ""}`}
+        pathname === "/signin" ||
+        pathname === "/signup" ||
+        pathname === "/page-not-found"
+          ? "header__hide"
+          : ""
+      }`}
     >
       <Link to="/">
         <img
@@ -30,7 +33,7 @@ function Header() {
           alt="Логотип дипломного проекта"
         />
       </Link>
-      {pathname === "/" && !loggedIn && (
+      {!loggedIn ? (
         <div className="header__link">
           <Link to="/signup" type="button" className="button header__signup">
             Регистрация
@@ -39,11 +42,7 @@ function Header() {
             Войти
           </Link>
         </div>
-      )}
-      {((pathname === "/" && loggedIn) ||
-        pathname === "/movies" ||
-        pathname === "/saved-movies" ||
-        pathname === "/profile") && (
+      ) : (
         <div className="header__links">
           <button
             className={`button ${
