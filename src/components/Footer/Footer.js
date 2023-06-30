@@ -9,7 +9,7 @@ function Footer() {
         pathname === "/" ||
         pathname === "/movies" ||
         pathname === "/saved-movies"
-          ? "footer__show"
+          ? "footer_show"
           : ""
       }`}
     >
