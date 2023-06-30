@@ -69,7 +69,7 @@ function Header() {
               Сохранённые фильмы
             </Link>
           </div>
-          <button className="button header__profile-button">
+          <div className="button header__profile-button">
             <img
               className="header__profile-logo"
               src={profileLogo}
@@ -81,7 +81,7 @@ function Header() {
             >
               Аккаунт
             </Link>
-          </button>
+          </div>
         </nav>
       )}
     </header>
