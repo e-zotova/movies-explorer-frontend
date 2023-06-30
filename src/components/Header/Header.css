@@ -72,7 +72,7 @@
   padding: 6px 10px;
   border: 2px solid rgba(170, 170, 170, 0.2);
   border-radius: 50px;
-  background: #fafafa;
+  background: transparent;
 }
 
 .header__profile-button:hover {
