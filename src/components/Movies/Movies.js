@@ -19,7 +19,9 @@ function Movies() {
         <div>
           <MoviesCardList movies={moviesList} onMovieSave={onMovieSave} />
           <div className="movies__more">
-            <div className="button movies__more-button">Ещё</div>
+            <button type="button" className="button movies__more-button">
+              Ещё
+            </button>
           </div>
         </div>
       )}
