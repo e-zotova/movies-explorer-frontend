@@ -40,7 +40,7 @@
 .techs__stack {
   display: grid;
   justify-content: center;
-  grid-template-columns: 84px 84px 84px 84px 84px 84px 84px;
+  grid-template-columns: repeat(7, 90px);
   gap: 10px;
 }
 
@@ -72,6 +72,10 @@
     font-size: 12px;
     line-height: 18px;
     padding-bottom: 83px;
+  }
+
+  .techs__stack {
+    grid-template-columns: repeat(7, 84px);
   }
 }
 

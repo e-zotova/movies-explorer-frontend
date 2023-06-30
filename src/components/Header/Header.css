@@ -147,7 +147,7 @@
 
 @media screen and (max-width: 320px) {
   .header {
-    padding: 14px 18px;
+    padding: 16px 16px;
     font-size: 10px;
     line-height: 16px;
   }

@@ -86,6 +86,14 @@
     line-height: 18px;
     padding-bottom: 93px;
   }
+
+  .about-project__backend {
+    width: 21%;
+  }
+
+  .about-project__frontend {
+    width: 79%;
+  }
 }
 
 @media screen and (max-width: 570px) {
