@@ -43,7 +43,7 @@
 }
 
 .auth__save-button {
-  margin-top: 135px;
+  margin-top: 170px;
   border-radius: 3px;
   background: #3456f3;
   border: none;
@@ -64,10 +64,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .auth__save-button {
-    margin-top: 150px;
-  }
-
   .auth__header {
     padding-top: 232px;
   }
@@ -85,12 +81,12 @@
   }
 
   .auth__title {
-    padding: 35px 0 80px;
+    padding: 50px 0 60px;
     text-align: center;
   }
 
   .auth__save-button {
-    margin-top: 230px;
+    margin-top: 260px;
     font-size: 10px;
     font-weight: 500;
   }

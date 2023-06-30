@@ -75,7 +75,7 @@ function Register({ onRegister }) {
           required
         />
         <span className="auth__error">{errorMessage}</span>
-        <button type="submit" className="button auth__save-button">
+        <button type="submit" className="button auth__save-button register__save-button">
           Зарегистрироваться
         </button>
         <span className="auth__switch-label">
