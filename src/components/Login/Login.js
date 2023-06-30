@@ -1,4 +1,5 @@
 import { useState } from "react";
+import headerLogo from "../../images/header-logo.svg";
 
 function Login({ onLogin }) {
   const [formValue, setFormValue] = useState({
@@ -28,38 +29,45 @@ function Login({ onLogin }) {
   };
 
   return (
-    <main className="login">
-      <h1 className="login__header">Рады видеть!</h1>
-      <form className={`login__form`} onSubmit={onSubmit}>
-        <label className="login__label">E-mail</label>
+    <main className="auth">
+      <header className="auth__header">
+        <img
+          className="header__logo"
+          src={headerLogo}
+          alt="Логотип дипломного проекта"
+        />
+      </header>
+      <h1 className="auth__title">Рады видеть!</h1>
+      <form className={`auth__form`} onSubmit={onSubmit}>
+        <label className="auth__label">E-mail</label>
         <input
           id="email"
           name="email"
           type="email"
-          className="input login__input"
+          className="input auth__input"
           value={formValue.email}
           placeholder="E-mail"
           onChange={handleChange}
           required
         />
-        <label className="login__label">Пароль</label>
+        <label className="auth__label">Пароль</label>
         <input
           id="password"
           name="password"
           type="password"
-          className="input login__input"
+          className="input auth__input"
           value={formValue.password}
           placeholder="Пароль"
           onChange={handleChange}
           required
         />
-        <span className="login__error">{errorMessage}</span>
-        <button type="submit" className="button login__save-button">
+        <span className="auth__error">{errorMessage}</span>
+        <button type="submit" className="button auth__save-button">
           Войти
         </button>
-        <span className="login__switch-label">
+        <span className="auth__switch-label">
           Ещё не зарегистрированы?
-          <a className="button login__switch-button" href="/signup">
+          <a className="button auth__switch-button" href="/signup">
             Регистрация
           </a>
         </span>

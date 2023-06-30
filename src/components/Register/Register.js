@@ -1,4 +1,5 @@
 import { useState } from "react";
+import headerLogo from "../../images/header-logo.svg";
 
 function Register({ onRegister }) {
   const [formValue, setFormValue] = useState({
@@ -20,62 +21,66 @@ function Register({ onRegister }) {
   const onSubmit = (e) => {
     e.preventDefault();
     const { name, email, password } = formValue;
-    const emptyInputError = "Имя пользователя, почта и пароль должны быть заполнены";
+    const emptyInputError =
+      "Имя пользователя, почта и пароль должны быть заполнены";
 
     if (!name || !email || !password) {
       setErrorMessage(emptyInputError);
-
     } else {
       onRegister(email, password);
     }
   };
 
   return (
-    <main className="register">
-      <h1 className="register__header">Добро пожаловать!</h1>
-      <form className={`login__form`} onSubmit={onSubmit}>
-      <label className="login__label">Имя</label>
+    <main className="auth">
+      <header className="auth__header">
+        <img
+          className="header__logo"
+          src={headerLogo}
+          alt="Логотип дипломного проекта"
+        />
+      </header>
+      <h1 className="auth__title">Добро пожаловать!</h1>
+      <form className={`auth__form`} onSubmit={onSubmit}>
+        <label className="auth__label">Имя</label>
         <input
           id="name"
           name="name"
           type="text"
-          className="input login__input"
+          className="input auth__input"
           placeholder="Имя"
           value={formValue.name}
           onChange={handleChange}
         />
-        <label className="login__label">E-mail</label>
+        <label className="auth__label">E-mail</label>
         <input
           id="email"
           name="email"
           type="email"
-          className="input login__input"
+          className="input auth__input"
           value={formValue.email}
           placeholder="E-mail"
           onChange={handleChange}
           required
         />
-        <label className="login__label">Пароль</label>
+        <label className="auth__label">Пароль</label>
         <input
           id="password"
           name="password"
           type="password"
-          className="input login__input"
+          className="input auth__input"
           value={formValue.password}
           placeholder="Пароль"
           onChange={handleChange}
           required
         />
-        <span className="login__error">{errorMessage}</span>
-        <button
-          type="submit"
-          className="button register__submit-button"
-        >
+        <span className="auth__error">{errorMessage}</span>
+        <button type="submit" className="button auth__save-button">
           Зарегистрироваться
         </button>
-        <span className="login__switch-label">
+        <span className="auth__switch-label">
           Уже зарегистрированы?
-          <a className="button login__switch-button" href="/signin">
+          <a className="button auth__switch-button" href="/signin">
             Войти
           </a>
         </span>
