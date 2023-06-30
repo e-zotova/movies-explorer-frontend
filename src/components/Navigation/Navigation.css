@@ -25,7 +25,6 @@
     background: #fafafa;
     width: 520px;
     height: calc(100vh - 250px);
-    transition: right .4s ease-out;
   }
 
   .navigation__links {
