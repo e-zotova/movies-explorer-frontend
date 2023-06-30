@@ -69,10 +69,14 @@
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-  max-width: 76px;
   padding: 6px 10px;
   border: 2px solid rgba(170, 170, 170, 0.2);
   border-radius: 50px;
+  background: #fafafa;
+}
+
+.header__profile-button:hover {
+  border: 2px solid rgba(170, 170, 170, 0.2);
 }
 
 .header__profile-logo {
@@ -86,6 +90,8 @@
   font-size: 14px;
   line-height: 16px;
   font-weight: 500;
+  text-decoration: none;
+  color: #000;
 }
 
 .header__burgermenu-button {

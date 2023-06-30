@@ -35,15 +35,15 @@ function Header() {
       </Link>
       {!loggedIn ? (
         <div className="header__link">
-          <Link to="/signup" type="button" className="button header__signup">
+          <Link to="/signup" className="button header__signup">
             Регистрация
           </Link>
-          <Link to="/signin" type="button" className="button header__signin">
+          <Link to="/signin" className="button header__signin">
             Войти
           </Link>
         </div>
       ) : (
-        <div className="header__links">
+        <nav className="header__links">
           <button
             className={`button ${
               isBurgerMenuOpen
@@ -56,7 +56,6 @@ function Header() {
           <div>
             <Link
               to="/movies"
-              type="button"
               className={`button header__movies
             ${pathname === "/movies" ? "header__selected" : ""}`}
             >
@@ -64,14 +63,13 @@ function Header() {
             </Link>
             <Link
               to="/saved-movies"
-              type="button"
               className={`button header__saved-movies header__active
               ${pathname === "/saved-movies" ? "header__selected" : ""}`}
             >
               Сохранённые фильмы
             </Link>
           </div>
-          <div className="header__profile-button">
+          <button className="button header__profile-button">
             <img
               className="header__profile-logo"
               src={profileLogo}
@@ -79,13 +77,12 @@ function Header() {
             />
             <Link
               to="/profile"
-              type="button"
-              className="button header__profile-text"
+              className="header__profile-text"
             >
               Аккаунт
             </Link>
-          </div>
-        </div>
+          </button>
+        </nav>
       )}
     </header>
   );
