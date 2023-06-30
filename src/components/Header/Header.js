@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation.js";
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
 
   const { pathname } = useLocation();
@@ -17,7 +17,7 @@ function Header() {
   return (
     <header
       className={`header
-      ${pathname === "/" ? "header__landing" : ""}
+      ${pathname === "/" ? "header_landing" : ""}
       ${
         pathname === "/signin" ||
         pathname === "/signup" ||
