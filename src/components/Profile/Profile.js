@@ -82,12 +82,14 @@ function Profile({ onUpdateProfile }) {
             ) : (
               <div className="profile__edit">
                 <button
+                  type="button"
                   className="button profile__button profile__edit-button"
                   onClick={editProfile}
                 >
                   Редактировать
                 </button>
                 <button
+                  type="button"
                   className="button profile__button profile__signout-button"
                   onClick={onSignOut}
                 >

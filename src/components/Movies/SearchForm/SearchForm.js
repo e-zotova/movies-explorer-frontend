@@ -8,17 +8,21 @@ function SearchForm({ preloader, setPreloader }) {
   }
 
   return (
-    <div className="search-form">
+    <section className="search-form">
       <form className="search-form__box" onSubmit={handleSubmit}>
         <div className="search-form__icon"></div>
-        <input placeholder="Фильм" className="search-form__input"></input>
+        <input
+          type="text"
+          placeholder="Фильм"
+          className="search-form__input"
+        ></input>
         <button type="submit" className="button search-form__button"></button>
         <div className="vertical-divider"></div>
         <FilterCheckbox className="filter-checkbox_browser" />
       </form>
       <FilterCheckbox className="filter-checkbox_mobile" />
       <div className="dividing-line search-form__dividing-line"></div>
-    </div>
+    </section>
   );
 }
 
