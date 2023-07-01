@@ -1,10 +1,8 @@
-.profile {
-  min-width: 410px;
-  align-self: center;
-}
 
 .profile__info {
   padding: 74px 0 220px;
+  max-width: 410px;
+  margin: 0 auto;
 }
 
 .profile__header {
