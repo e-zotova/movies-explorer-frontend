@@ -20,6 +20,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.logo {
+  width: 38px;
+  height: 38px;
+}
+
 .button {
   text-decoration: none;
   color: black;

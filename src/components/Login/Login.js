@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import headerLogo from "../../images/header-logo.svg";
 
 function Login({ onLogin }) {
@@ -31,11 +32,13 @@ function Login({ onLogin }) {
   return (
     <main className="auth">
       <header className="auth__header">
+      <Link to="/">
         <img
-          className="header__logo"
+          className="button logo"
           src={headerLogo}
           alt="Логотип дипломного проекта"
         />
+      </Link>
       </header>
       <h1 className="auth__title">Рады видеть!</h1>
       <form className={`auth__form`} onSubmit={onSubmit}>

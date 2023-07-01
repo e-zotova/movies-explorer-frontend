@@ -21,7 +21,7 @@ function Header() {
     >
       <Link to="/">
         <img
-          className="header__logo"
+          className="button logo"
           src={headerLogo}
           alt="Логотип дипломного проекта"
         />
