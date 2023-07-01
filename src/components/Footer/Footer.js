@@ -24,7 +24,7 @@ function Footer() {
             href="https://practicum.yandex.ru/"
             target="_blank"
             rel="noreferrer"
-            className="button footer__link footer__praktikum-link"
+            className="button footer__link"
           >
             Яндекс.Практикум
           </a>

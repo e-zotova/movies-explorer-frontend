@@ -36,7 +36,7 @@ function Header() {
           </Link>
         </div>
       ) : (
-        <nav className="header__links">
+        <nav className="header__container">
           <button
             className={`button ${
               isBurgerMenuOpen
@@ -46,7 +46,7 @@ function Header() {
             onClick={handleBurgerMenuClick}
           />
           <Navigation isBurgerMenuOpen={isBurgerMenuOpen} />
-          <div>
+          <div className="header__links">
             <Link
               to="/movies"
               className={`button header__link

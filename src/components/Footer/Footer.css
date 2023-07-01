@@ -30,13 +30,14 @@
   line-height: 16px;
 }
 
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
+
 .footer__copyright {
   font-size: 13px;
   line-height: 16px;
-}
-
-.footer__praktikum-link {
-  padding-right: 20px;
 }
 
 @media screen and (max-width: 768px) {

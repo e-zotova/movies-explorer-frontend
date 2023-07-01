@@ -26,12 +26,17 @@
 }
 
 /* header movie buttons*/
-.header__links {
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 91%;
   max-width: 1100px;
+}
+
+.header__links {
+  display: flex;
+  gap: 16px;
 }
 
 /* movies button */
@@ -44,10 +49,6 @@
   font-weight: 500;
 }
 
-/* saved movies button */
-.header__link:last-child {
-  padding-left: 16px;
-}
 
 /* profile button */
 .header__profile-button {
@@ -98,7 +99,7 @@
     font-weight: 400;
   }
 
-  .header__links {
+  .header__container {
     width: 40px;
   }
 
@@ -144,7 +145,7 @@
     margin-right: 14px;
   }
 
-  .header__links {
+  .header__container {
     min-width: 23px;
     justify-content:center;
   }
