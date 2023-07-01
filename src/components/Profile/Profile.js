@@ -1,3 +1,4 @@
+import Header from "../Header/Header.js";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -42,6 +43,7 @@ function Profile({ onUpdateProfile }) {
 
   return (
     <main className="profile">
+      <Header className="header" />
       <div className="profile__info">
         <h1 className="profile__header">Привет, {name}!</h1>
         <form onSubmit={handleSubmit}>

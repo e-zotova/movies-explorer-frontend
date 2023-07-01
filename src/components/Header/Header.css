@@ -10,12 +10,12 @@
   background-color: #fafafa;
 }
 
-.header__hide {
-  display: none;
-}
-
 .header_landing {
   background-color: #dddee3;
+}
+
+.header_profile {
+  background-color: #fff;
 }
 
 /* logo */

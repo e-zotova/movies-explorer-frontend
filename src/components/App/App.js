@@ -1,7 +1,6 @@
 import { useState } from "react";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Header from "../Header/Header.js";
 import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import Movies from "../Movies/Movies.js";
@@ -42,7 +41,6 @@ function App() {
   return (
     <div className="content">
       <CurrentUserContext.Provider value={currentUser}>
-        <Header className="header" />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/movies" element={<Movies />} />

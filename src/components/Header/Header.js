@@ -18,13 +18,7 @@ function Header() {
     <header
       className={`header
       ${pathname === "/" ? "header_landing" : ""}
-      ${
-        pathname === "/signin" ||
-        pathname === "/signup" ||
-        pathname === "/page-not-found"
-          ? "header__hide"
-          : ""
-      }`}
+      ${pathname === "/profile" ? "header_profile" : ""}`}
     >
       <Link to="/">
         <img

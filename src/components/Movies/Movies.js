@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Header from "../Header/Header.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
@@ -13,6 +14,7 @@ function Movies() {
 
   return (
     <main className="movies">
+      <Header className="header" />
       <SearchForm preloader={preloader} setPreloader={setPreloader} />
       {preloader && <Preloader />}
       {!preloader && (
