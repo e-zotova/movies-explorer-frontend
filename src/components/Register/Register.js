@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import headerLogo from "../../images/header-logo.svg";
 
 function Register({ onRegister }) {
@@ -34,11 +35,13 @@ function Register({ onRegister }) {
   return (
     <main className="auth">
       <header className="auth__header">
+      <Link to="/">
         <img
-          className="header__logo"
+          className="button logo"
           src={headerLogo}
           alt="Логотип дипломного проекта"
         />
+      </Link>
       </header>
       <h1 className="auth__title">Добро пожаловать!</h1>
       <form className={`auth__form`} onSubmit={onSubmit}>
@@ -77,7 +80,7 @@ function Register({ onRegister }) {
         <span className="auth__error">{errorMessage}</span>
         <button
           type="submit"
-          className="button auth__save-button register__save-button"
+          className="button auth__save-button"
         >
           Зарегистрироваться
         </button>
