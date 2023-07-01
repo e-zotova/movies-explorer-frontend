@@ -71,6 +71,8 @@ function Profile({ onUpdateProfile }) {
               className="profile__text profile__input"
               defaultValue={email}
               placeholder="Почта"
+              minLength={2}
+              maxLength={30}
               onChange={handleChange}
               required
               disabled

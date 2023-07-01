@@ -15,6 +15,7 @@ function SearchForm({ preloader, setPreloader }) {
           type="text"
           placeholder="Фильм"
           className="search-form__input"
+          required
         ></input>
         <button type="submit" className="button search-form__button"></button>
         <div className="vertical-divider"></div>

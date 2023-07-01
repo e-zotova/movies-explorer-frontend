@@ -52,8 +52,11 @@ function Register({ onRegister }) {
           type="text"
           className="input auth__input"
           placeholder="Имя"
+          minLength={2}
+          maxLength={30}
           value={formValue.name}
           onChange={handleChange}
+          required
         />
         <label className="auth__label">E-mail</label>
         <input
@@ -63,6 +66,8 @@ function Register({ onRegister }) {
           className="input auth__input"
           value={formValue.email}
           placeholder="E-mail"
+          minLength={2}
+          maxLength={30}
           onChange={handleChange}
           required
         />
@@ -72,6 +77,8 @@ function Register({ onRegister }) {
           name="password"
           type="password"
           className="input auth__input"
+          minLength={8}
+          maxLength={20}
           value={formValue.password}
           placeholder="Пароль"
           onChange={handleChange}

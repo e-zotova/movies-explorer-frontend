@@ -33,7 +33,7 @@
 }
 
 .search-form__input:focus {
-  outline: #fff;
+  border: 1px solid #3456F3;
 }
 
 .search-form__button {

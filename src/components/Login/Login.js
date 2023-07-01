@@ -50,6 +50,8 @@ function Login({ onLogin }) {
           className="input auth__input"
           value={formValue.email}
           placeholder="E-mail"
+          minLength={2}
+          maxLength={30}
           onChange={handleChange}
           required
         />
@@ -61,6 +63,8 @@ function Login({ onLogin }) {
           className="input auth__input"
           value={formValue.password}
           placeholder="Пароль"
+          minLength={8}
+          maxLength={20}
           onChange={handleChange}
           required
         />
