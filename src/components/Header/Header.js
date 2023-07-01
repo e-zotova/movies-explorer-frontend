@@ -17,8 +17,7 @@ function Header() {
   return (
     <header
       className={`header
-      ${pathname === "/" ? "header_landing" : ""}
-      ${pathname === "/profile" ? "header_profile" : ""}`}
+      ${pathname === "/" ? "header_landing" : ""}`}
     >
       <Link to="/">
         <img
@@ -69,10 +68,7 @@ function Header() {
               src={profileLogo}
               alt="Иконка профиля"
             />
-            <Link
-              to="/profile"
-              className="header__profile-text"
-            >
+            <Link to="/profile" className="header__profile-text">
               Аккаунт
             </Link>
           </div>

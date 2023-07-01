@@ -11,8 +11,11 @@ import Register from "../Register/Register.js";
 import PageNotFound from "../PageNotFound/PageNotFound.js";
 import ApiError from "../ApiError/ApiError.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const { pathname } = useLocation();
+
   const [currentUser, setCurrentUser] = useState({
     name: "Елена",
     email: "pochta@yandex.ru",
@@ -39,23 +42,33 @@ function App() {
   }
 
   return (
-    <div className="content">
-      <CurrentUserContext.Provider value={currentUser}>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/saved-movies" element={<SavedMovies />} />
-          <Route path="/profile" element={<Profile onUpdateProfile={onUpdateProfile} />} />
-          <Route path="/signin" element={<Login onLogin={onLogin} />} />
-          <Route
-            path="/signup"
-            element={<Register onRegister={onRegister} />}
-          />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-        <Footer className="footer" />
-        <ApiError isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
-      </CurrentUserContext.Provider>
+    <div
+      className={`page
+    ${
+      pathname === "/movies" || pathname === "/saved-movies" ? "page_grey" : ""
+    }`}
+    >
+      <div className="content">
+        <CurrentUserContext.Provider value={currentUser}>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/saved-movies" element={<SavedMovies />} />
+            <Route
+              path="/profile"
+              element={<Profile onUpdateProfile={onUpdateProfile} />}
+            />
+            <Route path="/signin" element={<Login onLogin={onLogin} />} />
+            <Route
+              path="/signup"
+              element={<Register onRegister={onRegister} />}
+            />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+          <Footer className="footer" />
+          <ApiError isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
+        </CurrentUserContext.Provider>
+      </div>
     </div>
   );
 }
