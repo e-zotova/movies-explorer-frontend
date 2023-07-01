@@ -35,7 +35,7 @@
 }
 
 /* movies button */
-.header__movies {
+.header__link {
   font-size: 13px;
   line-height: 18px;
 }
@@ -45,10 +45,8 @@
 }
 
 /* saved movies button */
-.header__saved-movies {
+.header__link:last-child {
   padding-left: 16px;
-  font-size: 13px;
-  line-height: 18px;
 }
 
 /* profile button */
@@ -104,11 +102,7 @@
     width: 40px;
   }
 
-  .header__movies {
-    display: none;
-  }
-
-  .header__saved-movies {
+  .header__link {
     display: none;
   }
 

@@ -49,14 +49,14 @@ function Header() {
           <div>
             <Link
               to="/movies"
-              className={`button header__movies
+              className={`button header__link
             ${pathname === "/movies" ? "header__selected" : ""}`}
             >
               Фильмы
             </Link>
             <Link
               to="/saved-movies"
-              className={`button header__saved-movies header__active
+              className={`button header__link
               ${pathname === "/saved-movies" ? "header__selected" : ""}`}
             >
               Сохранённые фильмы
