@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   height: min-content;
+  padding-bottom: 16px;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -35,6 +36,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 220px;
+  padding-top: 17px;
 }
 
 .profile__error {
@@ -109,13 +111,11 @@
   }
 
   .profile__name-container {
-    padding-left: 30px;
-    padding-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .profile__email-container {
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-bottom: 379px;
+    margin: 0 30px 379px;
   }
 }
