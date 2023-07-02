@@ -62,7 +62,6 @@ function Profile({ onUpdateProfile }) {
               disabled
             ></input>
           </div>
-          <div className="dividing-line profile__dividing-line"></div>
           <div className="profile__email-container">
             <label className="profile__text profile__email-label">Email</label>
             <input

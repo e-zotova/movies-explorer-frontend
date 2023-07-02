@@ -4,7 +4,6 @@ function Techs() {
   return (
     <section id="techs" className="techs">
       <h2 className="techs__header">Технологии</h2>
-      <div className="dividing-line"></div>
       <div className="techs__description">
         <h3 className="techs__subheader">7 технологий</h3>
         <p className="techs__text">

@@ -10,6 +10,7 @@
   font-weight: 400;
   line-height: 27px;
   letter-spacing: -0.04em;
+  border-bottom: 1px solid #000;
 }
 
 .about-me__container {

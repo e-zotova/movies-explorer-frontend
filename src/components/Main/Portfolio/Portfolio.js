@@ -16,7 +16,6 @@ function Portfolio() {
             <div className="portfolio__link"></div>
           </a>
         </li>
-        <div className="dividing-line portfolio__dividing-line"></div>
         <li>
           <a
             href="https://github.com/e-zotova/russian-travel"
@@ -28,7 +27,6 @@ function Portfolio() {
             <div className="portfolio__link"></div>
           </a>
         </li>
-        <div className="dividing-line portfolio__dividing-line"></div>
         <li>
           <a
             href="https://github.com/e-zotova/react-mesto-api-full-gha"

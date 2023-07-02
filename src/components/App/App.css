@@ -38,12 +38,6 @@
   border: none;
 }
 
-.dividing-line {
-  height: 1px;
-  background: black;
-  max-width: 1140px;
-}
-
 .vertical-divider {
   width: 1px;
   background: black;

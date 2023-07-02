@@ -22,17 +22,13 @@
   display: flex;
   justify-content: space-between;
   height: min-content;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .profile__input {
   border: none;
   text-align: right;
   background-color: transparent;
-}
-
-.profile__dividing-line {
-  background-color: #e8e8e8;
-  margin: 17px 0;
 }
 
 .profile__email-container {
@@ -115,10 +111,6 @@
   .profile__name-container {
     padding-left: 30px;
     padding-right: 30px;
-  }
-
-  .profile__dividing-line {
-    margin: 15px 30px;
   }
 
   .profile__email-container {

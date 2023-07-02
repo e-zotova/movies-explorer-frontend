@@ -5,7 +5,6 @@ function AboutMe() {
   return (
     <section id="about-me" className="about-me">
       <h2 className="about-me__header">Студент</h2>
-      <div className="dividing-line"></div>
       <div className="about-me__container">
         <div className="about-me__description">
           <div>

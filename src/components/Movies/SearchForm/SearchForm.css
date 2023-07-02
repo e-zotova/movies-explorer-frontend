@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 67px 70px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .search-form__box {
@@ -66,10 +67,6 @@
   .search-form__input {
     max-width: 340px;
   }
-
-  .search-form__dividing-line {
-    margin-top: 109px;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -94,9 +91,5 @@
     font-size: 14px;
     line-height: 20px;
     padding: 0;
-  }
-
-  .search-form__dividing-line {
-    margin-top: 44px;
   }
 }

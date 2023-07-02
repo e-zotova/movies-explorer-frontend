@@ -10,6 +10,7 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 20px;
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .portfolio__list {
@@ -26,11 +27,6 @@
   font-weight: 400;
   line-height: 50px;
   letter-spacing: -0.04em;
-}
-
-.portfolio__dividing-line {
-  background: #e8e8e8;
-  margin: 20px 0;
 }
 
 .portfolio__link {
@@ -63,10 +59,6 @@
   .portfolio__site {
     font-size: 18px;
     line-height: 28px;
-  }
-
-  .portfolio__dividing-line {
-    margin: 19px 0;
   }
 
   .portfolio__link {

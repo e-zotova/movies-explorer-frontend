@@ -4,7 +4,6 @@ function Footer() {
       <p className="footer__text">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </p>
-      <div className="dividing-line footer__dividing-line"></div>
       <div className="footer__info">
         <p className="footer__copyright">&copy; 2023</p>
         <ul className="footer__links">
