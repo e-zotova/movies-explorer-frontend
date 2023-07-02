@@ -49,11 +49,11 @@
   background: black;
   height: 40px;
   background: #cbcbcb;
-  margin: 0 29px 0 19px;
+  margin: 0 30px 0 18px;
 }
 
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 600px) {
   .vertical-divider {
     display: none;
   }
