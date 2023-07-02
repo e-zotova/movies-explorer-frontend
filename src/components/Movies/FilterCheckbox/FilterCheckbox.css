@@ -62,7 +62,7 @@
   display: none;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 740px) {
   .filter-checkbox_browser {
     display: none;
   }

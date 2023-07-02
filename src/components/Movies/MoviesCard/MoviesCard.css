@@ -11,7 +11,7 @@
 }
 
 .movies-card__description {
-  padding: 10px 16px 14px;
+  padding: 10px 14px 16px;
 }
 
 .movies-card__item {
@@ -75,13 +75,22 @@
     width: 339px;
   }
 
+  .movies-card__description {
+    padding-top: 8px;
+    padding-bottom: 14px;
+  }
+
   .movies-card__image {
     width: 339px;
     height: 190px;
   }
+
+  .movies-card__duration {
+    padding-top: 6px;
+  }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 740px) {
   .movies-card {
     width: 300px;
   }
@@ -92,7 +101,7 @@
   }
 
   .movies-card__description {
-    padding: 5px 10px 0 15px;
+    padding: 7px 10px 14px;
   }
 
   .movies-card__name {

@@ -27,7 +27,7 @@
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 740px) {
   .movies-card-list {
     grid-template-columns: 300px;
     padding: 40px 10px 26px;
