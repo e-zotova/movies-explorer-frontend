@@ -2,7 +2,7 @@ import React from "react";
 
 function Techs() {
   return (
-    <div id="techs"  className="techs">
+    <section id="techs" className="techs">
       <h2 className="techs__header">Технологии</h2>
       <div className="dividing-line"></div>
       <div className="techs__description">
@@ -21,7 +21,7 @@ function Techs() {
         <div className="techs__stack-element">Express.js</div>
         <div className="techs__stack-element">mongoDB</div>
       </div>
-    </div>
+    </section>
   );
 }
 

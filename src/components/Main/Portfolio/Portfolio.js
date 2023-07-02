@@ -2,7 +2,7 @@ import React from "react";
 
 function Portfolio() {
   return (
-    <div className="portfolio">
+    <section className="portfolio">
       <h2 className="portfolio__header">Портфолио</h2>
       <div className="portfolio__container">
         <a
@@ -37,7 +37,7 @@ function Portfolio() {
           <div className="portfolio__link"></div>
         </a>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutProject() {
   return (
-    <div id="about-project" className="about-project">
+    <section id="about-project" className="about-project">
       <h2 className="about-project__header">О проекте</h2>
       <div className="dividing-line"></div>
       <div className="about-project__description">
@@ -35,7 +35,7 @@ function AboutProject() {
           <div className="about-project__weeks-text">Front-end</div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

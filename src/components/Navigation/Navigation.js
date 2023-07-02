@@ -35,7 +35,7 @@ function Navigation({ isBurgerMenuOpen }) {
                 Сохранённые фильмы
               </Link>
             </div>
-            <button className="button navigation__profile-button">
+            <button type="button" className="button navigation__profile-button">
               <img
                 className="navigation__profile-logo"
                 src={profileLogo}
