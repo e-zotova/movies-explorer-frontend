@@ -15,7 +15,6 @@
 .about-me__container {
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
   margin-top: 66px;
 }
 
@@ -122,7 +121,7 @@
 
   .about-me__container {
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-top: 60px;
   }
 
