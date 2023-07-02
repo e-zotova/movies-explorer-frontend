@@ -62,7 +62,6 @@
 @media screen and (max-width: 1220px) {
   .movies-card {
     width: 339px;
-    height: 262px;
   }
 
   .movies-card__image {
@@ -74,7 +73,6 @@
 @media screen and (max-width: 768px) {
   .movies-card {
     width: 339px;
-    height: 262px;
   }
 
   .movies-card__image {
@@ -83,10 +81,9 @@
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 750px) {
   .movies-card {
     width: 300px;
-    height: 237px;
   }
 
   .movies-card__image {

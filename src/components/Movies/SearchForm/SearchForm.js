@@ -22,7 +22,6 @@ function SearchForm({ preloader, setPreloader }) {
         <FilterCheckbox className="filter-checkbox_browser" />
       </form>
       <FilterCheckbox className="filter-checkbox_mobile" />
-      <div className="dividing-line search-form__dividing-line"></div>
     </section>
   );
 }

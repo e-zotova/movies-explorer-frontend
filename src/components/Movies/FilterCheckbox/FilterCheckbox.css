@@ -1,5 +1,6 @@
 .filter-checkbox {
   display: flex;
+  gap: 14px;
 }
 
 .filter-checkbox__switch {
@@ -51,7 +52,6 @@
   margin: 0;
   font-size: 13px;
   line-height: 18px;
-  padding-left: 14px;
 }
 
 .filter-checkbox_browser {
@@ -62,7 +62,7 @@
   display: none;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 750px) {
   .filter-checkbox_browser {
     display: none;
   }

@@ -1,4 +1,6 @@
 .page {
+  min-width: 320px;
+  max-width: 1280px;
   background-color: #fff;
 }
 
@@ -11,8 +13,6 @@
   flex-direction: column;
   margin: 0 auto;
   color: black;
-  min-width: 320px;
-  max-width: 1280px;
   min-height: 100vh;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
@@ -49,16 +49,11 @@
   background: black;
   height: 40px;
   background: #cbcbcb;
-  margin: 0 26px 0 16px;
+  margin: 0 29px 0 19px;
 }
 
-@media screen and (max-width: 1000px) {
-  .vertical-divider {
-    margin-right: 19px;
-  }
-}
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 750px) {
   .vertical-divider {
     display: none;
   }
