@@ -28,9 +28,13 @@
 .footer__links {
   display: flex;
   gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footer__copyright {
+  margin: 0;
   font-size: 13px;
   line-height: 16px;
 }

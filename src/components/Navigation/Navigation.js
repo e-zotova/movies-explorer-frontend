@@ -9,32 +9,38 @@ function Navigation({ isBurgerMenuOpen }) {
       {isBurgerMenuOpen && (
         <div className="navigation__overlay">
           <div className="navigation__panel">
-            <div className="navigation__links">
-              <Link
-                to="/"
-                type="button"
-                className={`button navigation__link
+            <ul className="navigation__links">
+              <li>
+                <Link
+                  to="/"
+                  type="button"
+                  className={`button navigation__link
             ${pathname === "/" ? "navigation__link_active" : ""}`}
-              >
-                Главная
-              </Link>
-              <Link
-                to="/movies"
-                type="button"
-                className={`button navigation__link
+                >
+                  Главная
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/movies"
+                  type="button"
+                  className={`button navigation__link
               ${pathname === "/movies" ? "navigation__link_active" : ""}`}
-              >
-                Фильмы
-              </Link>
-              <Link
-                to="/saved-movies"
-                type="button"
-                className={`button navigation__link
+                >
+                  Фильмы
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/saved-movies"
+                  type="button"
+                  className={`button navigation__link
               ${pathname === "/saved-movies" ? "navigation__link_active" : ""}`}
-              >
-                Сохранённые фильмы
-              </Link>
-            </div>
+                >
+                  Сохранённые фильмы
+                </Link>
+              </li>
+            </ul>
             <button type="button" className="button navigation__profile-button">
               <img
                 className="navigation__profile-logo"

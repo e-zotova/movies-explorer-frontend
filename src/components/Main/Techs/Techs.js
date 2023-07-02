@@ -12,15 +12,15 @@ function Techs() {
           дипломном проекте.
         </p>
       </div>
-      <div className="techs__stack">
-        <div className="techs__stack-element">HTML</div>
-        <div className="techs__stack-element">CSS</div>
-        <div className="techs__stack-element">JS</div>
-        <div className="techs__stack-element">React</div>
-        <div className="techs__stack-element">Git</div>
-        <div className="techs__stack-element">Express.js</div>
-        <div className="techs__stack-element">mongoDB</div>
-      </div>
+      <ul className="techs__stack">
+        <li className="techs__stack-element">HTML</li>
+        <li className="techs__stack-element">CSS</li>
+        <li className="techs__stack-element">JS</li>
+        <li className="techs__stack-element">React</li>
+        <li className="techs__stack-element">Git</li>
+        <li className="techs__stack-element">Express.js</li>
+        <li className="techs__stack-element">mongoDB</li>
+      </ul>
     </section>
   );
 }

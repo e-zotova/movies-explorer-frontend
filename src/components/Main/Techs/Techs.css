@@ -40,9 +40,12 @@
   justify-content: center;
   grid-template-columns: repeat(7, 90px);
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .techs__stack-element {
+  list-style: none;
   border-radius: 10px;
   text-align: center;
   padding: 21px 0 22px;

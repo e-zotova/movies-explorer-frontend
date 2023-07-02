@@ -46,22 +46,26 @@ function Header() {
             onClick={handleBurgerMenuClick}
           />
           <Navigation isBurgerMenuOpen={isBurgerMenuOpen} />
-          <div className="header__links">
-            <Link
-              to="/movies"
-              className={`button header__link
+          <ul className="header__links">
+            <li>
+              <Link
+                to="/movies"
+                className={`button header__link
             ${pathname === "/movies" ? "header__selected" : ""}`}
-            >
-              Фильмы
-            </Link>
-            <Link
-              to="/saved-movies"
-              className={`button header__link
+              >
+                Фильмы
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/saved-movies"
+                className={`button header__link
               ${pathname === "/saved-movies" ? "header__selected" : ""}`}
-            >
-              Сохранённые фильмы
-            </Link>
-          </div>
+              >
+                Сохранённые фильмы
+              </Link>
+            </li>
+          </ul>
           <div className="button header__profile-button">
             <img
               className="header__profile-logo"
