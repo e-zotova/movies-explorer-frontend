@@ -61,7 +61,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
             />
           )}
         </div>
-        <div className="movies-card__duration">{movie.duration}</div>
+        <p className="movies-card__duration">{movie.duration}</p>
       </div>
     </li>
   );
