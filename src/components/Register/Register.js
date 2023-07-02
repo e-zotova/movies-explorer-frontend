@@ -33,7 +33,7 @@ function Register({ onRegister }) {
   };
 
   return (
-    <main className="auth">
+    <section className="auth">
       <header className="auth__header">
       <Link to="/">
         <img
@@ -98,7 +98,7 @@ function Register({ onRegister }) {
           </Link>
         </span>
       </form>
-    </main>
+    </section>
   );
 }
 

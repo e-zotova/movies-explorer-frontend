@@ -2,9 +2,9 @@ import { useNavigate } from "react-router-dom";
 
 function PageNotFound() {
   const navigate = useNavigate();
-  
+
   return (
-    <main className="page-not-found">
+    <section className="page-not-found">
       <h1 className="page-not-found__error-code">404</h1>
       <h2 className="page-not-found__error-name">Страница не найдена</h2>
       <button
@@ -14,7 +14,7 @@ function PageNotFound() {
       >
         Назад
       </button>
-    </main>
+    </section>
   );
 }
 

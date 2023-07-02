@@ -30,7 +30,7 @@ function Login({ onLogin }) {
   };
 
   return (
-    <main className="auth">
+    <section className="auth">
       <header className="auth__header">
         <Link to="/">
           <img
@@ -79,7 +79,7 @@ function Login({ onLogin }) {
           </Link>
         </span>
       </form>
-    </main>
+    </section>
   );
 }
 

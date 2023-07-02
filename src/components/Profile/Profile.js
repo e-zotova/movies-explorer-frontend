@@ -42,7 +42,7 @@ function Profile({ onUpdateProfile }) {
   }
 
   return (
-    <main className="profile">
+    <section className="profile">
       <Header className="header" />
       <div className="profile__info">
         <h1 className="profile__header">Привет, {name}!</h1>
@@ -104,7 +104,7 @@ function Profile({ onUpdateProfile }) {
           </div>
         </form>
       </div>
-    </main>
+    </section>
   );
 }
 
