@@ -6,7 +6,7 @@ function NavTab() {
       <ul className="navtab__list">
         <li className="navtab__list-item">
           <a href="#about-project" className="button navtab__link">
-            О&nbsp;проекте
+            О проекте
           </a>
         </li>
         <li className="navtab__list-item">

@@ -32,13 +32,13 @@ function Login({ onLogin }) {
   return (
     <main className="auth">
       <header className="auth__header">
-      <Link to="/">
-        <img
-          className="button logo"
-          src={headerLogo}
-          alt="Логотип дипломного проекта"
-        />
-      </Link>
+        <Link to="/">
+          <img
+            className="button logo"
+            src={headerLogo}
+            alt="Логотип дипломного проекта"
+          />
+        </Link>
       </header>
       <h1 className="auth__title">Рады видеть!</h1>
       <form className={`auth__form`} onSubmit={onSubmit}>
@@ -74,9 +74,9 @@ function Login({ onLogin }) {
         </button>
         <span className="auth__switch-label">
           Ещё не зарегистрированы?
-          <a className="button auth__switch-button" href="/signup">
+          <Link className="button auth__switch-button" to="/signup">
             Регистрация
-          </a>
+          </Link>
         </span>
       </form>
     </main>

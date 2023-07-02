@@ -28,6 +28,8 @@
   color: #3456f3;
   text-align: center;
   font-size: 14px;
+  border: none;
+  background: transparent;
 }
 
 @media screen and (max-width: 768px) {

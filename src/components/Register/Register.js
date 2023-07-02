@@ -93,9 +93,9 @@ function Register({ onRegister }) {
         </button>
         <span className="auth__switch-label">
           Уже зарегистрированы?
-          <a className="button auth__switch-button" href="/signin">
+          <Link className="button auth__switch-button" to="/signin">
             Войти
-          </a>
+          </Link>
         </span>
       </form>
     </main>
