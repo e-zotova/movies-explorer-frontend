@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "../Header/Header.js";
+import Footer from "../Footer/Footer.js";
 import Promo from './Promo/Promo.js';
 import NavTab from './NavTab/NavTab.js';
 import AboutProject from './AboutProject/AboutProject.js';
@@ -18,6 +19,7 @@ function Main() {
       <Techs />
       <AboutMe />
       <Portfolio />
+      <Footer className="footer" />
     </main>
   );
 }

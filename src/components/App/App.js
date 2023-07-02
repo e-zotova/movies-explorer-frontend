@@ -2,7 +2,6 @@ import { useState } from "react";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Main from "../Main/Main.js";
-import Footer from "../Footer/Footer.js";
 import Movies from "../Movies/Movies.js";
 import SavedMovies from "../SavedMovies/SavedMovies.js";
 import Profile from "../Profile/Profile.js";
@@ -65,7 +64,6 @@ function App() {
             />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-          <Footer className="footer" />
           <ApiError isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
         </CurrentUserContext.Provider>
       </div>

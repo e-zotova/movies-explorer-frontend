@@ -1,18 +1,7 @@
-import { useLocation } from "react-router-dom";
-
 function Footer() {
-  const { pathname } = useLocation();
 
   return (
-    <footer
-      className={`footer ${
-        pathname === "/" ||
-        pathname === "/movies" ||
-        pathname === "/saved-movies"
-          ? "footer_show"
-          : ""
-      }`}
-    >
+    <footer className="footer">
       <p className="footer__text">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </p>

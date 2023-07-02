@@ -1,9 +1,9 @@
-.saved-movies {
-  padding-bottom: 240px;
+.footer {
+  padding-top: 240px;
 }
 
 @media screen and (max-width: 768px) {
-  .saved-movies {
-    padding-bottom: 140px;
+  .footer {
+    padding-top: 140px;
   }
 }

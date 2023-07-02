@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Header from "../Header/Header.js";
+import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
@@ -27,6 +28,7 @@ function Movies() {
           </div>
         </div>
       )}
+      <Footer className="footer" />
     </main>
   );
 }
