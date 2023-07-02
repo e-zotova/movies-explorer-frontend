@@ -14,7 +14,10 @@
 }
 
 .portfolio__list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
+  gap: 40px;
   margin: 0;
   padding: 0;
 }

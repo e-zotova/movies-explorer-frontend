@@ -6,6 +6,7 @@
 
 .footer__text {
   margin: 0;
+  padding-bottom: 20px;
   text-align: center;
   font-size: 13px;
   font-weight: 400;
@@ -19,6 +20,7 @@
   justify-content: space-between;
   font-size: 13px;
   line-height: 16px;
+  padding-top: 20px;
 }
 
 .footer__links {
