@@ -29,14 +29,8 @@
 
 @media screen and (max-width: 750px) {
   .movies-card-list {
-    grid-template-columns: 320px;
+    grid-template-columns: 300px;
     padding: 40px 10px 26px;
     gap: 14px;
-  }
-}
-
-@media screen and (max-width: 340px) {
-  .movies-card-list {
-    justify-content: normal;
   }
 }
