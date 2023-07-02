@@ -18,7 +18,6 @@ function SearchForm({ preloader, setPreloader }) {
           required
         ></input>
         <button type="submit" className="button search-form__button"></button>
-        <div className="vertical-divider"></div>
         <FilterCheckbox className="filter-checkbox_browser" />
       </form>
       <FilterCheckbox className="filter-checkbox_mobile" />

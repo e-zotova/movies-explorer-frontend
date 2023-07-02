@@ -1,4 +1,5 @@
 .filter-checkbox {
+  margin-left: 29px;
   display: flex;
   gap: 14px;
 }
@@ -63,6 +64,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .filter-checkbox {
+    margin-left: 0;
+  }
+  
   .filter-checkbox_browser {
     display: none;
   }

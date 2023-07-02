@@ -37,18 +37,3 @@
   cursor: pointer;
   border: none;
 }
-
-.vertical-divider {
-  width: 1px;
-  background: black;
-  height: 40px;
-  background: #cbcbcb;
-  margin: 0 30px 0 18px;
-}
-
-
-@media screen and (max-width: 600px) {
-  .vertical-divider {
-    display: none;
-  }
-}
