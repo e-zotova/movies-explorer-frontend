@@ -14,22 +14,24 @@ function Movies() {
   }
 
   return (
-    <main className="movies">
+    <>
       <Header className="header" />
-      <SearchForm preloader={preloader} setPreloader={setPreloader} />
-      {preloader && <Preloader />}
-      {!preloader && (
-        <div>
-          <MoviesCardList movies={moviesList} onMovieSave={onMovieSave} />
-          <div className="movies__more">
-            <button type="button" className="button movies__more-button">
-              Ещё
-            </button>
+      <main className="movies">
+        <SearchForm preloader={preloader} setPreloader={setPreloader} />
+        {preloader && <Preloader />}
+        {!preloader && (
+          <div>
+            <MoviesCardList movies={moviesList} onMovieSave={onMovieSave} />
+            <div className="movies__more">
+              <button type="button" className="button movies__more-button">
+                Ещё
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </main>
       <Footer className="footer" />
-    </main>
+    </>
   );
 }
 

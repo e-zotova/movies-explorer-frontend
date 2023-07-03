@@ -14,18 +14,20 @@ function SavedMovies() {
   }
 
   return (
-    <main className="saved-movies">
+    <>
       <Header className="header" />
-      <SearchForm preloader={preloader} setPreloader={setPreloader} />
-      {preloader && <Preloader />}
-      {!preloader && (
-        <MoviesCardList
-          movies={savedMoviesList}
-          onMovieRemove={onMovieRemove}
-        />
-      )}
+      <main className="saved-movies">
+        <SearchForm preloader={preloader} setPreloader={setPreloader} />
+        {preloader && <Preloader />}
+        {!preloader && (
+          <MoviesCardList
+            movies={savedMoviesList}
+            onMovieRemove={onMovieRemove}
+          />
+        )}
+      </main>
       <Footer className="footer" />
-    </main>
+    </>
   );
 }
 
