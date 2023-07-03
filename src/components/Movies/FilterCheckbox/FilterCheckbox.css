@@ -63,11 +63,17 @@
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  .filter-checkbox {
+    margin-left: 25px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .filter-checkbox {
     margin-left: 0;
   }
-  
+
   .filter-checkbox_browser {
     display: none;
   }
