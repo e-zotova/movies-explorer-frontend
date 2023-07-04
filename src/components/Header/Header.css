@@ -100,6 +100,10 @@
     width: 55px;
   }
 
+.header__auth {
+  margin-right: 19px;
+}
+
   .header__link {
     display: none;
   }
@@ -145,6 +149,7 @@
 
   .header__auth {
     gap: 14px;
+    margin-right: 5px;
   }
 
   .header__burgermenu-button {

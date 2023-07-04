@@ -41,12 +41,7 @@ function App() {
   }
 
   return (
-    <div
-      className={`page
-    ${
-      pathname === "/movies" || pathname === "/saved-movies" ? "page_grey" : ""
-    }`}
-    >
+    <div className="page">
       <div className="content">
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
