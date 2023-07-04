@@ -66,16 +66,14 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div className="button header__profile-button">
-            <img
-              className="header__profile-logo"
-              src={profileLogo}
-              alt="Иконка профиля"
-            />
-            <Link to="/profile" className="header__profile-text">
-              Аккаунт
+            <Link to="/profile" className="header__profile-button">
+              <img
+                className="header__profile-logo"
+                src={profileLogo}
+                alt="Иконка профиля"
+              />
+               Аккаунт
             </Link>
-          </div>
         </nav>
       )}
     </header>

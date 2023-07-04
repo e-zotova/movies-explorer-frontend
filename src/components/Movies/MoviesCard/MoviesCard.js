@@ -29,7 +29,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
         <img
           className="movies-card__image"
           src={movie.image}
-          alt={movie.nameRU}
+          alt={movie.name}
         />
       </a>
       <div className="movies-card__description">

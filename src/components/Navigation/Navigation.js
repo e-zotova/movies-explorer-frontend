@@ -13,7 +13,6 @@ function Navigation({ isBurgerMenuOpen }) {
               <li>
                 <Link
                   to="/"
-                  type="button"
                   className={`button navigation__link
             ${pathname === "/" ? "navigation__link_active" : ""}`}
                 >
@@ -23,7 +22,6 @@ function Navigation({ isBurgerMenuOpen }) {
               <li>
                 <Link
                   to="/movies"
-                  type="button"
                   className={`button navigation__link
               ${pathname === "/movies" ? "navigation__link_active" : ""}`}
                 >
@@ -33,7 +31,6 @@ function Navigation({ isBurgerMenuOpen }) {
               <li>
                 <Link
                   to="/saved-movies"
-                  type="button"
                   className={`button navigation__link
               ${pathname === "/saved-movies" ? "navigation__link_active" : ""}`}
                 >
@@ -41,16 +38,14 @@ function Navigation({ isBurgerMenuOpen }) {
                 </Link>
               </li>
             </ul>
-            <button type="button" className="button navigation__profile-button">
+            <Link to="/profile" className="navigation__profile-button">
               <img
                 className="navigation__profile-logo"
                 src={profileLogo}
                 alt="Иконка профиля"
               />
-              <Link to="/profile" className="navigation__profile-text">
-                Аккаунт
-              </Link>
-            </button>
+              Аккаунт
+            </Link>
           </div>
         </div>
       )}
