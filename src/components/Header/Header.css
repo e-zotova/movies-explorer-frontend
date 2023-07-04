@@ -1,0 +1,164 @@
+/* header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1140px;
+  padding: 18px 70px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.header_landing {
+  background-color: #dddee3;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__signin {
+  color: white;
+  padding: 8px 20px;
+  background-color: #3456f3;
+  border-radius: 3px;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 91%;
+  max-width: 1100px;
+}
+
+.header__links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+/* movies button */
+.header__link {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.header__selected {
+  font-weight: 500;
+}
+
+.header__profile-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 96px;
+  height: 28px;
+  border: 2px solid rgba(170, 170, 170, 0.2);
+  border-radius: 50px;
+  background: transparent;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #000;
+}
+
+.header__profile-button:hover {
+  cursor: pointer;
+}
+
+.header__profile-logo {
+  width: 12px;
+  height: 14px;
+}
+
+.header__burgermenu-button {
+  display: none;
+}
+
+.header__close-button {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 768px;
+    padding: 15px 15px 15px 25px;
+  }
+
+  .header__selected {
+    font-weight: 400;
+  }
+
+  .header__container {
+    width: 55px;
+  }
+
+.header__auth {
+  margin-right: 19px;
+}
+
+  .header__link {
+    display: none;
+  }
+
+  .header__profile-button {
+    display: none;
+  }
+
+  .header__burgermenu-button {
+    display: block;
+    background: no-repeat center url(../../images/burger-button.svg);
+    width: 40px;
+    height: 44px;
+    border: none;
+  }
+
+  .header__close-button {
+    display: flex;
+    background: no-repeat center url(../../images/close-burger-button.svg);
+    width: 44px;
+    height: 44px;
+    border: none;
+    z-index: 10;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 320px;
+    padding: 15px 10px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__signin {
+    padding: 5px 12px;
+  }
+
+  .header__container {
+    justify-content: flex-end;
+  }
+
+  .header__auth {
+    gap: 14px;
+    margin-right: 5px;
+  }
+
+  .header__burgermenu-button {
+    width: 20px;
+    height: 25px;
+  }
+
+  .header__close-button {
+    width: 22px;
+    height: 22px;
+  }
+}

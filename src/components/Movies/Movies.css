@@ -1,0 +1,25 @@
+.movies__more {
+  display: flex;
+  padding: 50px 0 80px;
+}
+
+.movies__more-button {
+  width: 320px;
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+  padding: 11px 0 9px;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  background: transparent;
+}
+
+.movies__more-button:hover {
+  border: 1px solid #e8e8e8;
+}
+
+@media screen and (max-width: 340px) {
+  .movies__more-button {
+    width: 240px;
+  }
+}
