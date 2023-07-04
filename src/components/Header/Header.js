@@ -27,7 +27,7 @@ function Header() {
         />
       </Link>
       {!loggedIn ? (
-        <div className="header__link">
+        <div className="header__auth">
           <Link to="/signup" className="button header__signup">
             Регистрация
           </Link>

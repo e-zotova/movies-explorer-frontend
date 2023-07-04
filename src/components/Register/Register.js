@@ -87,7 +87,7 @@ function Register({ onRegister }) {
         <span className="auth__error">{errorMessage}</span>
         <button
           type="submit"
-          className="button auth__save-button"
+          className="button auth__save-button register__save-button"
         >
           Зарегистрироваться
         </button>

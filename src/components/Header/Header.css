@@ -13,9 +13,10 @@
   background-color: #dddee3;
 }
 
-/* signup and signin buttons */
-.header__signup {
-  margin-right: 30px;
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .header__signin {
@@ -25,7 +26,6 @@
   border-radius: 3px;
 }
 
-/* header movie buttons*/
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -57,8 +57,8 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  width: 100px;
-  height: 32px;
+  width: 96px;
+  height: 28px;
   border: 2px solid rgba(170, 170, 170, 0.2);
   border-radius: 50px;
   background: transparent;
@@ -89,7 +89,7 @@
 @media screen and (max-width: 768px) {
   .header {
     max-width: 768px;
-    padding: 15px 25px;
+    padding: 15px 15px 15px 25px;
   }
 
   .header__selected {
@@ -97,7 +97,7 @@
   }
 
   .header__container {
-    width: 40px;
+    width: 55px;
   }
 
   .header__link {
@@ -123,6 +123,7 @@
     height: 44px;
     border: none;
     z-index: 10;
+    margin-left: 20px;
   }
 }
 
@@ -138,19 +139,17 @@
     padding: 5px 12px;
   }
 
-  .header__signup {
-    margin-right: 14px;
+  .header__container {
+    justify-content: flex-end;
   }
 
-  .header__container {
-    min-width: 23px;
-    justify-content:center;
+  .header__auth {
+    gap: 14px;
   }
 
   .header__burgermenu-button {
-    width: 35px;
-    height: 40px;
-    background-size: contain;
+    width: 20px;
+    height: 25px;
   }
 
   .header__close-button {

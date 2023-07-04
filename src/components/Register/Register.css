@@ -1,14 +1,9 @@
-.auth__save-button {
+.register__save-button {
   margin-top: 81px;
-  border-radius: 3px;
-  background: #3456f3;
-  border: none;
-  color: #fff;
-  height: 45px;
 }
 
 @media screen and (max-width: 420px) {
-  .auth__save-button {
+  .register__save-button {
     margin-top: 170px;
   }
 }

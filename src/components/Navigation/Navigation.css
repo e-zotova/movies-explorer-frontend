@@ -21,10 +21,10 @@
     flex-direction: column;
     justify-content: space-between;
     padding-top: 160px;
-    padding-bottom: 90px;
+    padding-bottom: 65px;
     background: #fafafa;
     width: 520px;
-    height: calc(100vh - 250px);
+    height: calc(100vh - 225px);
   }
 
   .navigation__links {
@@ -34,7 +34,7 @@
     flex-direction: column;
     align-items: center;
     list-style: none;
-    gap: 28px;
+    gap: 32px;
   }
 
   .navigation__link {
@@ -55,8 +55,8 @@
     align-items: center;
     justify-content: center;
     gap: 7px;
-    width: 100px;
-    height: 32px;
+    width: 96px;
+    height: 28px;
     border: 2px solid rgba(170, 170, 170, 0.2);
     border-radius: 50px;
     background: transparent;
