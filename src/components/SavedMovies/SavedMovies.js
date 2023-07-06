@@ -1,27 +1,20 @@
-import { useState } from "react";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
-import { savedMoviesList } from "../../constants/movies.js";
 
-function SavedMovies() {
-  const [preloader, setPreloader] = useState(false);
-
-  function onMovieRemove(movie) {
-    // call api
-  }
+function SavedMovies({preloader, moviesList, onGetMovies, onMovieRemove}) {
 
   return (
     <>
       <Header className="header" />
       <main className="saved-movies">
-        <SearchForm preloader={preloader} setPreloader={setPreloader} />
+        <SearchForm onGetMovies={onGetMovies} />
         {preloader && <Preloader />}
         {!preloader && (
           <MoviesCardList
-            movies={savedMoviesList}
+            moviesList={moviesList}
             onMovieRemove={onMovieRemove}
           />
         )}

@@ -1,13 +1,13 @@
 import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard.js";
 
-function MoviesCardList({ movies, onMovieSave, onMovieRemove }) {
+function MoviesCardList({ moviesList, onMovieSave, onMovieRemove }) {
   return (
     <section className="movies-section">
       <ul className="movies-card-list">
-        {movies.map((movie) => (
+        {moviesList.map((movie) => (
           <MoviesCard
-            key={movie._id}
+            key={movie.id}
             movie={movie}
             onMovieSave={onMovieSave}
             onMovieRemove={onMovieRemove}

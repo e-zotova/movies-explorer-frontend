@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
+import moviesApi from "../../../utils/MoviesApi";
 
 function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
   const { pathname } = useLocation();
+  const baseUrl = "https://api.nomoreparties.co/";
 
   const [isSaved, setIsSaved] = useState(false);
 
@@ -14,8 +16,20 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
   }
 
   function handleRemoveClick() {
-    document.querySelector('.movies-card').remove();
+    document.querySelector(".movies-card").remove();
     onMovieRemove(movie);
+  }
+
+  function setDuration(duration) {
+    let hours = Math.floor(duration / 60);
+    let minutes = duration % 60;
+    if (minutes === 0) {
+      return hours + "ч";
+    } else if (hours === 0) {
+      return minutes + "м";
+    } else {
+      return hours + "ч " + minutes + "м";
+    }
   }
 
   return (
@@ -28,13 +42,13 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
       >
         <img
           className="movies-card__image"
-          src={movie.image}
-          alt={movie.name}
+          src={`${baseUrl}${movie.image.url}`}
+          alt={movie.nameRU}
         />
       </a>
       <div className="movies-card__description">
         <div className="movies-card__item">
-          <h2 className="movies-card__name">{movie.name}</h2>
+          <h2 className="movies-card__name">{movie.nameRU}</h2>
           {pathname === "/movies" && (
             <button
               type="button"
@@ -61,7 +75,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
             />
           )}
         </div>
-        <p className="movies-card__duration">{movie.duration}</p>
+        <p className="movies-card__duration">{setDuration(movie.duration)}</p>
       </div>
     </li>
   );
