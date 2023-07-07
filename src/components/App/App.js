@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Main from "../Main/Main.js";
@@ -25,6 +25,16 @@ function App() {
 
   const [isApiErrorOpen, setApiErrorOpen] = useState(false);
 
+  useEffect(() => {
+    const tokenCheck = () => {
+      const token = localStorage.getItem("jwt");
+      if (token) {
+            handleLogin();
+      }
+    };
+    tokenCheck();
+  }, []);
+
   const handleLogin = () => {
     setLoggedIn(true);
     mainApi.getUser().then((user) => {
@@ -38,7 +48,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("jwt", data.token);
         handleLogin();
-        navigate("/");
+        navigate("/movies");
       })
       .catch(() => {
         setLoggedIn(false);
@@ -50,8 +60,7 @@ function App() {
     mainApi
       .register(name, email, password)
       .then(() => {
-        setLoggedIn(true);
-        navigate("/signin");
+        onLogin(email, password);
       })
       .catch(() => {
         setLoggedIn(false);
