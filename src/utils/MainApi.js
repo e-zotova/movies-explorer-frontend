@@ -1,3 +1,5 @@
+import { baseMainUrl } from '../constants/constants.js'
+
 const handleResponse = (res) => {
   if (res.ok) {
     return res.json();
@@ -35,7 +37,7 @@ class MainApi {
   }
 
   saveMovie(data) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
       headers: {...this._headers, "Authorization" : `Bearer ${this._getJwt()}`},
       body: JSON.stringify(data),
@@ -43,22 +45,15 @@ class MainApi {
   }
 
   unsaveMovie(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+    return fetch(`${this._baseUrl}/movies/${id}`, {
       method: "DELETE",
-      headers: {...this._headers, "Authorization" : `Bearer ${this._getJwt()}`},
-    }).then(handleResponse);
-  }
-
-  changeSaveMovieStatus(id, isLiked) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: isLiked ? "PUT" : "DELETE",
       headers: {...this._headers, "Authorization" : `Bearer ${this._getJwt()}`},
     }).then(handleResponse);
   }
 }
 
 const mainApi = new MainApi({
-  baseUrl: "http://localhost:3001",
+  baseUrl: baseMainUrl,
   headers: {
     "Content-Type": "application/json",
   },

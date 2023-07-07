@@ -2,22 +2,25 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
-import moviesApi from "../../../utils/MoviesApi";
+import { baseMoviesUrl } from '../../../constants/constants.js';
 
 function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
   const { pathname } = useLocation();
-  const baseUrl = "https://api.nomoreparties.co/";
 
   const [isSaved, setIsSaved] = useState(false);
 
   function handleSaveButtonClick() {
     setIsSaved(!isSaved);
-    onMovieSave(movie);
+    if (!isSaved){
+      onMovieSave(movie);
+    } else {
+      onMovieRemove(movie.id);
+    }
   }
 
   function handleRemoveClick() {
     document.querySelector(".movies-card").remove();
-    onMovieRemove(movie);
+    onMovieRemove(movie.id);
   }
 
   function setDuration(duration) {
@@ -42,7 +45,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
       >
         <img
           className="movies-card__image"
-          src={`${baseUrl}${movie.image.url}`}
+          src={`${baseMoviesUrl}${movie.image.url}`}
           alt={movie.nameRU}
         />
       </a>

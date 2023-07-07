@@ -1,3 +1,5 @@
+import { baseMoviesUrl } from '../constants/constants.js'
+
 const handleResponse = (res) => {
   if (res.ok) {
     return res.json();
@@ -21,7 +23,7 @@ class MoviesApi {
 }
 
 const moviesApi = new MoviesApi({
-  baseUrl: "https://api.nomoreparties.co",
+  baseUrl: baseMoviesUrl,
   headers: {
     "Content-Type": "application/json",
   },

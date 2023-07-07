@@ -12,6 +12,7 @@ import ApiError from "../ApiError/ApiError.js";
 import mainApi from "../../utils/MainApi.js";
 import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+import { baseMoviesUrl } from "../../constants/constants.js";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -47,11 +48,39 @@ function App() {
       });
   }
 
-  function onMovieSave() {
-    //
+  function onMovieSave(movie) {
+    mainApi
+      .saveMovie({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `${baseMoviesUrl}${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `${baseMoviesUrl}${movie.image.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      })
+      .then((savedMovie) => {
+        console.log(savedMovie);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  function onMovieRemove() {}
+  function onMovieRemove(id) {
+    mainApi
+      .unsaveMovie(id)
+      .then((unsavedMovie) => {
+        console.log(unsavedMovie);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   function onUpdateProfile(name, email) {
     setApiErrorOpen(!isApiErrorOpen);
@@ -75,6 +104,7 @@ function App() {
                   moviesList={moviesData}
                   onGetMovies={onGetMovies}
                   onMovieSave={onMovieSave}
+                  onMovieRemove={onMovieRemove}
                 />
               }
             />
