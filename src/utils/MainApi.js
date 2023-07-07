@@ -19,19 +19,42 @@ class MainApi {
     return localStorage.getItem('jwt');
   }
 
+  authorize(email, password) {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(handleResponse);
+  };
+
+  register(name, email, password) {
+    return fetch(`${this._baseUrl}/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, password }),
+    })
+      .then(handleResponse);
+  };
+
   getUser() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {...this._headers, "Authorization" : `Bearer ${this._getJwt()}`},
     }).then(handleResponse);
   }
 
-  setUser(data) {
+  setUser(name, email) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: {...this._headers, "Authorization" : `Bearer ${this._getJwt()}`},
       body: JSON.stringify({
-        name: data.name,
-        about: data.about,
+        name: name,
+        email: email,
       }),
     }).then(handleResponse);
   }

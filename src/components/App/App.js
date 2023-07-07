@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Main from "../Main/Main.js";
 import Movies from "../Movies/Movies.js";
 import SavedMovies from "../SavedMovies/SavedMovies.js";
@@ -15,24 +15,54 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import { baseMoviesUrl } from "../../constants/constants.js";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({
-    name: "Елена",
-    email: "pochta@yandex.ru",
-  });
+  const navigate = useNavigate();
+
+  const [currentUser, setCurrentUser] = useState({ name: "", email: "" });
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const [moviesData, setMoviesData] = useState([]);
   const [preloader, setPreloader] = useState(false);
 
   const [isApiErrorOpen, setApiErrorOpen] = useState(false);
 
+  const handleLogin = () => {
+    setLoggedIn(true);
+    mainApi.getUser().then((user) => {
+      setCurrentUser({ name: user.name, email: user.email });
+    });
+  };
+
   function onLogin(email, password) {
-    // call api
-    setApiErrorOpen(!isApiErrorOpen);
+    mainApi
+      .authorize(email, password)
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        handleLogin();
+        navigate("/");
+      })
+      .catch(() => {
+        setLoggedIn(false);
+        setApiErrorOpen(true);
+      });
   }
 
-  function onRegister(email, password) {
-    // call api
-    setApiErrorOpen(!isApiErrorOpen);
+  function onRegister(name, email, password) {
+    mainApi
+      .register(name, email, password)
+      .then(() => {
+        setLoggedIn(true);
+        navigate("/signin");
+      })
+      .catch(() => {
+        setLoggedIn(false);
+        setApiErrorOpen(true);
+      });
+  }
+
+  function onUpdateProfile(name, email) {
+    mainApi.setUser(name, email).then((user) => {
+      setCurrentUser({ name: user.name, email: user.email });
+    });
   }
 
   function onGetMovies() {
@@ -82,10 +112,6 @@ function App() {
       });
   }
 
-  function onUpdateProfile(name, email) {
-    setApiErrorOpen(!isApiErrorOpen);
-  }
-
   function closeApiErrorPopup() {
     setApiErrorOpen(!isApiErrorOpen);
   }
@@ -95,11 +121,12 @@ function App() {
       <div className="content">
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
-            <Route path="/" element={<Main />} />
+            <Route path="/" element={<Main loggedIn={loggedIn} />} />
             <Route
               path="/movies"
               element={
                 <Movies
+                  loggedIn={loggedIn}
                   preloader={preloader}
                   moviesList={moviesData}
                   onGetMovies={onGetMovies}
@@ -112,6 +139,7 @@ function App() {
               path="/saved-movies"
               element={
                 <SavedMovies
+                  loggedIn={loggedIn}
                   preloader={preloader}
                   moviesList={moviesData}
                   onGetMovies={onGetMovies}
@@ -121,7 +149,12 @@ function App() {
             />
             <Route
               path="/profile"
-              element={<Profile onUpdateProfile={onUpdateProfile} />}
+              element={
+                <Profile
+                  loggedIn={loggedIn}
+                  onUpdateProfile={onUpdateProfile}
+                />
+              }
             />
             <Route path="/signin" element={<Login onLogin={onLogin} />} />
             <Route

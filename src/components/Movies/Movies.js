@@ -5,6 +5,7 @@ import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
 
 function Movies({
+  loggedIn,
   preloader,
   moviesList,
   onGetMovies,
@@ -13,7 +14,7 @@ function Movies({
 }) {
   return (
     <>
-      <Header className="header" />
+      <Header className="header" loggedIn={loggedIn}/>
       <main className="movies">
         <SearchForm onGetMovies={onGetMovies} />
         {preloader && <Preloader />}

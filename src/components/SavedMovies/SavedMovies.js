@@ -4,11 +4,16 @@ import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
 
-function SavedMovies({preloader, moviesList, onGetMovies, onMovieRemove}) {
-
+function SavedMovies({
+  loggedIn,
+  preloader,
+  moviesList,
+  onGetMovies,
+  onMovieRemove,
+}) {
   return (
     <>
-      <Header className="header" />
+      <Header className="header" loggedIn={loggedIn} />
       <main className="saved-movies">
         <SearchForm onGetMovies={onGetMovies} />
         {preloader && <Preloader />}

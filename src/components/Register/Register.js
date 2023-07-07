@@ -28,7 +28,7 @@ function Register({ onRegister }) {
     if (!name || !email || !password) {
       setErrorMessage(emptyInputError);
     } else {
-      onRegister(email, password);
+      onRegister(name, email, password);
     }
   };
 
