@@ -32,33 +32,35 @@ function App() {
     const tokenCheck = () => {
       const token = localStorage.getItem("jwt");
       if (token) {
-        handleLogin();
+        getUser();
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
       }
     };
     tokenCheck();
   }, []);
 
-  const handleLogin = () => {
-    setLoggedIn(true);
-
+  function getUser() {
     mainApi
       .getUser()
       .then((user) => {
         setCurrentUser({ name: user.name, email: user.email });
+        setLoggedIn(true);
       })
       .catch((err) => {
         setLoggedIn(false);
         setPopupMessage(err.message);
         setPopupOpen(true);
       });
-  };
+  }
 
   function onLogin(email, password) {
     mainApi
       .authorize(email, password)
       .then((data) => {
         localStorage.setItem("jwt", data.token);
-        handleLogin();
+        getUser();
         navigate("/movies");
       })
       .catch((err) => {
