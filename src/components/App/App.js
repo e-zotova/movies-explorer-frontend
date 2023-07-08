@@ -12,6 +12,7 @@ import Popup from "../Popup/Popup.js";
 import mainApi from "../../utils/MainApi.js";
 import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
+import ProtectedRoute from "../../utils/ProtectedRoute.js";
 import {
   baseMoviesUrl,
   profileUpdateSuccess,
@@ -156,7 +157,8 @@ function App() {
             <Route
               path="/movies"
               element={
-                <Movies
+                <ProtectedRoute
+                  element={Movies}
                   loggedIn={loggedIn}
                   preloader={preloader}
                   moviesList={moviesData}
@@ -169,7 +171,8 @@ function App() {
             <Route
               path="/saved-movies"
               element={
-                <SavedMovies
+                <ProtectedRoute
+                  element={SavedMovies}
                   loggedIn={loggedIn}
                   preloader={preloader}
                   moviesList={moviesData}
@@ -181,7 +184,8 @@ function App() {
             <Route
               path="/profile"
               element={
-                <Profile
+                <ProtectedRoute
+                  element={Profile}
                   loggedIn={loggedIn}
                   onUpdateProfile={onUpdateProfile}
                 />
