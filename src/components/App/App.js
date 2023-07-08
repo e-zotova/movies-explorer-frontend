@@ -8,11 +8,15 @@ import Profile from "../Profile/Profile.js";
 import Login from "../Login/Login.js";
 import Register from "../Register/Register.js";
 import PageNotFound from "../PageNotFound/PageNotFound.js";
-import ApiError from "../ApiError/ApiError.js";
+import Popup from "../Popup/Popup.js";
 import mainApi from "../../utils/MainApi.js";
 import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import { baseMoviesUrl } from "../../constants/constants.js";
+import {
+  baseMoviesUrl,
+  profileUpdateSuccess,
+  profileUpdateFail,
+} from "../../constants/constants.js";
 
 function App() {
   const navigate = useNavigate();
@@ -23,8 +27,9 @@ function App() {
   const [moviesData, setMoviesData] = useState([]);
   const [preloader, setPreloader] = useState(false);
 
-  const [isApiErrorOpen, setApiErrorOpen] = useState(false);
-  const [apiError, setApiError] = useState("");
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [requestStatus, setRequestStatus] = useState(false);
 
   useEffect(() => {
     const tokenCheck = () => {
@@ -38,9 +43,15 @@ function App() {
 
   const handleLogin = () => {
     setLoggedIn(true);
-    mainApi.getUser().then((user) => {
-      setCurrentUser({ name: user.name, email: user.email });
-    });
+
+    mainApi
+      .getUser()
+      .then((user) => {
+        setCurrentUser({ name: user.name, email: user.email });
+      })
+      .catch((err) => {
+        setLoggedIn(false);
+      });
   };
 
   function onLogin(email, password) {
@@ -53,7 +64,7 @@ function App() {
       })
       .catch((err) => {
         setLoggedIn(false);
-        setApiError(err);
+        setPopupMessage(err);
       });
   }
 
@@ -65,7 +76,7 @@ function App() {
       })
       .catch((err) => {
         setLoggedIn(false);
-        setApiError(err);
+        setPopupMessage(err);
       });
   }
 
@@ -74,10 +85,14 @@ function App() {
       .setUser(name, email)
       .then((user) => {
         setCurrentUser({ name: user.name, email: user.email });
+        setRequestStatus(true);
+        setPopupMessage(profileUpdateSuccess);
+        setPopupOpen(true);
       })
       .catch(() => {
-        setApiError("При обновлении профиля произошла ошибка.");
-        setApiErrorOpen(true);
+        setRequestStatus(false);
+        setPopupMessage(profileUpdateFail);
+        setPopupOpen(true);
       });
   }
 
@@ -129,7 +144,7 @@ function App() {
   }
 
   function closeApiErrorPopup() {
-    setApiErrorOpen(!isApiErrorOpen);
+    setPopupOpen(!isPopupOpen);
   }
 
   return (
@@ -174,15 +189,22 @@ function App() {
             />
             <Route
               path="/signin"
-              element={<Login apiError={apiError} onLogin={onLogin} />}
+              element={<Login popupMessage={popupMessage} onLogin={onLogin} />}
             />
             <Route
               path="/signup"
-              element={<Register apiError={apiError} onRegister={onRegister} />}
+              element={
+                <Register popupMessage={popupMessage} onRegister={onRegister} />
+              }
             />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-          <ApiError apiError={apiError} isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
+          <Popup
+            requestStatus={requestStatus}
+            popupMessage={popupMessage}
+            isOpen={isPopupOpen}
+            onClose={closeApiErrorPopup}
+          />
         </CurrentUserContext.Provider>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import headerLogo from "../../images/header-logo.svg";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
-function Login({ apiError, onLogin }) {
+function Login({ popupMessage, onLogin }) {
   const { values, errors, isValid, handleChange, resetForm } =
     useFormWithValidation();
 
@@ -58,7 +58,7 @@ function Login({ apiError, onLogin }) {
           required
         />
         <span className="auth__error">{errors.password}</span>
-        <span className="auth__api-error">{apiError}</span>
+        <span className="auth__api-error">{popupMessage}</span>
         <button
           type="submit"
           className="button auth__save-button"
