@@ -14,7 +14,7 @@ import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../../utils/ProtectedRoute.js";
 import {
-  baseMoviesUrl,
+  BASE_MOVIES_URL,
   profileUpdateSuccess,
   profileUpdateFail,
 } from "../../constants/constants.js";
@@ -118,9 +118,9 @@ function App() {
         duration: movie.duration,
         year: movie.year,
         description: movie.description,
-        image: `${baseMoviesUrl}${movie.image.url}`,
+        image: `${BASE_MOVIES_URL}${movie.image.url}`,
         trailerLink: movie.trailerLink,
-        thumbnail: `${baseMoviesUrl}${movie.image.url}`,
+        thumbnail: `${BASE_MOVIES_URL}${movie.image.url}`,
         movieId: movie.id,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,

@@ -1,4 +1,4 @@
-import { baseMainUrl } from '../constants/constants.js'
+import { BASE_MAIN_URL } from '../constants/constants.js'
 
 const handleResponse = (res) => {
   if (res.ok) {
@@ -76,7 +76,7 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  baseUrl: baseMainUrl,
+  baseUrl: BASE_MAIN_URL,
   headers: {
     "Content-Type": "application/json",
   },
