@@ -1,32 +1,17 @@
-import { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import headerLogo from "../../images/header-logo.svg";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
-function Login({ onLogin }) {
-  const [formValue, setFormValue] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValue({
-      ...formValue,
-      [name]: value,
-    });
-  };
+function Login({ apiError, onLogin }) {
+  const { values, errors, isValid, handleChange, resetForm } =
+    useFormWithValidation();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { email, password } = formValue;
 
-    if (!email || !password) {
-      setErrorMessage("Имя пользователя и пароль должны быть заполнены");
-    } else {
-      onLogin(email, password);
-    }
+    onLogin(values.email, values.password);
+    resetForm();
   };
 
   return (
@@ -48,27 +33,32 @@ function Login({ onLogin }) {
           name="email"
           type="email"
           className="input auth__input"
-          value={formValue.email}
+          defaultValue={values.email}
           placeholder="E-mail"
+          pattern="[a-z0-9]+@[a-z]+.[a-z]{2,30}"
           minLength={2}
           maxLength={30}
           onChange={handleChange}
+          autoComplete="off"
           required
         />
+        <span className="auth__error">{errors.email}</span>
         <label className="auth__label">Пароль</label>
         <input
           id="password"
           name="password"
           type="password"
           className="input auth__input"
-          value={formValue.password}
+          defaultValue={values.password}
           placeholder="Пароль"
           minLength={8}
           maxLength={20}
           onChange={handleChange}
+          autoComplete="off"
           required
         />
-        <span className="auth__error">{errorMessage}</span>
+        <span className="auth__error">{errors.password}</span>
+        <span className="auth__api-error">{apiError}</span>
         <button type="submit" className="button auth__save-button">
           Войти
         </button>

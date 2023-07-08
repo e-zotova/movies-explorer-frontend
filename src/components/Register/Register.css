@@ -1,9 +1,9 @@
-.register__save-button {
-  margin-top: 81px;
+.register__api-error {
+  padding-top: 61px;
 }
 
 @media screen and (max-width: 420px) {
-  .register__save-button {
-    margin-top: 170px;
+  .register__api-error {
+    padding-top: 150px;
   }
 }

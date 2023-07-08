@@ -24,12 +24,13 @@ function App() {
   const [preloader, setPreloader] = useState(false);
 
   const [isApiErrorOpen, setApiErrorOpen] = useState(false);
+  const [apiError, setApiError] = useState("");
 
   useEffect(() => {
     const tokenCheck = () => {
       const token = localStorage.getItem("jwt");
       if (token) {
-            handleLogin();
+        handleLogin();
       }
     };
     tokenCheck();
@@ -50,9 +51,9 @@ function App() {
         handleLogin();
         navigate("/movies");
       })
-      .catch(() => {
+      .catch((err) => {
         setLoggedIn(false);
-        setApiErrorOpen(true);
+        setApiError(err);
       });
   }
 
@@ -62,9 +63,9 @@ function App() {
       .then(() => {
         onLogin(email, password);
       })
-      .catch(() => {
+      .catch((err) => {
         setLoggedIn(false);
-        setApiErrorOpen(true);
+        setApiError(err);
       });
   }
 
@@ -165,10 +166,15 @@ function App() {
                 />
               }
             />
-            <Route path="/signin" element={<Login onLogin={onLogin} />} />
+            <Route
+              path="/signin"
+              element={<Login apiError={apiError} onLogin={onLogin} />}
+            />
             <Route
               path="/signup"
-              element={<Register onRegister={onRegister} />}
+              element={
+                <Register apiError={apiError} onRegister={onRegister} />
+              }
             />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

@@ -1,5 +1,5 @@
 import Header from "../Header/Header.js";
-import { useEffect, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
