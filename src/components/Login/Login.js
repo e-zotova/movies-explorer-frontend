@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import headerLogo from "../../images/header-logo.svg";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
-function Login({ popupMessage, onLogin }) {
-  const { values, errors, isValid, handleChange, resetForm } =
+function Login({ onLogin }) {
+  const { values, errors, isValid, handleChange } =
     useFormWithValidation();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     onLogin(values.email, values.password);
-    resetForm();
   };
 
   return (
@@ -58,7 +57,6 @@ function Login({ popupMessage, onLogin }) {
           required
         />
         <span className="auth__error">{errors.password}</span>
-        <span className="auth__api-error">{popupMessage}</span>
         <button
           type="submit"
           className="button auth__save-button"

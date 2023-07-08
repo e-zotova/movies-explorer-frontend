@@ -13,11 +13,7 @@ import mainApi from "../../utils/MainApi.js";
 import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../../utils/ProtectedRoute.js";
-import {
-  BASE_MOVIES_URL,
-  profileUpdateSuccess,
-  profileUpdateFail,
-} from "../../constants/constants.js";
+import { BASE_MOVIES_URL } from "../../constants/constants.js";
 
 function App() {
   const navigate = useNavigate();
@@ -52,6 +48,8 @@ function App() {
       })
       .catch((err) => {
         setLoggedIn(false);
+        setPopupMessage(err.message);
+        setPopupOpen(true);
       });
   };
 
@@ -65,7 +63,8 @@ function App() {
       })
       .catch((err) => {
         setLoggedIn(false);
-        setPopupMessage(err);
+        setPopupMessage(err.message);
+        setPopupOpen(true);
       });
   }
 
@@ -77,7 +76,8 @@ function App() {
       })
       .catch((err) => {
         setLoggedIn(false);
-        setPopupMessage(err);
+        setPopupMessage(err.message);
+        setPopupOpen(true);
       });
   }
 
@@ -87,12 +87,12 @@ function App() {
       .then((user) => {
         setCurrentUser({ name: user.name, email: user.email });
         setRequestStatus(true);
-        setPopupMessage(profileUpdateSuccess);
+        setPopupMessage("Профиль успешно сохранен.");
         setPopupOpen(true);
       })
-      .catch(() => {
+      .catch((err) => {
         setRequestStatus(false);
-        setPopupMessage(profileUpdateFail);
+        setPopupMessage(err.message);
         setPopupOpen(true);
       });
   }

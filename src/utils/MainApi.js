@@ -1,10 +1,11 @@
 import { BASE_MAIN_URL } from '../constants/constants.js'
 
 const handleResponse = (res) => {
+  let json = res.json();
   if (res.ok) {
-    return res.json();
+    return json;
   } else {
-    return Promise.reject(`Ошибка: ${res.status}`);
+    return json.then(err => Promise.reject(err));
   }
 };
 

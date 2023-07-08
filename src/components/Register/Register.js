@@ -3,15 +3,14 @@ import { Link } from "react-router-dom";
 import headerLogo from "../../images/header-logo.svg";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
-function Register({ popupMessage, onRegister }) {
-  const { values, errors, isValid, handleChange, resetForm } =
+function Register({ onRegister }) {
+  const { values, errors, isValid, handleChange } =
     useFormWithValidation();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     onRegister(values.name, values.email, values.password);
-    resetForm();
   };
 
   return (
@@ -73,10 +72,9 @@ function Register({ popupMessage, onRegister }) {
           required
         />
         <span className="auth__error">{errors.password}</span>
-        <span className="auth__api-error register__api-error">{popupMessage}</span>
         <button
           type="submit"
-          className="button auth__save-button"
+          className="button auth__save-button register__save-button"
           disabled={!isValid}
         >
           Зарегистрироваться

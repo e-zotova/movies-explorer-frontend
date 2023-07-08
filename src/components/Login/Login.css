@@ -44,7 +44,7 @@
 }
 
 .auth__save-button {
-  margin-top: 20px;
+  margin-top: 170px;
   border-radius: 3px;
   background: #3456f3;
   border: none;
@@ -69,13 +69,6 @@
 .auth__switch-button {
   color: #3456f3;
   padding-left: 6px;
-}
-
-.auth__api-error {
-  text-align: center;
-  padding-top: 150px;
-  color: #ff004c;
-  font-size: 11px;
 }
 
 @media screen and (max-width: 768px) {
@@ -104,10 +97,6 @@
   .auth__save-button {
     font-size: 10px;
     font-weight: 500;
-  }
-
-  .auth__api-error {
-    padding-top: 240px;
   }
 
   .auth__register-label {
