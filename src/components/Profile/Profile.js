@@ -15,7 +15,7 @@ function Profile({ loggedIn, onUpdateProfile }) {
 
   useEffect(() => {
     resetForm({ name, email });
-  }, [name, email, resetForm]);
+  }, [name, email, resetForm, isProfileEditing]);
 
   function editProfile() {
     setisProfileEditing(!isProfileEditing);
