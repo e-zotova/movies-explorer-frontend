@@ -69,6 +69,13 @@
   width: 100%;
 }
 
+.profile__save-button:disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  opacity: 1;
+  cursor: default;
+}
+
 .profile__button {
   max-width: 410px;
   border: none;

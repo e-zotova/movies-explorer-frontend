@@ -70,9 +70,15 @@ function App() {
   }
 
   function onUpdateProfile(name, email) {
-    mainApi.setUser(name, email).then((user) => {
-      setCurrentUser({ name: user.name, email: user.email });
-    });
+    mainApi
+      .setUser(name, email)
+      .then((user) => {
+        setCurrentUser({ name: user.name, email: user.email });
+      })
+      .catch(() => {
+        setApiError("При обновлении профиля произошла ошибка.");
+        setApiErrorOpen(true);
+      });
   }
 
   function onGetMovies() {
@@ -172,13 +178,11 @@ function App() {
             />
             <Route
               path="/signup"
-              element={
-                <Register apiError={apiError} onRegister={onRegister} />
-              }
+              element={<Register apiError={apiError} onRegister={onRegister} />}
             />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-          <ApiError isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
+          <ApiError apiError={apiError} isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
         </CurrentUserContext.Provider>
       </div>
     </div>

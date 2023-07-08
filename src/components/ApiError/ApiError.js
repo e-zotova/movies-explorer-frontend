@@ -1,6 +1,6 @@
 import fail from "../../images/fail.svg";
 
-function ApiError({ isOpen, onClose }) {
+function ApiError({ apiError, isOpen, onClose }) {
   return (
     <div className={`api-error ${isOpen ? "api-error_opened" : ""}`}>
       <div className="api-error__container">
@@ -10,7 +10,7 @@ function ApiError({ isOpen, onClose }) {
           alt="Ошибка запроса"
         />
         <div className="api-error__text">
-          Что-то пошло не так! Попробуйте ещё раз.
+          {apiError}
         </div>
         <button
           type="reset"

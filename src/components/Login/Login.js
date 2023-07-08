@@ -59,7 +59,11 @@ function Login({ apiError, onLogin }) {
         />
         <span className="auth__error">{errors.password}</span>
         <span className="auth__api-error">{apiError}</span>
-        <button type="submit" className="button auth__save-button">
+        <button
+          type="submit"
+          className="button auth__save-button"
+          disabled={!isValid}
+        >
           Войти
         </button>
         <span className="auth__switch-label">
