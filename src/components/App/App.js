@@ -19,6 +19,7 @@ function App() {
   const navigate = useNavigate();
 
   const [currentUser, setCurrentUser] = useState({ name: "", email: "" });
+
   const [loggedIn, setLoggedIn] = useState(false);
 
   const [moviesData, setMoviesData] = useState([]);
@@ -32,10 +33,11 @@ function App() {
     const tokenCheck = () => {
       const token = localStorage.getItem("jwt");
       if (token) {
-        getUser();
         setLoggedIn(true);
+        getUser();
       } else {
         setLoggedIn(false);
+        localStorage.removeItem("isUserSignedIn");
       }
     };
     tokenCheck();
@@ -60,6 +62,7 @@ function App() {
       .authorize(email, password)
       .then((data) => {
         localStorage.setItem("jwt", data.token);
+        localStorage.setItem("isUserSignedIn", true);
         getUser();
         navigate("/movies");
       })

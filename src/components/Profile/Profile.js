@@ -29,7 +29,7 @@ function Profile({ loggedIn, onUpdateProfile }) {
   };
 
   function onSignOut() {
-    localStorage.removeItem("jwt");
+    localStorage.clear();
     navigate("/");
     navigate(0);
   }
