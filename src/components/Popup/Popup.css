@@ -23,7 +23,7 @@
 
 .popup__container {
   position: relative;
-  max-width: 358px;
+  max-width: 500px;
   background: #ffffff;
   border-radius: 10px;
   z-index: 10;
