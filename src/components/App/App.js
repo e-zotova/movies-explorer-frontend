@@ -22,9 +22,11 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const [moviesData, setMoviesData] = useState([]);
-  const [preloader, setPreloader] = useState(false);
+  const [foundMoviesList, setFoundMoviesList] = useState([]);
+  const [savedMoviesList, setSavedMoviesList] = useState([]);
+  const [moviesNotFound, setMoviesNotFound] = useState(false);
 
+  const [preloader, setPreloader] = useState(false);
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [requestStatus, setRequestStatus] = useState(false);
@@ -48,10 +50,8 @@ function App() {
       .getUser()
       .then((user) => {
         setCurrentUser({ name: user.name, email: user.email });
-        setLoggedIn(true);
       })
       .catch((err) => {
-        setLoggedIn(false);
         setPopupMessage(err.message);
         setPopupOpen(true);
       });
@@ -64,6 +64,7 @@ function App() {
         localStorage.setItem("jwt", data.token);
         localStorage.setItem("isUserSignedIn", true);
         getUser();
+        setLoggedIn(true);
         navigate("/movies");
       })
       .catch((err) => {
@@ -106,10 +107,14 @@ function App() {
     setPreloader(true);
     moviesApi
       .getMovies()
-      .then((cards) => {
-        setMoviesData(cards);
+      .then((movies) => {
+        setMoviesNotFound(false);
+        setFoundMoviesList(movies);
+        localStorage.setItem("foundMovies", JSON.stringify(movies));
       })
-      .catch((err) => console.log(err))
+      .catch(() => {
+        setMoviesNotFound(true);
+      })
       .finally(() => {
         setPreloader(false);
       });
@@ -165,8 +170,9 @@ function App() {
                 <ProtectedRoute
                   element={Movies}
                   loggedIn={loggedIn}
+                  moviesNotFound={moviesNotFound}
                   preloader={preloader}
-                  moviesList={moviesData}
+                  moviesList={foundMoviesList}
                   onGetMovies={onGetMovies}
                   onMovieSave={onMovieSave}
                   onMovieRemove={onMovieRemove}
@@ -180,7 +186,7 @@ function App() {
                   element={SavedMovies}
                   loggedIn={loggedIn}
                   preloader={preloader}
-                  moviesList={moviesData}
+                  moviesList={savedMoviesList}
                   onGetMovies={onGetMovies}
                   onMovieRemove={onMovieRemove}
                 />
