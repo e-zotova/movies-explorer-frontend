@@ -10,13 +10,10 @@ function SearchForm({
   const [isShortChecked, setIsShortChecked] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("searchQuery")) {
-      setSearchQuery(localStorage.getItem("searchQuery"));
-    }
     if (localStorage.getItem("shortMovies")) {
       setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
     }
-  }, [setSearchQuery]);
+  }, [setIsShortChecked]);
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);

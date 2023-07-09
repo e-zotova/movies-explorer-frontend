@@ -1,11 +1,10 @@
-import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard.js";
 import Preloader from "../../Movies/Preloader/Preloader.js";
 
 function MoviesCardList({
   preloader,
   moviesNotFound,
-  moviesList,
+  displayedMovies,
   onMovieSave,
   onMovieRemove,
 }) {
@@ -17,7 +16,7 @@ function MoviesCardList({
       )}
       {!preloader && !moviesNotFound && (
         <ul className="movies-card-list">
-          {moviesList.map((movie) => (
+          {displayedMovies.map((movie) => (
             <MoviesCard
               key={movie.id}
               movie={movie}
