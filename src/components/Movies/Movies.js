@@ -2,27 +2,41 @@ import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
+import { useEffect, useState } from "react";
 
 function Movies({
   loggedIn,
   moreButton,
   moviesNotFound,
   preloader,
-  moviesList,
+  foundMoviesList,
+  setFoundMoviesList,
   onGetMovies,
   onMovieSave,
   onMovieRemove,
 }) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("foundMovies")) {
+      setFoundMoviesList(JSON.parse(localStorage.getItem("foundMovies")));
+    }
+  }, [setFoundMoviesList]);
+
   return (
     <>
       <Header className="header" loggedIn={loggedIn} />
       <main className="movies">
-        <SearchForm onGetMovies={onGetMovies} />
+        <SearchForm
+          onGetMovies={onGetMovies}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
         <div>
           <MoviesCardList
             preloader={preloader}
             moviesNotFound={moviesNotFound}
-            moviesList={moviesList}
+            moviesList={foundMoviesList}
             onMovieSave={onMovieSave}
             onMovieRemove={onMovieRemove}
           />

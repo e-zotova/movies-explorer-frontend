@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
-function SearchForm({ onGetMovies }) {
+function SearchForm({
+  searchQuery,
+  setSearchQuery,
+  onGetMovies,
+}) {
   const [isFormEmpty, setIsFormEmpty] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const [isShortChecked, setIsShortChecked] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("searchQuery")) {
+      setSearchQuery(localStorage.getItem("searchQuery"));
+    }
+    if (localStorage.getItem("shortMovies")) {
+      setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
+    }
+  }, [setSearchQuery]);
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
@@ -12,7 +24,7 @@ function SearchForm({ onGetMovies }) {
 
   const handleShortCheckbox = () => {
     setIsShortChecked(!isShortChecked);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +35,7 @@ function SearchForm({ onGetMovies }) {
       setIsFormEmpty(false);
       onGetMovies(searchQuery);
       localStorage.setItem("searchQuery", searchQuery);
-      localStorage.setItem("shortMovies", isShortChecked)
+      localStorage.setItem("shortMovies", isShortChecked);
     }
   };
 
@@ -42,7 +54,7 @@ function SearchForm({ onGetMovies }) {
         <button type="submit" className="button search-form__button"></button>
         <FilterCheckbox
           className="filter-checkbox_browser"
-          isChecked={isShortChecked}
+          isShortChecked={isShortChecked}
           handleShortCheckbox={handleShortCheckbox}
         />
       </form>
@@ -51,7 +63,7 @@ function SearchForm({ onGetMovies }) {
       </span>
       <FilterCheckbox
         className="filter-checkbox_mobile"
-        isChecked={isShortChecked}
+        isShortChecked={isShortChecked}
         handleShortCheckbox={handleShortCheckbox}
       />
     </section>

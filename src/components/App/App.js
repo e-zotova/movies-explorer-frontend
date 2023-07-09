@@ -175,8 +175,9 @@ function App() {
                   element={Movies}
                   loggedIn={loggedIn}
                   moviesNotFound={moviesNotFound}
+                  setFoundMoviesList={setFoundMoviesList}
                   preloader={preloader}
-                  moviesList={foundMoviesList}
+                  foundMoviesList={foundMoviesList}
                   onGetMovies={onGetMovies}
                   onMovieSave={onMovieSave}
                   onMovieRemove={onMovieRemove}
