@@ -1,4 +1,4 @@
-import { BASE_MOVIES_URL } from '../constants/constants.js'
+import { BASE_MOVIES_URL } from './constants.js'
 
 const handleResponse = (res) => {
   if (res.ok) {

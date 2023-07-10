@@ -6,7 +6,7 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
 import {
   calculateInitialAmount,
   calculateMoreAmount,
-} from "../../utils/utils.js";
+} from "../../utils/calculateMoviesAmount.js";
 
 function Movies({
   loggedIn,

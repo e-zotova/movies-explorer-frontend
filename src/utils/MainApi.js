@@ -1,4 +1,4 @@
-import { BASE_MAIN_URL } from '../constants/constants.js'
+import { BASE_MAIN_URL } from './constants.js'
 
 const handleResponse = (res) => {
   let json = res.json();

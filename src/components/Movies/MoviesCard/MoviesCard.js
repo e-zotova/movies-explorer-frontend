@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
-import { BASE_MOVIES_URL } from '../../../constants/constants.js';
+import { BASE_MOVIES_URL } from '../../../utils/constants.js';
 
 function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
   const { pathname } = useLocation();

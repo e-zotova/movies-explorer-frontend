@@ -7,15 +7,13 @@ import {
   MOBILE_AMOUNT,
   DESKTOP_MORE,
   TABLET_MORE,
-} from "../constants/constants.js";
+} from "./constants.js";
 
 const screenWidth = window.innerWidth;
 
 export function calculateInitialAmount() {
-  if (screenWidth > DESKTOP_WIDTH) {
+  if (screenWidth >= DESKTOP_WIDTH) {
     return DESKTOP_AMOUNT;
-  } else if (screenWidth >= TABLET_WIDTH) {
-    return TABLET_AMOUNT;
   } else if (screenWidth > MOBILE_WIDTH) {
     return TABLET_AMOUNT;
   } else if (screenWidth <= MOBILE_WIDTH) {
@@ -26,11 +24,7 @@ export function calculateInitialAmount() {
 export function calculateMoreAmount() {
   if (screenWidth >= DESKTOP_WIDTH) {
     return DESKTOP_MORE;
-  } else if (screenWidth >= TABLET_WIDTH) {
-    return TABLET_MORE;
-  } else if (screenWidth > MOBILE_WIDTH) {
-    return TABLET_MORE;
-  } else if (screenWidth <= MOBILE_WIDTH) {
+  } else if (screenWidth <= TABLET_WIDTH) {
     return TABLET_MORE;
   }
 }

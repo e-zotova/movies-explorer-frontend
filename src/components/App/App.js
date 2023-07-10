@@ -13,7 +13,7 @@ import mainApi from "../../utils/MainApi.js";
 import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../../utils/ProtectedRoute.js";
-import { BASE_MOVIES_URL } from "../../constants/constants.js";
+import { BASE_MOVIES_URL } from "../../utils/constants.js";
 
 function App() {
   const navigate = useNavigate();
