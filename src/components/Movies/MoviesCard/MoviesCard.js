@@ -2,25 +2,24 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
-import { BASE_MOVIES_URL } from '../../../utils/constants.js';
+import { BASE_MOVIES_URL } from "../../../utils/constants.js";
 
-function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
+function MoviesCard({ movie, image, savedMoviesList, onMovieSave, onMovieRemove }) {
   const { pathname } = useLocation();
 
   const [isSaved, setIsSaved] = useState(false);
 
   function handleSaveButtonClick() {
     setIsSaved(!isSaved);
-    if (!isSaved){
+    if (!isSaved) {
       onMovieSave(movie);
     } else {
-      onMovieRemove(movie.id);
+      onMovieRemove(movie._id);
     }
   }
 
   function handleRemoveClick() {
-    document.querySelector(".movies-card").remove();
-    onMovieRemove(movie.id);
+    onMovieRemove(movie._id);
   }
 
   function setDuration(duration) {
@@ -45,7 +44,7 @@ function MoviesCard({ movie, onMovieSave, onMovieRemove }) {
       >
         <img
           className="movies-card__image"
-          src={`${BASE_MOVIES_URL}${movie.image.url}`}
+          src={image.url ? `${BASE_MOVIES_URL}${image.url}` : image}
           alt={movie.nameRU}
         />
       </a>
