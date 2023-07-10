@@ -30,10 +30,15 @@ function Movies({
       setScreenWidth(window.innerWidth);
       setInitialAmount(calculateInitialAmount());
     }
-    window.addEventListener("resize", onWindowResize);
+
+    function addTimeout() {
+      setTimeout(onWindowResize, 500);
+    }
+    window.addEventListener("resize", addTimeout);
 
     return () => {
-      window.removeEventListener("resize", onWindowResize);
+      clearTimeout();
+      window.removeEventListener("resize", addTimeout);
     };
   }, [screenWidth]);
 
