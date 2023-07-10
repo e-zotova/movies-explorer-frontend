@@ -60,6 +60,13 @@ class MainApi {
     }).then(handleResponse);
   }
 
+  getSavedMovies() {
+    return fetch(`${this._baseUrl}/movies`, {
+      method: "GET",
+      headers: {...this._headers, "Authorization" : `Bearer ${this._getJwt()}`},
+    }).then(handleResponse);
+  }
+
   saveMovie(data) {
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
