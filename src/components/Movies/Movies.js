@@ -1,16 +1,12 @@
+import { useEffect, useState } from "react";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
-import { useEffect, useState } from "react";
 import {
-  DESKTOP_WIDTH,
-  DESKTOP_AMOUNT,
-  TABLET_WIDTH,
-  TABLET_AMOUNT,
-  MOBILE_WIDTH,
-  MOBILE_AMOUNT,
-} from "../../constants/constants.js";
+  calculateInitialAmount,
+  calculateMoreAmount,
+} from "../../utils/utils.js";
 
 function Movies({
   loggedIn,
@@ -32,6 +28,7 @@ function Movies({
   useEffect(() => {
     function onWindowResize() {
       setScreenWidth(window.innerWidth);
+      setInitialAmount(calculateInitialAmount());
     }
     window.addEventListener("resize", onWindowResize);
 
@@ -41,25 +38,12 @@ function Movies({
   }, [screenWidth]);
 
   useEffect(() => {
-    function calculateInitialAmount() {
-      setScreenWidth(window.innerWidth);
-      if (screenWidth >= DESKTOP_WIDTH) {
-        setInitialAmount(DESKTOP_AMOUNT);
-        setMoreAmount(3);
-      } else if (screenWidth >= TABLET_WIDTH) {
-        setInitialAmount(TABLET_AMOUNT);
-        setMoreAmount(2);
-      } else if (screenWidth >= MOBILE_WIDTH) {
-        setInitialAmount(MOBILE_AMOUNT);
-        setMoreAmount(2);
-      }
-    }
+    setInitialAmount(calculateInitialAmount());
 
-    calculateInitialAmount();
     if (displayedMovies.length === 0) {
       setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
     }
-  }, [screenWidth, foundMoviesList, initialAmount, displayedMovies.length]);
+  }, [displayedMovies.length, foundMoviesList, initialAmount]);
 
   useEffect(() => {
     if (localStorage.getItem("foundMovies")) {
@@ -74,6 +58,8 @@ function Movies({
   }, [setFoundMoviesList]);
 
   const handleMoreClick = () => {
+    setMoreAmount(calculateMoreAmount());
+
     const moreMovies = foundMoviesList.slice(
       displayedMovies.length,
       moreAmount + displayedMovies.length

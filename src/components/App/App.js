@@ -19,7 +19,6 @@ function App() {
   const navigate = useNavigate();
 
   const [currentUser, setCurrentUser] = useState({ name: "", email: "" });
-
   const [loggedIn, setLoggedIn] = useState(false);
 
   const [foundMoviesList, setFoundMoviesList] = useState([]);
