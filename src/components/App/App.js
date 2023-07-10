@@ -139,6 +139,7 @@ function App() {
         nameEN: movie.nameEN,
       })
       .then((savedMovie) => {
+        setSavedMoviesList(savedMovie);
         console.log(savedMovie);
       })
       .catch((err) => {
@@ -190,7 +191,7 @@ function App() {
                   element={SavedMovies}
                   loggedIn={loggedIn}
                   preloader={preloader}
-                  moviesList={savedMoviesList}
+                  savedMoviesList={savedMoviesList}
                   onGetMovies={onGetMovies}
                   onMovieRemove={onMovieRemove}
                 />

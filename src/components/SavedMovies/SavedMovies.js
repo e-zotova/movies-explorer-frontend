@@ -7,7 +7,7 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
 function SavedMovies({
   loggedIn,
   preloader,
-  moviesList,
+  savedMoviesList,
   onGetMovies,
   onMovieRemove,
 }) {
@@ -19,7 +19,7 @@ function SavedMovies({
         {preloader && <Preloader />}
         {!preloader && (
           <MoviesCardList
-            moviesList={moviesList}
+            displayedMovies={savedMoviesList}
             onMovieRemove={onMovieRemove}
           />
         )}

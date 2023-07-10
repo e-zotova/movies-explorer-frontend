@@ -44,6 +44,7 @@ function Movies({
 
   useEffect(() => {
     setInitialAmount(calculateInitialAmount());
+    setMoreAmount(calculateMoreAmount());
 
     if (displayedMovies.length === 0) {
       setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
@@ -63,8 +64,6 @@ function Movies({
   }, [setFoundMoviesList]);
 
   const handleMoreClick = () => {
-    setMoreAmount(calculateMoreAmount());
-
     const moreMovies = foundMoviesList.slice(
       displayedMovies.length,
       moreAmount + displayedMovies.length
@@ -91,8 +90,8 @@ function Movies({
             onMovieSave={onMovieSave}
             onMovieRemove={onMovieRemove}
           />
-          {foundMoviesList.length > displayedMovies.length && (
-            <div className="movies__more">
+          <div className="movies__more">
+            {foundMoviesList.length > displayedMovies.length && (
               <button
                 type="button"
                 className="button movies__more-button"
@@ -100,8 +99,8 @@ function Movies({
               >
                 Ещё
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </main>
       <Footer className="footer" />
