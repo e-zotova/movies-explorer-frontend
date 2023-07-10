@@ -13,17 +13,19 @@ function Movies({
   moviesNotFound,
   preloader,
   foundMoviesList,
+  savedMoviesList,
   setFoundMoviesList,
   onGetMovies,
   onMovieSave,
   onMovieRemove,
 }) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isShortChecked, setIsShortChecked] = useState(false);
+  const [displayedMovies, setDisplayedMovies] = useState([]);
+
   const [screenWidth, setScreenWidth] = useState(0);
   const [initialAmount, setInitialAmount] = useState(0);
   const [moreAmount, setMoreAmount] = useState(0);
-  const [displayedMovies, setDisplayedMovies] = useState([]);
-  const [isShortChecked, setIsShortChecked] = useState(false);
 
   useEffect(() => {
     function onWindowResize() {
@@ -87,6 +89,7 @@ function Movies({
             preloader={preloader}
             moviesNotFound={moviesNotFound}
             displayedMovies={displayedMovies}
+            savedMoviesList={savedMoviesList}
             onMovieSave={onMovieSave}
             onMovieRemove={onMovieRemove}
           />

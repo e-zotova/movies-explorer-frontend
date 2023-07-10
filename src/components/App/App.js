@@ -31,17 +31,20 @@ function App() {
   const [requestStatus, setRequestStatus] = useState(false);
 
   useEffect(() => {
-    const tokenCheck = () => {
-      const token = localStorage.getItem("jwt");
-      if (token) {
-        setLoggedIn(true);
-        getUser();
-      } else {
-        setLoggedIn(false);
-        localStorage.removeItem("isUserSignedIn");
-      }
-    };
-    tokenCheck();
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      setLoggedIn(true);
+      getUser();
+      mainApi
+        .getSavedMovies()
+        .then((res) => {
+          setSavedMoviesList(res);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      setLoggedIn(false);
+      localStorage.removeItem("isUserSignedIn");
+    }
   }, []);
 
   function getUser() {
@@ -139,8 +142,7 @@ function App() {
         nameEN: movie.nameEN,
       })
       .then((savedMovie) => {
-        setSavedMoviesList(savedMovie);
-        console.log(savedMovie);
+        setSavedMoviesList([...savedMoviesList, savedMovie]);
       })
       .catch((err) => {
         console.log(err);
@@ -151,7 +153,10 @@ function App() {
     mainApi
       .unsaveMovie(id)
       .then((unsavedMovie) => {
-        console.log(unsavedMovie);
+        const filteredSavedList = savedMoviesList.filter(
+          (item) => item._id !== unsavedMovie._id
+        );
+        setSavedMoviesList(filteredSavedList);
       })
       .catch((err) => {
         console.log(err);
@@ -176,6 +181,7 @@ function App() {
                   loggedIn={loggedIn}
                   moviesNotFound={moviesNotFound}
                   setFoundMoviesList={setFoundMoviesList}
+                  savedMoviesList={savedMoviesList}
                   preloader={preloader}
                   foundMoviesList={foundMoviesList}
                   onGetMovies={onGetMovies}
@@ -192,6 +198,7 @@ function App() {
                   loggedIn={loggedIn}
                   preloader={preloader}
                   savedMoviesList={savedMoviesList}
+                  setSavedMoviesList={setSavedMoviesList}
                   onGetMovies={onGetMovies}
                   onMovieRemove={onMovieRemove}
                 />
