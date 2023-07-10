@@ -1,19 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
 function SearchForm({
+  isShortChecked,
+  setIsShortChecked,
   searchQuery,
   setSearchQuery,
   onGetMovies,
 }) {
   const [isFormEmpty, setIsFormEmpty] = useState(false);
-  const [isShortChecked, setIsShortChecked] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem("shortMovies")) {
-      setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
-    }
-  }, [setIsShortChecked]);
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);

@@ -24,9 +24,10 @@ function Movies({
 }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [screenWidth, setScreenWidth] = useState(0);
-  const [moviesAmount, setMoviesAmount] = useState(0);
+  const [initialAmount, setInitialAmount] = useState(0);
   const [moreAmount, setMoreAmount] = useState(0);
   const [displayedMovies, setDisplayedMovies] = useState([]);
+  const [isShortChecked, setIsShortChecked] = useState(false);
 
   useEffect(() => {
     function onWindowResize() {
@@ -40,25 +41,25 @@ function Movies({
   }, [screenWidth]);
 
   useEffect(() => {
-    function calculateMoviesAmount() {
+    function calculateInitialAmount() {
       setScreenWidth(window.innerWidth);
       if (screenWidth >= DESKTOP_WIDTH) {
-        setMoviesAmount(DESKTOP_AMOUNT);
+        setInitialAmount(DESKTOP_AMOUNT);
         setMoreAmount(3);
       } else if (screenWidth >= TABLET_WIDTH) {
-        setMoviesAmount(TABLET_AMOUNT);
+        setInitialAmount(TABLET_AMOUNT);
         setMoreAmount(2);
       } else if (screenWidth >= MOBILE_WIDTH) {
-        setMoviesAmount(MOBILE_AMOUNT);
+        setInitialAmount(MOBILE_AMOUNT);
         setMoreAmount(2);
       }
     }
 
-    calculateMoviesAmount();
+    calculateInitialAmount();
     if (displayedMovies.length === 0) {
-      setDisplayedMovies(foundMoviesList.slice(0, moviesAmount));
+      setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
     }
-  }, [screenWidth, foundMoviesList, moviesAmount, displayedMovies.length]);
+  }, [screenWidth, foundMoviesList, initialAmount, displayedMovies.length]);
 
   useEffect(() => {
     if (localStorage.getItem("foundMovies")) {
@@ -67,18 +68,26 @@ function Movies({
     if (localStorage.getItem("searchQuery")) {
       setSearchQuery(localStorage.getItem("searchQuery"));
     }
+    if (localStorage.getItem("shortMovies")) {
+      setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
+    }
   }, [setFoundMoviesList]);
 
   const handleMoreClick = () => {
-    const moreMovies = foundMoviesList.slice(displayedMovies.length, (moreAmount + displayedMovies.length));
+    const moreMovies = foundMoviesList.slice(
+      displayedMovies.length,
+      moreAmount + displayedMovies.length
+    );
     setDisplayedMovies([...displayedMovies, ...moreMovies]);
-  }
+  };
 
   return (
     <>
       <Header className="header" loggedIn={loggedIn} />
       <main className="movies">
         <SearchForm
+          isShortChecked={isShortChecked}
+          setIsShortChecked={setIsShortChecked}
           onGetMovies={onGetMovies}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
