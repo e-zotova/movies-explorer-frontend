@@ -32,8 +32,6 @@ function Movies({
   const [initialAmount, setInitialAmount] = useState(0);
   const [moreAmount, setMoreAmount] = useState(0);
 
-  const initialList = foundMoviesList.slice(0, initialAmount);
-
   useEffect(() => {
     function onWindowResize() {
       setScreenWidth(window.innerWidth);
@@ -54,17 +52,25 @@ function Movies({
   }, [screenWidth]);
 
   useEffect(() => {
+    if (localStorage.getItem("foundMovies")) {
+      setDisplayedMovies(
+        JSON.parse(localStorage.getItem("foundMovies")).slice(0, initialAmount)
+      );
+    }
+
     if (localStorage.getItem("searchQuery")) {
       setSearchQuery(localStorage.getItem("searchQuery"));
     }
     if (localStorage.getItem("shortMovies")) {
       setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
     }
-  }, []);
+  }, [initialAmount]);
 
   useEffect(() => {
     if (localStorage.getItem("foundMovies")) {
-      setDisplayedMovies(initialList);
+      setDisplayedMovies(
+        JSON.parse(localStorage.getItem("foundMovies")).slice(0, initialAmount)
+      );
     }
   }, [foundMoviesList]);
 
@@ -73,16 +79,20 @@ function Movies({
     moviesApi
       .getMovies()
       .then((movies) => {
-        const filteredMovies = filterFoundMovies(movies, searchQuery, isShortChecked);
+        const filteredMovies = filterFoundMovies(
+          movies,
+          searchQuery,
+          isShortChecked
+        );
         if (filteredMovies.length > 0) {
           setMoviesNotFound(false);
           setFoundMoviesList(filteredMovies);
           localStorage.setItem("foundMovies", JSON.stringify(filteredMovies));
+          localStorage.setItem("searchQuery", searchQuery);
+          localStorage.setItem("shortMovies", isShortChecked);
         } else {
           setMoviesNotFound(true);
         }
-      localStorage.setItem("searchQuery", searchQuery);
-      localStorage.setItem("shortMovies", isShortChecked);
       })
       .catch(() => {
         setMoviesNotFound(true);
