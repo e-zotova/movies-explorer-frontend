@@ -10,7 +10,6 @@ import Register from "../Register/Register.js";
 import PageNotFound from "../PageNotFound/PageNotFound.js";
 import Popup from "../Popup/Popup.js";
 import mainApi from "../../utils/MainApi.js";
-import moviesApi from "../../utils/MoviesApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../../utils/ProtectedRoute.js";
 import { BASE_MOVIES_URL } from "../../utils/constants.js";
@@ -25,7 +24,6 @@ function App() {
   const [savedMoviesList, setSavedMoviesList] = useState([]);
   const [moviesNotFound, setMoviesNotFound] = useState(false);
 
-  const [preloader, setPreloader] = useState(false);
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [requestStatus, setRequestStatus] = useState(false);
@@ -105,27 +103,6 @@ function App() {
       });
   }
 
-  function onGetMovies() {
-    setPreloader(true);
-    moviesApi
-      .getMovies()
-      .then((movies) => {
-        setMoviesNotFound(false);
-        setFoundMoviesList(movies);
-        localStorage.setItem("foundMovies", JSON.stringify(movies));
-      })
-      .catch(() => {
-        setMoviesNotFound(true);
-        setPopupMessage(
-          "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
-        );
-        setPopupOpen(true);
-      })
-      .finally(() => {
-        setPreloader(false);
-      });
-  }
-
   function onMovieSave(movie) {
     mainApi
       .saveMovie({
@@ -179,13 +156,14 @@ function App() {
                 <ProtectedRoute
                   element={Movies}
                   loggedIn={loggedIn}
+                  setPopupMessage={setPopupMessage}
+                  setPopupOpen={setPopupOpen}
                   moviesNotFound={moviesNotFound}
-                  setFoundMoviesList={setFoundMoviesList}
-                  preloader={preloader}
+                  setMoviesNotFound={setMoviesNotFound}
                   foundMoviesList={foundMoviesList}
-                  onGetMovies={onGetMovies}
-                  onMovieSave={onMovieSave}
+                  setFoundMoviesList={setFoundMoviesList}
                   savedMoviesList={savedMoviesList}
+                  onMovieSave={onMovieSave}
                   onMovieRemove={onMovieRemove}
                 />
               }
@@ -196,10 +174,8 @@ function App() {
                 <ProtectedRoute
                   element={SavedMovies}
                   loggedIn={loggedIn}
-                  preloader={preloader}
                   savedMoviesList={savedMoviesList}
                   setSavedMoviesList={setSavedMoviesList}
-                  onGetMovies={onGetMovies}
                   onMovieRemove={onMovieRemove}
                 />
               }

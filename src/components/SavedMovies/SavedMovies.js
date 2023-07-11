@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
@@ -12,11 +11,6 @@ function SavedMovies({
   onGetMovies,
   onMovieRemove,
 }) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isShortChecked, setIsShortChecked] = useState(false);
-  const [filteredSavedMovies, setFilteredSavedMovies] = useState(savedMoviesList);
-
-
   return (
     <>
       <Header className="header" loggedIn={loggedIn} />

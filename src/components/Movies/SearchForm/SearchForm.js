@@ -25,9 +25,7 @@ function SearchForm({
       setIsFormEmpty(true);
     } else {
       setIsFormEmpty(false);
-      onGetMovies(searchQuery);
-      localStorage.setItem("searchQuery", searchQuery);
-      localStorage.setItem("shortMovies", isShortChecked);
+      onGetMovies();
     }
   };
 

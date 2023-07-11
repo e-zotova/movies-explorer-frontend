@@ -7,18 +7,23 @@ import {
   calculateInitialAmount,
   calculateMoreAmount,
 } from "../../utils/calculateMoviesAmount.js";
+import moviesApi from "../../utils/MoviesApi.js";
+import { filterFoundMovies } from "../../utils/findMovies.js";
 
 function Movies({
   loggedIn,
   moviesNotFound,
-  setFoundMoviesList,
-  preloader,
+  setPopupMessage,
+  setPopupOpen,
+  setMoviesNotFound,
   foundMoviesList,
-  onGetMovies,
-  onMovieSave,
+  setFoundMoviesList,
   savedMoviesList,
+  onMovieSave,
   onMovieRemove,
 }) {
+  const [preloader, setPreloader] = useState(false);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isShortChecked, setIsShortChecked] = useState(false);
   const [displayedMovies, setDisplayedMovies] = useState([]);
@@ -26,6 +31,8 @@ function Movies({
   const [screenWidth, setScreenWidth] = useState(0);
   const [initialAmount, setInitialAmount] = useState(0);
   const [moreAmount, setMoreAmount] = useState(0);
+
+  const initialList = foundMoviesList.slice(0, initialAmount);
 
   useEffect(() => {
     function onWindowResize() {
@@ -37,6 +44,8 @@ function Movies({
       setTimeout(onWindowResize, 500);
     }
     window.addEventListener("resize", addTimeout);
+    setInitialAmount(calculateInitialAmount());
+    setMoreAmount(calculateMoreAmount());
 
     return () => {
       clearTimeout();
@@ -45,25 +54,47 @@ function Movies({
   }, [screenWidth]);
 
   useEffect(() => {
-    setInitialAmount(calculateInitialAmount());
-    setMoreAmount(calculateMoreAmount());
-
-    if (displayedMovies.length === 0) {
-      setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
-    }
-  }, [displayedMovies.length, foundMoviesList, initialAmount]);
-
-  useEffect(() => {
-    if (localStorage.getItem("foundMovies")) {
-      setFoundMoviesList(JSON.parse(localStorage.getItem("foundMovies")));
-    }
     if (localStorage.getItem("searchQuery")) {
       setSearchQuery(localStorage.getItem("searchQuery"));
     }
     if (localStorage.getItem("shortMovies")) {
       setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
     }
-  }, [setFoundMoviesList]);
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("foundMovies")) {
+      setDisplayedMovies(initialList);
+    }
+  }, [foundMoviesList]);
+
+  function onGetMovies() {
+    setPreloader(true);
+    moviesApi
+      .getMovies()
+      .then((movies) => {
+        const filteredMovies = filterFoundMovies(movies, searchQuery, isShortChecked);
+        if (filteredMovies.length > 0) {
+          setMoviesNotFound(false);
+          setFoundMoviesList(filteredMovies);
+          localStorage.setItem("foundMovies", JSON.stringify(filteredMovies));
+        } else {
+          setMoviesNotFound(true);
+        }
+      localStorage.setItem("searchQuery", searchQuery);
+      localStorage.setItem("shortMovies", isShortChecked);
+      })
+      .catch(() => {
+        setMoviesNotFound(true);
+        setPopupMessage(
+          "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
+        );
+        setPopupOpen(true);
+      })
+      .finally(() => {
+        setPreloader(false);
+      });
+  }
 
   const handleMoreClick = () => {
     const moreMovies = foundMoviesList.slice(
@@ -80,9 +111,14 @@ function Movies({
         <SearchForm
           isShortChecked={isShortChecked}
           setIsShortChecked={setIsShortChecked}
-          onGetMovies={onGetMovies}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
+          onGetMovies={onGetMovies}
+          foundMoviesList={foundMoviesList}
+          displayedMovies={displayedMovies}
+          setDisplayedMovies={setDisplayedMovies}
+          setFoundMoviesList={setFoundMoviesList}
+          setMoviesNotFound={setMoviesNotFound}
         />
         <div>
           <MoviesCardList
