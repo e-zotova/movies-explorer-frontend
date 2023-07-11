@@ -11,12 +11,12 @@ import {
 function Movies({
   loggedIn,
   moviesNotFound,
+  setFoundMoviesList,
   preloader,
   foundMoviesList,
-  savedMoviesList,
-  setFoundMoviesList,
   onGetMovies,
   onMovieSave,
+  savedMoviesList,
   onMovieRemove,
 }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -89,8 +89,8 @@ function Movies({
             preloader={preloader}
             moviesNotFound={moviesNotFound}
             displayedMovies={displayedMovies}
-            savedMoviesList={savedMoviesList}
             onMovieSave={onMovieSave}
+            savedMoviesList={savedMoviesList}
             onMovieRemove={onMovieRemove}
           />
           <div className="movies__more">

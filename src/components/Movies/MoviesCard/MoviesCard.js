@@ -1,20 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import saveButton from "../../../images/save-inactive.svg";
 import saveActiveButton from "../../../images/save-active.svg";
 import { BASE_MOVIES_URL } from "../../../utils/constants.js";
 
-function MoviesCard({ movie, image, savedMoviesList, onMovieSave, onMovieRemove }) {
+function MoviesCard({
+  movie,
+  image,
+  savedMoviesList,
+  onMovieSave,
+  onMovieRemove,
+}) {
   const { pathname } = useLocation();
-
   const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    setIsSaved(
+      savedMoviesList.some((savedMovie) => savedMovie.movieId === movie.id)
+    );
+  }, [savedMoviesList, movie]);
 
   function handleSaveButtonClick() {
     setIsSaved(!isSaved);
     if (!isSaved) {
       onMovieSave(movie);
     } else {
-      onMovieRemove(movie._id);
+      onMovieRemove(savedMoviesList.find(savedMovie => savedMovie.movieId === movie.id)._id);
     }
   }
 

@@ -181,11 +181,11 @@ function App() {
                   loggedIn={loggedIn}
                   moviesNotFound={moviesNotFound}
                   setFoundMoviesList={setFoundMoviesList}
-                  savedMoviesList={savedMoviesList}
                   preloader={preloader}
                   foundMoviesList={foundMoviesList}
                   onGetMovies={onGetMovies}
                   onMovieSave={onMovieSave}
+                  savedMoviesList={savedMoviesList}
                   onMovieRemove={onMovieRemove}
                 />
               }

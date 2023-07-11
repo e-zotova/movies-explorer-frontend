@@ -5,8 +5,8 @@ function MoviesCardList({
   preloader,
   moviesNotFound,
   displayedMovies,
-  savedMoviesList,
   onMovieSave,
+  savedMoviesList,
   onMovieRemove,
 }) {
   return (
@@ -19,7 +19,7 @@ function MoviesCardList({
         <ul className="movies-card-list">
           {displayedMovies.map((movie) => (
             <MoviesCard
-              key={movie._id || movie.id}
+              key={movie.id}
               image={movie.image}
               movie={movie}
               savedMoviesList={savedMoviesList}
