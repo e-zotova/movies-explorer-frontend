@@ -24,6 +24,10 @@ function App() {
   const [savedMoviesList, setSavedMoviesList] = useState([]);
   const [moviesNotFound, setMoviesNotFound] = useState(false);
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isShortChecked, setIsShortChecked] = useState(false);
+  const [displayedMovies, setDisplayedMovies] = useState([]);
+
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [requestStatus, setRequestStatus] = useState(false);
@@ -158,6 +162,8 @@ function App() {
                   loggedIn={loggedIn}
                   setPopupMessage={setPopupMessage}
                   setPopupOpen={setPopupOpen}
+                  displayedMovies={displayedMovies}
+                  setDisplayedMovies={setDisplayedMovies}
                   moviesNotFound={moviesNotFound}
                   setMoviesNotFound={setMoviesNotFound}
                   foundMoviesList={foundMoviesList}
@@ -165,6 +171,10 @@ function App() {
                   savedMoviesList={savedMoviesList}
                   onMovieSave={onMovieSave}
                   onMovieRemove={onMovieRemove}
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                  isShortChecked={isShortChecked}
+                  setIsShortChecked={setIsShortChecked}
                 />
               }
             />
@@ -175,8 +185,13 @@ function App() {
                   element={SavedMovies}
                   loggedIn={loggedIn}
                   savedMoviesList={savedMoviesList}
-                  setSavedMoviesList={setSavedMoviesList}
+                  setDisplayedMovies={setDisplayedMovies}
                   onMovieRemove={onMovieRemove}
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                  isShortChecked={isShortChecked}
+                  setIsShortChecked={setIsShortChecked}
+                  setMoviesNotFound={setMoviesNotFound}
                 />
               }
             />

@@ -18,16 +18,17 @@ function Movies({
   setMoviesNotFound,
   foundMoviesList,
   setFoundMoviesList,
+  displayedMovies,
+  setDisplayedMovies,
   savedMoviesList,
   onMovieSave,
   onMovieRemove,
+  searchQuery,
+  setSearchQuery,
+  isShortChecked,
+  setIsShortChecked,
 }) {
   const [preloader, setPreloader] = useState(false);
-
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isShortChecked, setIsShortChecked] = useState(false);
-  const [displayedMovies, setDisplayedMovies] = useState([]);
-
   const [screenWidth, setScreenWidth] = useState(0);
   const [initialAmount, setInitialAmount] = useState(0);
   const [moreAmount, setMoreAmount] = useState(0);
