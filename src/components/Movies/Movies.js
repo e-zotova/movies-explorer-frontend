@@ -125,11 +125,6 @@ function Movies({
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetMovies}
-          foundMoviesList={foundMoviesList}
-          displayedMovies={displayedMovies}
-          setDisplayedMovies={setDisplayedMovies}
-          setFoundMoviesList={setFoundMoviesList}
-          setMoviesNotFound={setMoviesNotFound}
         />
         <div>
           <MoviesCardList
