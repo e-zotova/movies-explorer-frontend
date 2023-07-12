@@ -36,18 +36,17 @@ function App() {
     const token = localStorage.getItem("jwt");
     if (token) {
       setLoggedIn(true);
-      getUser();
-      mainApi
-        .getSavedMovies()
-        .then((res) => {
-          setSavedMoviesList(res);
+      Promise.all([ mainApi.getUser(), mainApi.getSavedMovies()])
+        .then(([userData, savedMovies]) => {
+          setCurrentUser(userData);
+          setSavedMoviesList(savedMovies);
         })
         .catch((err) => console.log(err));
     } else {
       setLoggedIn(false);
       localStorage.removeItem("isUserSignedIn");
     }
-  }, []);
+  }, [loggedIn]);
 
   function getUser() {
     mainApi
