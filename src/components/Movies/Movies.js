@@ -73,7 +73,7 @@ function Movies({
         JSON.parse(localStorage.getItem("foundMovies")).slice(0, initialAmount)
       );
     }
-  }, [foundMoviesList]);
+  }, [foundMoviesList, setDisplayedMovies, initialAmount]);
 
   function onGetMovies() {
     setPreloader(true);

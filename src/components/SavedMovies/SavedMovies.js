@@ -22,7 +22,7 @@ function SavedMovies({
   useEffect(() => {
     setSearchQuery("");
     setIsShortChecked(false);
-  }, []);
+  }, [setIsShortChecked]);
 
   useEffect(() => {
       setFilteredMovies(savedMoviesList);

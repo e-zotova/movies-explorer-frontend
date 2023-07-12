@@ -33,20 +33,16 @@ function App() {
   const [requestStatus, setRequestStatus] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      setLoggedIn(true);
+    setLoggedIn(localStorage.getItem("isUserSignedIn"));
+    if (loggedIn) {
       Promise.all([ mainApi.getUser(), mainApi.getSavedMovies()])
         .then(([userData, savedMovies]) => {
           setCurrentUser(userData);
           setSavedMoviesList(savedMovies);
         })
         .catch((err) => console.log(err));
-    } else {
-      setLoggedIn(false);
-      localStorage.removeItem("isUserSignedIn");
     }
-  }, []);
+  }, [loggedIn]);
 
   function getUser() {
     mainApi
