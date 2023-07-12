@@ -8,6 +8,7 @@ import { filterFoundMovies } from "../../utils/findMovies.js";
 function SavedMovies({
   loggedIn,
   savedMoviesList,
+  moviesNotFound,
   onMovieRemove,
   searchQuery,
   setSearchQuery,
@@ -16,21 +17,21 @@ function SavedMovies({
   setMoviesNotFound,
 }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [isSearched, setIsSearched] = useState(false);
+  const filterSavedMovies = filterFoundMovies(savedMoviesList, searchQuery, isShortChecked);
 
   useEffect(() => {
     setSearchQuery("");
     setIsShortChecked(false);
   }, []);
 
-  function onGetSavedMovies() {
-    setFilteredMovies(
-      filterFoundMovies(savedMoviesList, searchQuery, isShortChecked)
-    );
+  useEffect(() => {
+      setFilteredMovies(savedMoviesList);
+  }, [savedMoviesList])
 
-    if (filteredMovies.length > 0) {
+  function onGetSavedMovies() {
+    if (filterSavedMovies.length > 0) {
       setMoviesNotFound(false);
-      setIsSearched(true);
+      setFilteredMovies(filterSavedMovies);
     } else {
       setMoviesNotFound(true);
     }
@@ -48,9 +49,10 @@ function SavedMovies({
           onGetMovies={onGetSavedMovies}
         />
         <MoviesCardList
-          displayedMovies={isSearched ? filteredMovies : savedMoviesList}
+          displayedMovies={filteredMovies}
           onMovieRemove={onMovieRemove}
           savedMoviesList={savedMoviesList}
+          moviesNotFound={moviesNotFound}
         />
       </main>
       <Footer className="footer" />

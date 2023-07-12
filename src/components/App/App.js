@@ -46,7 +46,7 @@ function App() {
       setLoggedIn(false);
       localStorage.removeItem("isUserSignedIn");
     }
-  }, [loggedIn]);
+  }, []);
 
   function getUser() {
     mainApi
@@ -190,6 +190,7 @@ function App() {
                   setSearchQuery={setSearchQuery}
                   isShortChecked={isShortChecked}
                   setIsShortChecked={setIsShortChecked}
+                  moviesNotFound={moviesNotFound}
                   setMoviesNotFound={setMoviesNotFound}
                 />
               }
