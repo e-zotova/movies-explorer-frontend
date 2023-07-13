@@ -31,6 +31,7 @@ function Movies({
   const [moreAmount, setMoreAmount] = useState(0);
   const [isMoreVisible, setIsMoreVisible] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
+  const [isFormEmpty, setIsFormEmpty] = useState(false);
 
   //handle window resize
   useEffect(() => {
@@ -112,7 +113,7 @@ function Movies({
         ? setDisplayedMovies(findShortMovies(foundMoviesList))
         : setDisplayedMovies(foundMoviesList);
     } else {
-      setMoviesNotFound(true);
+      setIsFormEmpty(true);
     }
     localStorage.setItem("shortMovies", !isShortChecked);
   };
@@ -149,6 +150,8 @@ function Movies({
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetMovies}
           handleShortCheckbox={handleShortCheckbox}
+          isFormEmpty={isFormEmpty}
+          setIsFormEmpty={setIsFormEmpty}
         />
         <div>
           <MoviesCardList

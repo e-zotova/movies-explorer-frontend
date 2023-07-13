@@ -7,9 +7,9 @@ function SearchForm({
   setSearchQuery,
   onGetMovies,
   handleShortCheckbox,
+  isFormEmpty,
+  setIsFormEmpty,
 }) {
-  const [isFormEmpty, setIsFormEmpty] = useState(false);
-
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
   };
