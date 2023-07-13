@@ -54,6 +54,7 @@ function Movies({
 
   // set searchQuery, checkbox and displayed movies
   useEffect(() => {
+    setMoviesNotFound(false);
     setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
     setSearchQuery(localStorage.getItem("searchQuery"));
 
@@ -62,22 +63,9 @@ function Movies({
     } else {
       if (foundMoviesList) {
         setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
-      } else {
-        setMoviesNotFound(false);
       }
     }
   }, [setDisplayedMovies, isShortChecked, initialAmount]);
-
-  //handle checkbox switch
-  const handleShortCheckbox = () => {
-    setIsShortChecked(!isShortChecked);
-    if (isShortChecked) {
-      setDisplayedMovies(findShortMovies(foundMoviesList));
-    } else {
-      setDisplayedMovies(foundMoviesList);
-    }
-    localStorage.setItem("shortMovies", !isShortChecked);
-  };
 
   //find and save movies
   function onGetMovies() {
@@ -116,6 +104,17 @@ function Movies({
     if (foundMoviesList)
       setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
   }, [setDisplayedMovies, initialAmount]);
+
+    //handle checkbox switch
+  const handleShortCheckbox = () => {
+    setIsShortChecked(!isShortChecked);
+    if (isShortChecked) {
+      setDisplayedMovies(findShortMovies(foundMoviesList));
+    } else {
+      setDisplayedMovies(foundMoviesList);
+    }
+    localStorage.setItem("shortMovies", !isShortChecked);
+  };
 
   useEffect(() => {
     if (foundMoviesList) {

@@ -17,11 +17,6 @@ function SavedMovies({
   setMoviesNotFound,
 }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const filterSavedMovies = filterFoundMovies(
-    savedMoviesList,
-    searchQuery,
-    isShortChecked
-  );
 
   useEffect(() => {
     setSearchQuery("");
@@ -33,9 +28,14 @@ function SavedMovies({
   }, [setFilteredMovies]);
 
   function onGetSavedMovies() {
-    if (filterSavedMovies.length > 0) {
-      setMoviesNotFound(false);
-      setFilteredMovies(filterSavedMovies);
+    setMoviesNotFound(false);
+    const filteredSaved = filterFoundMovies(
+      savedMoviesList,
+      searchQuery,
+      isShortChecked
+    );
+    if (filteredSaved.length > 0) {
+      setFilteredMovies(filteredSaved);
     } else {
       setMoviesNotFound(true);
     }
@@ -43,13 +43,18 @@ function SavedMovies({
 
   //handle checkbox switch
   const handleShortCheckbox = () => {
+    setMoviesNotFound(false);
     setIsShortChecked(!isShortChecked);
     if (!isShortChecked) {
-      setFilteredMovies(findShortMovies(filteredMovies));
+      const savedShort = findShortMovies(filteredMovies);
+      if (savedShort.length > 0) {
+        setFilteredMovies(savedShort);
+      } else {
+        setMoviesNotFound(true);
+      }
     } else {
       setFilteredMovies(savedMoviesList);
     }
-    console.log(isShortChecked);
   };
 
   return (
