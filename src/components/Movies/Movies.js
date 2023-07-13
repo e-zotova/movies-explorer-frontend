@@ -155,12 +155,9 @@ function Movies({
             preloader={preloader}
             moviesNotFound={moviesNotFound}
             displayedMovies={displayedMovies}
-            setDisplayedMovies={setDisplayedMovies}
             onMovieSave={onMovieSave}
             savedMoviesList={savedMoviesList}
             onMovieRemove={onMovieRemove}
-            setMoreAmount={setMoreAmount}
-            setInitialAmount={setInitialAmount}
           />
         </div>
         <div className="movies__more">

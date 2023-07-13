@@ -3,7 +3,7 @@ import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
-import { filterFoundMovies } from "../../utils/findMovies.js";
+import { filterFoundMovies, findShortMovies } from "../../utils/findMovies.js";
 
 function SavedMovies({
   loggedIn,
@@ -17,16 +17,20 @@ function SavedMovies({
   setMoviesNotFound,
 }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const filterSavedMovies = filterFoundMovies(savedMoviesList, searchQuery, isShortChecked);
+  const filterSavedMovies = filterFoundMovies(
+    savedMoviesList,
+    searchQuery,
+    isShortChecked
+  );
 
   useEffect(() => {
     setSearchQuery("");
     setIsShortChecked(false);
-  }, [setIsShortChecked]);
+  }, []);
 
   useEffect(() => {
-      setFilteredMovies(savedMoviesList);
-  }, [savedMoviesList])
+    setFilteredMovies(savedMoviesList);
+  }, [setFilteredMovies]);
 
   function onGetSavedMovies() {
     if (filterSavedMovies.length > 0) {
@@ -36,6 +40,17 @@ function SavedMovies({
       setMoviesNotFound(true);
     }
   }
+
+  //handle checkbox switch
+  const handleShortCheckbox = () => {
+    setIsShortChecked(!isShortChecked);
+    if (!isShortChecked) {
+      setFilteredMovies(findShortMovies(filteredMovies));
+    } else {
+      setFilteredMovies(savedMoviesList);
+    }
+    console.log(isShortChecked);
+  };
 
   return (
     <>
@@ -47,12 +62,13 @@ function SavedMovies({
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetSavedMovies}
+          handleShortCheckbox={handleShortCheckbox}
         />
         <MoviesCardList
+          moviesNotFound={moviesNotFound}
           displayedMovies={filteredMovies}
           onMovieRemove={onMovieRemove}
           savedMoviesList={savedMoviesList}
-          moviesNotFound={moviesNotFound}
         />
       </main>
       <Footer className="footer" />
