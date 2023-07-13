@@ -17,7 +17,7 @@ function SearchForm({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (searchQuery.length === 0) {
+    if (!searchQuery) {
       setIsFormEmpty(true);
     } else {
       setIsFormEmpty(false);
