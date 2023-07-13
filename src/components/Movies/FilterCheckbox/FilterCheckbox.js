@@ -1,5 +1,3 @@
-import React from "react";
-
 function FilterCheckbox({ className, isShortChecked, handleShortCheckbox }) {
   return (
     <div className={`filter-checkbox ${className}`}>
@@ -8,7 +6,7 @@ function FilterCheckbox({ className, isShortChecked, handleShortCheckbox }) {
           type="checkbox"
           className="filter-checkbox__input"
           name="shortMovies"
-          checked={isShortChecked}
+          checked={isShortChecked || false}
           onChange={handleShortCheckbox}
         />
         <span className="button filter-checkbox__slider" />
