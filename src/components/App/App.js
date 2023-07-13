@@ -157,8 +157,6 @@ function App() {
                   loggedIn={loggedIn}
                   setPopupMessage={setPopupMessage}
                   setPopupOpen={setPopupOpen}
-                  displayedMovies={displayedMovies}
-                  setDisplayedMovies={setDisplayedMovies}
                   moviesNotFound={moviesNotFound}
                   setMoviesNotFound={setMoviesNotFound}
                   foundMoviesList={foundMoviesList}

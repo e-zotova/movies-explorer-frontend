@@ -3,12 +3,12 @@ import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
+import moviesApi from "../../utils/MoviesApi.js";
+import { filterFoundMovies, findShortMovies } from "../../utils/findMovies.js";
 import {
   calculateInitialAmount,
   calculateMoreAmount,
 } from "../../utils/calculateMoviesAmount.js";
-import moviesApi from "../../utils/MoviesApi.js";
-import { filterFoundMovies, findShortMovies } from "../../utils/findMovies.js";
 
 function Movies({
   loggedIn,
@@ -16,8 +16,6 @@ function Movies({
   setPopupMessage,
   setPopupOpen,
   setMoviesNotFound,
-  displayedMovies,
-  setDisplayedMovies,
   savedMoviesList,
   onMovieSave,
   onMovieRemove,
@@ -27,9 +25,12 @@ function Movies({
   setIsShortChecked,
 }) {
   const [preloader, setPreloader] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(0);
-  const [initialAmount, setInitialAmount] = useState(0);
+  const foundMoviesList = JSON.parse(localStorage.getItem("foundMovies"));
+  const [displayedMovies, setDisplayedMovies] = useState([]);
+  const [initialAmount, setInitialAmount] = useState(calculateInitialAmount());
   const [moreAmount, setMoreAmount] = useState(0);
+  const [isMoreVisible, setIsMoreVisible] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0);
 
   //handle window resize
   useEffect(() => {
@@ -53,27 +54,27 @@ function Movies({
 
   // set searchQuery, checkbox and displayed movies
   useEffect(() => {
-    const foundMovies = JSON.parse(localStorage.getItem("foundMovies"));
     setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
     setSearchQuery(localStorage.getItem("searchQuery"));
 
     if (JSON.parse(localStorage.getItem("shortMovies")) === true) {
-      setDisplayedMovies(findShortMovies(foundMovies));
+      setDisplayedMovies(findShortMovies(foundMoviesList));
     } else {
-      if(foundMovies) {
-        setDisplayedMovies(foundMovies.slice(0, initialAmount));
+      if (foundMoviesList) {
+        setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
+      } else {
+        setMoviesNotFound(false);
       }
     }
   }, [setDisplayedMovies, isShortChecked, initialAmount]);
 
   //handle checkbox switch
   const handleShortCheckbox = () => {
-    const foundMovies = JSON.parse(localStorage.getItem("foundMovies"));
     setIsShortChecked(!isShortChecked);
     if (isShortChecked) {
-      setDisplayedMovies(findShortMovies(foundMovies));
+      setDisplayedMovies(findShortMovies(foundMoviesList));
     } else {
-      setDisplayedMovies(foundMovies);
+      setDisplayedMovies(foundMoviesList);
     }
     localStorage.setItem("shortMovies", !isShortChecked);
   };
@@ -87,7 +88,11 @@ function Movies({
         const filteredMovies = filterFoundMovies(movies, searchQuery);
         if (filteredMovies.length > 0) {
           setMoviesNotFound(false);
-          setDisplayedMovies(isShortChecked ? findShortMovies(filteredMovies) : filteredMovies);
+          setDisplayedMovies(
+            isShortChecked
+              ? findShortMovies(filteredMovies)
+              : filteredMovies.slice(0, initialAmount)
+          );
           localStorage.setItem("foundMovies", JSON.stringify(filteredMovies));
           localStorage.setItem("searchQuery", searchQuery);
           localStorage.setItem("shortMovies", isShortChecked);
@@ -107,9 +112,26 @@ function Movies({
       });
   }
 
+  useEffect(() => {
+    if (foundMoviesList)
+      setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
+  }, [setDisplayedMovies, initialAmount]);
+
+  useEffect(() => {
+    if (foundMoviesList) {
+      if (
+        displayedMovies.length < foundMoviesList.length &&
+        displayedMovies.length >= initialAmount
+      ) {
+        setIsMoreVisible(true);
+      } else {
+        setIsMoreVisible(false);
+      }
+    }
+  }, [foundMoviesList, displayedMovies, initialAmount]);
+
   const handleMoreClick = () => {
-    const foundMovies = JSON.parse(localStorage.getItem("foundMovies"));
-    const moreMovies = foundMovies.slice(
+    const moreMovies = foundMoviesList.slice(
       displayedMovies.length,
       moreAmount + displayedMovies.length
     );
@@ -133,12 +155,16 @@ function Movies({
             preloader={preloader}
             moviesNotFound={moviesNotFound}
             displayedMovies={displayedMovies}
+            setDisplayedMovies={setDisplayedMovies}
             onMovieSave={onMovieSave}
             savedMoviesList={savedMoviesList}
             onMovieRemove={onMovieRemove}
+            setMoreAmount={setMoreAmount}
+            setInitialAmount={setInitialAmount}
           />
-          <div className="movies__more">
-          {JSON.parse(localStorage.getItem("foundMovies")).length > displayedMovies.length && (
+        </div>
+        <div className="movies__more">
+          {isMoreVisible && (
             <button
               type="button"
               className="button movies__more-button"
@@ -147,7 +173,6 @@ function Movies({
               Ещё
             </button>
           )}
-          </div>
         </div>
       </main>
       <Footer className="footer" />

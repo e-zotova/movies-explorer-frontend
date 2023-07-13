@@ -16,18 +16,18 @@ function MoviesCardList({
         <p className="movies-section__not-found">Ничего не найдено.</p>
       )}
       {!preloader && !moviesNotFound && (
-        <ul className="movies-card-list">
-          {displayedMovies.map((movie) => (
-            <MoviesCard
-              key={movie._id || movie.id}
-              image={movie.image}
-              movie={movie}
-              savedMoviesList={savedMoviesList}
-              onMovieSave={onMovieSave}
-              onMovieRemove={onMovieRemove}
-            />
-          ))}
-        </ul>
+          <ul className="movies-card-list">
+            {displayedMovies.map((movie) => (
+              <MoviesCard
+                key={movie._id || movie.id}
+                image={movie.image}
+                movie={movie}
+                savedMoviesList={savedMoviesList}
+                onMovieSave={onMovieSave}
+                onMovieRemove={onMovieRemove}
+              />
+            ))}
+          </ul>
       )}
     </section>
   );
