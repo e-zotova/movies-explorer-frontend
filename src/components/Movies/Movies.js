@@ -89,7 +89,6 @@ function Movies({
         }
       })
       .catch(() => {
-        setMoviesNotFound(true);
         setPopupMessage(
           "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
         );
@@ -105,13 +104,15 @@ function Movies({
       setDisplayedMovies(foundMoviesList.slice(0, initialAmount));
   }, [setDisplayedMovies, initialAmount]);
 
-    //handle checkbox switch
+  //handle checkbox switch
   const handleShortCheckbox = () => {
-    setIsShortChecked(!isShortChecked);
-    if (isShortChecked) {
-      setDisplayedMovies(findShortMovies(foundMoviesList));
+    if (searchQuery) {
+      setIsShortChecked(!isShortChecked);
+      isShortChecked
+        ? setDisplayedMovies(findShortMovies(foundMoviesList))
+        : setDisplayedMovies(foundMoviesList);
     } else {
-      setDisplayedMovies(foundMoviesList);
+      setMoviesNotFound(true);
     }
     localStorage.setItem("shortMovies", !isShortChecked);
   };
