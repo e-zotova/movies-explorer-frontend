@@ -16,6 +16,7 @@ function SavedMovies({
   setIsShortChecked,
   setMoviesNotFound,
 }) {
+  const [isFormEmpty, setIsFormEmpty] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
@@ -68,6 +69,8 @@ function SavedMovies({
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetSavedMovies}
           handleShortCheckbox={handleShortCheckbox}
+          isFormEmpty={isFormEmpty}
+          setIsFormEmpty={setIsFormEmpty}
         />
         <MoviesCardList
           moviesNotFound={moviesNotFound}
