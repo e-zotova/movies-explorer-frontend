@@ -28,6 +28,7 @@ function SavedMovies({
     setFilteredMovies(savedMoviesList);
   }, [setFilteredMovies]);
 
+  // get saved movies
   function onGetSavedMovies() {
     setMoviesNotFound(false);
     const filteredSaved = filterFoundMovies(

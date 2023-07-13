@@ -118,6 +118,7 @@ function Movies({
     localStorage.setItem("shortMovies", !isShortChecked);
   };
 
+  // set more button
   useEffect(() => {
     if (foundMoviesList) {
       if (
@@ -131,6 +132,7 @@ function Movies({
     }
   }, [foundMoviesList, displayedMovies, initialAmount]);
 
+  // handle more click
   const handleMoreClick = () => {
     const moreMovies = foundMoviesList.slice(
       displayedMovies.length,
