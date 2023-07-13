@@ -8,7 +8,7 @@ import {
   calculateMoreAmount,
 } from "../../utils/calculateMoviesAmount.js";
 import moviesApi from "../../utils/MoviesApi.js";
-import { filterFoundMovies } from "../../utils/findMovies.js";
+import { filterFoundMovies, findShortMovies } from "../../utils/findMovies.js";
 
 function Movies({
   loggedIn,
@@ -16,8 +16,6 @@ function Movies({
   setPopupMessage,
   setPopupOpen,
   setMoviesNotFound,
-  foundMoviesList,
-  setFoundMoviesList,
   displayedMovies,
   setDisplayedMovies,
   savedMoviesList,
@@ -33,6 +31,7 @@ function Movies({
   const [initialAmount, setInitialAmount] = useState(0);
   const [moreAmount, setMoreAmount] = useState(0);
 
+  //handle window resize
   useEffect(() => {
     function onWindowResize() {
       setScreenWidth(window.innerWidth);
@@ -52,42 +51,43 @@ function Movies({
     };
   }, [screenWidth]);
 
+  // set searchQuery, checkbox and displayed movies
   useEffect(() => {
-    if (localStorage.getItem("foundMovies")) {
-      setDisplayedMovies(
-        JSON.parse(localStorage.getItem("foundMovies")).slice(0, initialAmount)
-      );
-    }
+    const foundMovies = JSON.parse(localStorage.getItem("foundMovies"));
+    setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
+    setSearchQuery(localStorage.getItem("searchQuery"));
 
-    if (localStorage.getItem("searchQuery")) {
-      setSearchQuery(localStorage.getItem("searchQuery"));
+    if (JSON.parse(localStorage.getItem("shortMovies")) === true) {
+      setDisplayedMovies(findShortMovies(foundMovies));
+    } else {
+      if(foundMovies) {
+        setDisplayedMovies(foundMovies.slice(0, initialAmount));
+      }
     }
-    if (localStorage.getItem("shortMovies")) {
-      setIsShortChecked(JSON.parse(localStorage.getItem("shortMovies")));
-    }
-  }, [initialAmount]);
+  }, [setDisplayedMovies, isShortChecked, initialAmount]);
 
-  useEffect(() => {
-    if (localStorage.getItem("foundMovies")) {
-      setDisplayedMovies(
-        JSON.parse(localStorage.getItem("foundMovies")).slice(0, initialAmount)
-      );
+  //handle checkbox switch
+  const handleShortCheckbox = () => {
+    const foundMovies = JSON.parse(localStorage.getItem("foundMovies"));
+    setIsShortChecked(!isShortChecked);
+    if (isShortChecked) {
+      setDisplayedMovies(findShortMovies(foundMovies));
+    } else {
+      setDisplayedMovies(foundMovies);
     }
-  }, [foundMoviesList, setDisplayedMovies, initialAmount]);
+    localStorage.setItem("shortMovies", !isShortChecked);
+  };
 
+  //find and save movies
   function onGetMovies() {
     setPreloader(true);
     moviesApi
       .getMovies()
       .then((movies) => {
-        const filteredMovies = filterFoundMovies(
-          movies,
-          searchQuery,
-          isShortChecked
-        );
+        const filteredMovies = filterFoundMovies(movies, searchQuery);
         if (filteredMovies.length > 0) {
           setMoviesNotFound(false);
-          setFoundMoviesList(filteredMovies);
+          setDisplayedMovies(isShortChecked ? findShortMovies(filteredMovies) : filteredMovies);
           localStorage.setItem("foundMovies", JSON.stringify(filteredMovies));
           localStorage.setItem("searchQuery", searchQuery);
           localStorage.setItem("shortMovies", isShortChecked);
@@ -108,7 +108,8 @@ function Movies({
   }
 
   const handleMoreClick = () => {
-    const moreMovies = foundMoviesList.slice(
+    const foundMovies = JSON.parse(localStorage.getItem("foundMovies"));
+    const moreMovies = foundMovies.slice(
       displayedMovies.length,
       moreAmount + displayedMovies.length
     );
@@ -125,6 +126,7 @@ function Movies({
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetMovies}
+          handleShortCheckbox={handleShortCheckbox}
         />
         <div>
           <MoviesCardList
@@ -136,15 +138,15 @@ function Movies({
             onMovieRemove={onMovieRemove}
           />
           <div className="movies__more">
-            {foundMoviesList.length > displayedMovies.length && (
-              <button
-                type="button"
-                className="button movies__more-button"
-                onClick={handleMoreClick}
-              >
-                Ещё
-              </button>
-            )}
+          {JSON.parse(localStorage.getItem("foundMovies")).length > displayedMovies.length && (
+            <button
+              type="button"
+              className="button movies__more-button"
+              onClick={handleMoreClick}
+            >
+              Ещё
+            </button>
+          )}
           </div>
         </div>
       </main>

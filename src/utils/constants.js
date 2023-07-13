@@ -10,6 +10,8 @@ const MOBILE_AMOUNT = 5;
 const DESKTOP_MORE = 3;
 const TABLET_MORE = 2;
 
+const SHORT_DURATION = 40;
+
 module.exports = {
   BASE_MAIN_URL,
   BASE_MOVIES_URL,
@@ -21,4 +23,5 @@ module.exports = {
   MOBILE_AMOUNT,
   DESKTOP_MORE,
   TABLET_MORE,
+  SHORT_DURATION,
 }

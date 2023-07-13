@@ -3,19 +3,15 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
 function SearchForm({
   isShortChecked,
-  setIsShortChecked,
   searchQuery,
   setSearchQuery,
   onGetMovies,
+  handleShortCheckbox,
 }) {
   const [isFormEmpty, setIsFormEmpty] = useState(false);
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-  };
-
-  const handleShortCheckbox = () => {
-    setIsShortChecked(!isShortChecked);
   };
 
   const handleSubmit = (e) => {
