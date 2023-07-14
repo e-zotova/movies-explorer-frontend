@@ -12,9 +12,9 @@ import {
 
 function Movies({
   loggedIn,
-  moviesNotFound,
   setPopupMessage,
   setPopupOpen,
+  moviesNotFound,
   setMoviesNotFound,
   savedMoviesList,
   onMovieSave,
@@ -147,7 +147,6 @@ function Movies({
       <main className="movies">
         <SearchForm
           isShortChecked={isShortChecked}
-          setIsShortChecked={setIsShortChecked}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetMovies}

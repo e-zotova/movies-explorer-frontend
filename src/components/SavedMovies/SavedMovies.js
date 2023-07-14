@@ -8,12 +8,12 @@ import { filterFoundMovies, findShortMovies } from "../../utils/findMovies.js";
 function SavedMovies({
   loggedIn,
   savedMoviesList,
-  moviesNotFound,
   onMovieRemove,
   searchQuery,
   setSearchQuery,
   isShortChecked,
   setIsShortChecked,
+  moviesNotFound,
   setMoviesNotFound,
 }) {
   const [isFormEmpty, setIsFormEmpty] = useState(false);
@@ -65,7 +65,6 @@ function SavedMovies({
       <main className="saved-movies">
         <SearchForm
           isShortChecked={isShortChecked}
-          setIsShortChecked={setIsShortChecked}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onGetMovies={onGetSavedMovies}

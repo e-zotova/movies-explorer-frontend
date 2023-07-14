@@ -4,8 +4,7 @@ import headerLogo from "../../images/header-logo.svg";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
 function Login({ onLogin }) {
-  const { values, errors, isValid, handleChange } =
-    useFormWithValidation();
+  const { values, errors, isValid, handleChange } = useFormWithValidation();
 
   const onSubmit = (e) => {
     e.preventDefault();
