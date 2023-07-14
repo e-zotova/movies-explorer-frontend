@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Main from "../Main/Main.js";
 import Movies from "../Movies/Movies.js";
 import SavedMovies from "../SavedMovies/SavedMovies.js";
@@ -8,36 +8,137 @@ import Profile from "../Profile/Profile.js";
 import Login from "../Login/Login.js";
 import Register from "../Register/Register.js";
 import PageNotFound from "../PageNotFound/PageNotFound.js";
-import ApiError from "../ApiError/ApiError.js";
+import Popup from "../Popup/Popup.js";
+import mainApi from "../../utils/MainApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
-import { useLocation } from "react-router-dom";
+import ProtectedRoute from "../../utils/ProtectedRoute.js";
+import { BASE_MOVIES_URL } from "../../utils/constants.js";
 
 function App() {
-  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
-  const [currentUser, setCurrentUser] = useState({
-    name: "Елена",
-    email: "pochta@yandex.ru",
-  });
+  const [currentUser, setCurrentUser] = useState({ name: "", email: "" });
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const [isApiErrorOpen, setApiErrorOpen] = useState(false);
+  const [savedMoviesList, setSavedMoviesList] = useState([]);
+  const [moviesNotFound, setMoviesNotFound] = useState(false);
 
-  function onLogin(email, password) {
-    // call api
-    setApiErrorOpen(!isApiErrorOpen);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isShortChecked, setIsShortChecked] = useState(false);
+
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [requestStatus, setRequestStatus] = useState(false);
+
+  useEffect(() => {
+    setLoggedIn(localStorage.getItem("isUserSignedIn"));
+    if (loggedIn) {
+      Promise.all([ mainApi.getUser(), mainApi.getSavedMovies()])
+        .then(([userData, savedMovies]) => {
+          setCurrentUser(userData);
+          setSavedMoviesList(savedMovies);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [loggedIn]);
+
+  function getUser() {
+    mainApi
+      .getUser()
+      .then((user) => {
+        setCurrentUser({ name: user.name, email: user.email });
+      })
+      .catch((err) => {
+        setPopupMessage(err.message);
+        setPopupOpen(true);
+      });
   }
 
-  function onRegister(email, password) {
-    // call api
-    setApiErrorOpen(!isApiErrorOpen);
+  function onLogin(email, password) {
+    mainApi
+      .authorize(email, password)
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        localStorage.setItem("isUserSignedIn", true);
+        getUser();
+        setLoggedIn(true);
+        navigate("/movies");
+      })
+      .catch((err) => {
+        setLoggedIn(false);
+        setPopupMessage(err.message);
+        setPopupOpen(true);
+      });
+  }
+
+  function onRegister(name, email, password) {
+    mainApi
+      .register(name, email, password)
+      .then(() => {
+        onLogin(email, password);
+      })
+      .catch((err) => {
+        setLoggedIn(false);
+        setPopupMessage(err.message);
+        setPopupOpen(true);
+      });
   }
 
   function onUpdateProfile(name, email) {
-    setApiErrorOpen(!isApiErrorOpen);
+    mainApi
+      .setUser(name, email)
+      .then((user) => {
+        setCurrentUser({ name: user.name, email: user.email });
+        setRequestStatus(true);
+        setPopupMessage("Профиль успешно сохранен.");
+        setPopupOpen(true);
+      })
+      .catch((err) => {
+        setRequestStatus(false);
+        setPopupMessage(err.message);
+        setPopupOpen(true);
+      });
+  }
+
+  function onMovieSave(movie) {
+    mainApi
+      .saveMovie({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `${BASE_MOVIES_URL}${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `${BASE_MOVIES_URL}${movie.image.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      })
+      .then((savedMovie) => {
+        setSavedMoviesList([...savedMoviesList, savedMovie]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function onMovieRemove(id) {
+    mainApi
+      .unsaveMovie(id)
+      .then((unsavedMovie) => {
+        const filteredSavedList = savedMoviesList.filter(
+          (item) => item._id !== unsavedMovie._id
+        );
+        setSavedMoviesList(filteredSavedList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function closeApiErrorPopup() {
-    setApiErrorOpen(!isApiErrorOpen);
+    setPopupOpen(!isPopupOpen);
   }
 
   return (
@@ -45,21 +146,72 @@ function App() {
       <div className="content">
         <CurrentUserContext.Provider value={currentUser}>
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/movies" element={<Movies />} />
-            <Route path="/saved-movies" element={<SavedMovies />} />
+            <Route path="/" element={<Main loggedIn={loggedIn} />} />
+            <Route
+              path="/movies"
+              element={
+                <ProtectedRoute
+                  element={Movies}
+                  loggedIn={loggedIn}
+                  setPopupMessage={setPopupMessage}
+                  setPopupOpen={setPopupOpen}
+                  moviesNotFound={moviesNotFound}
+                  setMoviesNotFound={setMoviesNotFound}
+                  savedMoviesList={savedMoviesList}
+                  onMovieSave={onMovieSave}
+                  onMovieRemove={onMovieRemove}
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                  isShortChecked={isShortChecked}
+                  setIsShortChecked={setIsShortChecked}
+                />
+              }
+            />
+            <Route
+              path="/saved-movies"
+              element={
+                <ProtectedRoute
+                  element={SavedMovies}
+                  loggedIn={loggedIn}
+                  savedMoviesList={savedMoviesList}
+                  onMovieRemove={onMovieRemove}
+                  searchQuery={searchQuery}
+                  setSearchQuery={setSearchQuery}
+                  isShortChecked={isShortChecked}
+                  setIsShortChecked={setIsShortChecked}
+                  moviesNotFound={moviesNotFound}
+                  setMoviesNotFound={setMoviesNotFound}
+                />
+              }
+            />
             <Route
               path="/profile"
-              element={<Profile onUpdateProfile={onUpdateProfile} />}
+              element={
+                <ProtectedRoute
+                  element={Profile}
+                  loggedIn={loggedIn}
+                  onUpdateProfile={onUpdateProfile}
+                />
+              }
             />
-            <Route path="/signin" element={<Login onLogin={onLogin} />} />
+            <Route
+              path="/signin"
+              element={<Login popupMessage={popupMessage} onLogin={onLogin} />}
+            />
             <Route
               path="/signup"
-              element={<Register onRegister={onRegister} />}
+              element={
+                <Register popupMessage={popupMessage} onRegister={onRegister} />
+              }
             />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-          <ApiError isOpen={isApiErrorOpen} onClose={closeApiErrorPopup} />
+          <Popup
+            requestStatus={requestStatus}
+            popupMessage={popupMessage}
+            isOpen={isPopupOpen}
+            onClose={closeApiErrorPopup}
+          />
         </CurrentUserContext.Provider>
       </div>
     </div>

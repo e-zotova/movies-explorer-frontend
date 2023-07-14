@@ -1,11 +1,28 @@
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
-function SearchForm({ preloader, setPreloader }) {
-  function handleSubmit(e) {
+function SearchForm({
+  isShortChecked,
+  searchQuery,
+  setSearchQuery,
+  onGetMovies,
+  handleShortCheckbox,
+  isFormEmpty,
+  setIsFormEmpty,
+}) {
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    setPreloader(!preloader);
-  }
+    if (!searchQuery) {
+      setIsFormEmpty(true);
+    } else {
+      setIsFormEmpty(false);
+      onGetMovies();
+    }
+  };
 
   return (
     <section className="search-form">
@@ -13,14 +30,27 @@ function SearchForm({ preloader, setPreloader }) {
         <div className="search-form__icon"></div>
         <input
           type="text"
+          name="search-query"
           placeholder="Фильм"
+          value={searchQuery || ""}
+          onChange={handleChange}
           className="search-form__input"
-          required
-        ></input>
+        />
         <button type="submit" className="button search-form__button"></button>
-        <FilterCheckbox className="filter-checkbox_browser" />
+        <FilterCheckbox
+          className="filter-checkbox_browser"
+          isShortChecked={isShortChecked}
+          handleShortCheckbox={handleShortCheckbox}
+        />
       </form>
-      <FilterCheckbox className="filter-checkbox_mobile" />
+      <span className="search-form__error">
+        {isFormEmpty ? "Нужно ввести ключевое слово" : ""}
+      </span>
+      <FilterCheckbox
+        className="filter-checkbox_mobile"
+        isShortChecked={isShortChecked}
+        handleShortCheckbox={handleShortCheckbox}
+      />
     </section>
   );
 }

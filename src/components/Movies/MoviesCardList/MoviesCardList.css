@@ -11,6 +11,12 @@
   padding: 80px 70px 10px;
 }
 
+.movies-section__not-found {
+  text-align: center;
+  margin: 0;
+  padding: 100px;
+}
+
 @media screen and (max-width: 1220px) {
   .movies-card-list {
     grid-template-columns: repeat(3, 339px);

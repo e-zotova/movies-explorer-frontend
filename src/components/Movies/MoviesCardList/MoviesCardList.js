@@ -1,19 +1,34 @@
-import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard.js";
+import Preloader from "../../Movies/Preloader/Preloader.js";
 
-function MoviesCardList({ movies, onMovieSave, onMovieRemove }) {
+function MoviesCardList({
+  preloader,
+  moviesNotFound,
+  displayedMovies,
+  onMovieSave,
+  savedMoviesList,
+  onMovieRemove,
+}) {
   return (
     <section className="movies-section">
-      <ul className="movies-card-list">
-        {movies.map((movie) => (
-          <MoviesCard
-            key={movie._id}
-            movie={movie}
-            onMovieSave={onMovieSave}
-            onMovieRemove={onMovieRemove}
-          />
-        ))}
-      </ul>
+      {preloader && <Preloader />}
+      {!preloader && moviesNotFound && (
+        <p className="movies-section__not-found">Ничего не найдено.</p>
+      )}
+      {!preloader && !moviesNotFound && (
+          <ul className="movies-card-list">
+            {displayedMovies.map((movie) => (
+              <MoviesCard
+                key={movie._id || movie.id}
+                image={movie.image}
+                movie={movie}
+                savedMoviesList={savedMoviesList}
+                onMovieSave={onMovieSave}
+                onMovieRemove={onMovieRemove}
+              />
+            ))}
+          </ul>
+      )}
     </section>
   );
 }

@@ -8,11 +8,11 @@ import Techs from './Techs/Techs.js';
 import AboutMe from './AboutMe/AboutMe.js';
 import Portfolio from './Portfolio/Portfolio.js';
 
-function Main() {
+function Main({loggedIn}) {
 
   return (
     <main className="main">
-      <Header className="header" />
+      <Header loggedIn={loggedIn} className="header" />
       <Promo />
       <NavTab />
       <AboutProject />

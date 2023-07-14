@@ -1,49 +1,51 @@
-import Header from "../Header/Header.js";
-import { useContext, useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header.js";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation.js";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-function Profile({ onUpdateProfile }) {
+function Profile({ loggedIn, onUpdateProfile }) {
   const navigate = useNavigate();
+  const { values, isValid, handleChange, resetForm } =
+    useFormWithValidation();
+
   const { name, email } = useContext(CurrentUserContext);
-  const [formValue, setFormValue] = useState({ name, email });
-
   const [isProfileEditing, setisProfileEditing] = useState(false);
+  const [isSameValues, setIsSameValues] = useState(true);
 
-  function changeProfileEditing(state) {
-    document.getElementById("name").disabled = state;
-    document.getElementById("email").disabled = state;
+  useEffect(() => {
+    resetForm({ name, email });
+  }, [name, email, resetForm, isProfileEditing]);
+
+  function editProfile() {
     setisProfileEditing(!isProfileEditing);
   }
 
-  const handleChange = (e) => {
-    const { key, value } = e.target;
-    setFormValue({
-      ...formValue,
-      [key]: value,
-    });
-  };
-
-  function editProfile() {
-    changeProfileEditing(false);
-  }
+  useEffect(() => {
+    if (name === values.name && email === values.email) {
+      setIsSameValues(true);
+    } else {
+      setIsSameValues(false);
+    }
+  }, [values, email, name]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    changeProfileEditing(true);
-    onUpdateProfile(name, email);
+
+    setisProfileEditing(false);
+    onUpdateProfile(values.name, values.email);
   };
 
   function onSignOut() {
-    localStorage.removeItem("jwt");
-    navigate("/signin");
+    localStorage.clear();
+    navigate("/");
     navigate(0);
   }
 
   return (
     <section className="profile">
-      <Header className="header" />
+      <Header className="header" loggedIn={loggedIn} />
       <div className="profile__info">
         <h1 className="profile__header">Привет, {name}!</h1>
         <form onSubmit={handleSubmit}>
@@ -51,35 +53,41 @@ function Profile({ onUpdateProfile }) {
             <label className="profile__text profile__name-label">Имя</label>
             <input
               id="name"
+              name="name"
               type="text"
               className="profile__text profile__input"
-              defaultValue={name}
               placeholder="Имя"
               minLength={2}
               maxLength={30}
               onChange={handleChange}
+              value={values.name || ""}
               required
-              disabled
+              disabled={!isProfileEditing}
             ></input>
           </div>
           <div className="profile__email-container">
             <label className="profile__text profile__email-label">Email</label>
             <input
               id="email"
+              name="email"
               type="email"
               className="profile__text profile__input"
-              defaultValue={email}
               placeholder="Почта"
               minLength={2}
               maxLength={30}
               onChange={handleChange}
+              value={values.email || ""}
               required
-              disabled
+              disabled={!isProfileEditing}
             ></input>
           </div>
           <div className="profile__buttons">
             {isProfileEditing ? (
-              <button type="submit" className="button profile__save-button">
+              <button
+                type="submit"
+                className="button profile__save-button"
+                disabled={!isValid || isSameValues}
+              >
                 Сохранить
               </button>
             ) : (

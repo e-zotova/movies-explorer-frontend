@@ -4,8 +4,7 @@ import profileLogo from "../../images/profile-icon.svg";
 import { Link, useLocation } from "react-router-dom";
 import Navigation from "../Navigation/Navigation.js";
 
-function Header() {
-  const [loggedIn, setLoggedIn] = useState(true);
+function Header({loggedIn}) {
   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
 
   const { pathname } = useLocation();

@@ -1,30 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import SearchForm from "../Movies/SearchForm/SearchForm.js";
-import Preloader from "../Movies/Preloader/Preloader.js";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
-import { savedMoviesList } from "../../constants/movies.js";
+import { filterFoundMovies, findShortMovies } from "../../utils/findMovies.js";
 
-function SavedMovies() {
-  const [preloader, setPreloader] = useState(false);
+function SavedMovies({
+  loggedIn,
+  savedMoviesList,
+  onMovieRemove,
+  searchQuery,
+  setSearchQuery,
+  isShortChecked,
+  setIsShortChecked,
+  moviesNotFound,
+  setMoviesNotFound,
+}) {
+  const [isFormEmpty, setIsFormEmpty] = useState(false);
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
-  function onMovieRemove(movie) {
-    // call api
+  useEffect(() => {
+    setSearchQuery("");
+    setIsShortChecked(false);
+  }, [setSearchQuery, setIsShortChecked]);
+
+  useEffect(() => {
+    setMoviesNotFound(false);
+    setFilteredMovies(savedMoviesList);
+  }, [setFilteredMovies, savedMoviesList, setMoviesNotFound]);
+
+  // get saved movies
+  function onGetSavedMovies() {
+    setMoviesNotFound(false);
+    const filteredSaved = filterFoundMovies(
+      savedMoviesList,
+      searchQuery,
+      isShortChecked
+    );
+    if (filteredSaved.length > 0) {
+      setFilteredMovies(filteredSaved);
+    } else {
+      setMoviesNotFound(true);
+    }
   }
+
+  //handle checkbox switch
+  const handleShortCheckbox = () => {
+    setMoviesNotFound(false);
+    setIsShortChecked(!isShortChecked);
+    if (!isShortChecked) {
+      const savedShort = findShortMovies(filteredMovies);
+      if (savedShort.length > 0) {
+        setFilteredMovies(savedShort);
+      } else {
+        setMoviesNotFound(true);
+      }
+    } else {
+      setFilteredMovies(savedMoviesList);
+    }
+  };
 
   return (
     <>
-      <Header className="header" />
+      <Header className="header" loggedIn={loggedIn} />
       <main className="saved-movies">
-        <SearchForm preloader={preloader} setPreloader={setPreloader} />
-        {preloader && <Preloader />}
-        {!preloader && (
-          <MoviesCardList
-            movies={savedMoviesList}
-            onMovieRemove={onMovieRemove}
-          />
-        )}
+        <SearchForm
+          isShortChecked={isShortChecked}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onGetMovies={onGetSavedMovies}
+          handleShortCheckbox={handleShortCheckbox}
+          isFormEmpty={isFormEmpty}
+          setIsFormEmpty={setIsFormEmpty}
+        />
+        <MoviesCardList
+          moviesNotFound={moviesNotFound}
+          displayedMovies={filteredMovies}
+          onMovieRemove={onMovieRemove}
+          savedMoviesList={savedMoviesList}
+        />
       </main>
       <Footer className="footer" />
     </>

@@ -9,7 +9,7 @@
 
 .auth__title {
   margin: 0;
-  padding: 40px 0 20px;
+  padding: 40px 0 30px;
   font-size: 24px;
   font-weight: 500;
 }
@@ -23,7 +23,7 @@
   margin: 0;
   color: #a0a0a0;
   font-size: 10px;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -40,6 +40,7 @@
   padding-top: 10px;
   color: #ee3465;
   font-size: 10px;
+  max-width: 400px;
 }
 
 .auth__save-button {
@@ -49,6 +50,13 @@
   border: none;
   color: #fff;
   height: 45px;
+}
+
+.auth__save-button:disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  opacity: 1;
+  cursor: default;
 }
 
 .auth__switch-label {
@@ -82,12 +90,11 @@
   }
 
   .auth__title {
-    padding: 50px 0 60px;
+    padding: 50px 0 70px;
     text-align: center;
   }
 
   .auth__save-button {
-    margin-top: 260px;
     font-size: 10px;
     font-weight: 500;
   }
