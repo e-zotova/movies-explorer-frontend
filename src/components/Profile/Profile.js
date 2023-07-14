@@ -12,6 +12,7 @@ function Profile({ loggedIn, onUpdateProfile }) {
 
   const { name, email } = useContext(CurrentUserContext);
   const [isProfileEditing, setisProfileEditing] = useState(false);
+  const [isSameValues, setIsSameValues] = useState(true);
 
   useEffect(() => {
     resetForm({ name, email });
@@ -20,6 +21,14 @@ function Profile({ loggedIn, onUpdateProfile }) {
   function editProfile() {
     setisProfileEditing(!isProfileEditing);
   }
+
+  useEffect(() => {
+    if (name === values.name && email === values.email) {
+      setIsSameValues(true);
+    } else {
+      setIsSameValues(false);
+    }
+  }, [values, email, name]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,7 +86,7 @@ function Profile({ loggedIn, onUpdateProfile }) {
               <button
                 type="submit"
                 className="button profile__save-button"
-                disabled={!isValid}
+                disabled={!isValid || isSameValues}
               >
                 Сохранить
               </button>

@@ -22,11 +22,12 @@ function SavedMovies({
   useEffect(() => {
     setSearchQuery("");
     setIsShortChecked(false);
-  }, []);
+  }, [setSearchQuery, setIsShortChecked]);
 
   useEffect(() => {
+    setMoviesNotFound(false);
     setFilteredMovies(savedMoviesList);
-  }, [setFilteredMovies]);
+  }, [setFilteredMovies, savedMoviesList, setMoviesNotFound]);
 
   // get saved movies
   function onGetSavedMovies() {

@@ -2,6 +2,8 @@
 
 [Ссылка на макет](https://disk.yandex.ru/d/Qf5_aSMwX_0F8A)
 
+[Ссылка на пулреквест]()
+
 IP 158.160.68.225
 
 Backend: https://api.diplomamovies.nomoredomains.rocks/

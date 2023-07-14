@@ -112,10 +112,10 @@ function Movies({
       isShortChecked
         ? setDisplayedMovies(findShortMovies(foundMoviesList))
         : setDisplayedMovies(foundMoviesList);
+      localStorage.setItem("shortMovies", !isShortChecked);
     } else {
       setIsFormEmpty(true);
     }
-    localStorage.setItem("shortMovies", !isShortChecked);
   };
 
   // set more button
@@ -125,12 +125,12 @@ function Movies({
         displayedMovies.length < foundMoviesList.length &&
         displayedMovies.length >= initialAmount
       ) {
-        setIsMoreVisible(true);
+        moviesNotFound ? setIsMoreVisible(false) : setIsMoreVisible(true);
       } else {
         setIsMoreVisible(false);
       }
     }
-  }, [foundMoviesList, displayedMovies, initialAmount]);
+  }, [foundMoviesList, displayedMovies, initialAmount, moviesNotFound]);
 
   // handle more click
   const handleMoreClick = () => {
