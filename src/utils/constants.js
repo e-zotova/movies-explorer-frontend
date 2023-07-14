@@ -1,4 +1,5 @@
-const BASE_MAIN_URL = "http://localhost:3001";
+const BASE_MAIN_URL = "https://api.diplomamovies.nomoredomains.rocks";
+//const BASE_MAIN_URL = "http://localhost:3001";
 const BASE_MOVIES_URL = "https://api.nomoreparties.co";
 
 const DESKTOP_WIDTH = 1280;
