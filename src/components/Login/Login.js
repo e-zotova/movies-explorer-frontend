@@ -33,7 +33,7 @@ function Login({ onLogin }) {
           className="input auth__input"
           defaultValue={values.email}
           placeholder="E-mail"
-          pattern="[a-z0-9]+@[a-z]+.[a-z]{2,30}"
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           minLength={2}
           maxLength={30}
           onChange={handleChange}
