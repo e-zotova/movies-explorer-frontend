@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     setLoggedIn(localStorage.getItem("isUserSignedIn"));
     if (loggedIn) {
-      Promise.all([ mainApi.getUser(), mainApi.getSavedMovies()])
+      Promise.all([mainApi.getUser(), mainApi.getSavedMovies()])
         .then(([userData, savedMovies]) => {
           setCurrentUser(userData);
           setSavedMoviesList(savedMovies);
