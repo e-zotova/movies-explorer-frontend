@@ -146,7 +146,6 @@ function Movies({
       <Header className="header" loggedIn={loggedIn} />
       <main className="movies">
         <SearchForm
-          preloader={preloader}
           isShortChecked={isShortChecked}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}

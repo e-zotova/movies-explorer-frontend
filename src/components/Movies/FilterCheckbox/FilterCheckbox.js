@@ -1,4 +1,4 @@
-function FilterCheckbox({ className, preloader, isShortChecked, handleShortCheckbox }) {
+function FilterCheckbox({ className, isShortChecked, handleShortCheckbox }) {
   return (
     <div className={`filter-checkbox ${className}`}>
       <label className="filter-checkbox__switch">
@@ -8,7 +8,6 @@ function FilterCheckbox({ className, preloader, isShortChecked, handleShortCheck
           name="shortMovies"
           checked={isShortChecked || false}
           onChange={handleShortCheckbox}
-          disabled={preloader}
         />
         <span className="button filter-checkbox__slider" />
       </label>
