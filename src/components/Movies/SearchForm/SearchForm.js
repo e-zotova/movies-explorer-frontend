@@ -1,6 +1,7 @@
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox.js";
 
 function SearchForm({
+  preloader,
   isShortChecked,
   searchQuery,
   setSearchQuery,
@@ -36,9 +37,10 @@ function SearchForm({
           onChange={handleChange}
           className="search-form__input"
         />
-        <button type="submit" className="button search-form__button"></button>
+        <button type="submit" className="button search-form__button" disabled={preloader}></button>
         <FilterCheckbox
           className="filter-checkbox_browser"
+          preloader={preloader}
           isShortChecked={isShortChecked}
           handleShortCheckbox={handleShortCheckbox}
         />
@@ -48,6 +50,7 @@ function SearchForm({
       </span>
       <FilterCheckbox
         className="filter-checkbox_mobile"
+        preloader={preloader}
         isShortChecked={isShortChecked}
         handleShortCheckbox={handleShortCheckbox}
       />

@@ -56,6 +56,10 @@
   height: 40px;
 }
 
+.search-form__button:disabled {
+  background: no-repeat center url(../../../images/find-disabled.svg);
+}
+
 .search-form__error {
   align-self: flex-start;
   padding-top: 10px;
