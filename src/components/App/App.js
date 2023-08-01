@@ -12,6 +12,7 @@ import Popup from "../Popup/Popup.js";
 import mainApi from "../../utils/MainApi.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 import ProtectedRoute from "../../utils/ProtectedRoute.js";
+import AuthorizeRoute from "../../utils/AuthorizeRoute.js";
 import { BASE_MOVIES_URL } from "../../utils/constants.js";
 
 function App() {
@@ -196,12 +197,22 @@ function App() {
             />
             <Route
               path="/signin"
-              element={<Login popupMessage={popupMessage} onLogin={onLogin} />}
+              element={
+                <AuthorizeRoute
+                  element={Login}
+                  onLogin={onLogin}
+                  popupMessage={popupMessage}
+                />
+              }
             />
             <Route
               path="/signup"
               element={
-                <Register popupMessage={popupMessage} onRegister={onRegister} />
+                <AuthorizeRoute
+                  element={Register}
+                  onRegister={onRegister}
+                  popupMessage={popupMessage}
+                />
               }
             />
             <Route path="*" element={<PageNotFound />} />
