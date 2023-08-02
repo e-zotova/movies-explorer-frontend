@@ -13,8 +13,8 @@ function Login({ onLogin }) {
   };
 
   return (
-    <section className="auth">
-      <header className="auth__header">
+    <main className="auth">
+      <div className="auth__header">
         <Link to="/">
           <img
             className="button logo"
@@ -22,7 +22,7 @@ function Login({ onLogin }) {
             alt="Логотип дипломного проекта"
           />
         </Link>
-      </header>
+      </div>
       <h1 className="auth__title">Рады видеть!</h1>
       <form className={`auth__form`} onSubmit={onSubmit}>
         <label className="auth__label">E-mail</label>
@@ -70,7 +70,7 @@ function Login({ onLogin }) {
           </Link>
         </span>
       </form>
-    </section>
+    </main>
   );
 }
 

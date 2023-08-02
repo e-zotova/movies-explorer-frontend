@@ -13,8 +13,8 @@ function Register({ onRegister }) {
   };
 
   return (
-    <section className="auth">
-      <header className="auth__header">
+    <main className="auth">
+      <div className="auth__header">
         <Link to="/">
           <img
             className="button logo"
@@ -22,7 +22,7 @@ function Register({ onRegister }) {
             alt="Логотип дипломного проекта"
           />
         </Link>
-      </header>
+      </div>
       <h1 className="auth__title">Добро пожаловать!</h1>
       <form className={`auth__form`} autoComplete="off" onSubmit={onSubmit}>
         <label className="auth__label">Имя</label>
@@ -73,7 +73,7 @@ function Register({ onRegister }) {
         <span className="auth__error">{errors.password}</span>
         <button
           type="submit"
-          className="button auth__save-button register__save-button"
+          className="button auth__save-button auth__save-button_register"
           disabled={!isValid}
         >
           Зарегистрироваться
@@ -85,7 +85,7 @@ function Register({ onRegister }) {
           </Link>
         </span>
       </form>
-    </section>
+    </main>
   );
 }
 

@@ -26,17 +26,18 @@ function Header({loggedIn}) {
         />
       </Link>
       {!loggedIn ? (
-        <div className="header__auth">
+        <nav className="header__auth">
           <Link to="/signup" className="button header__signup">
             Регистрация
           </Link>
           <Link to="/signin" className="button header__signin">
             Войти
           </Link>
-        </div>
+        </nav>
       ) : (
         <nav className="header__container">
           <button
+            type="button"
             className={`button ${
               isBurgerMenuOpen
                 ? "header__close-button"
